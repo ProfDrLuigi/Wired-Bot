@@ -22,9 +22,6 @@
 		2A66D51B2437310A00635F70 /* AttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A66D50D2437310A00635F70 /* AttributedString.swift */; };
 		2A66D51C2437310A00635F70 /* TimeAgo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A66D50E2437310A00635F70 /* TimeAgo.swift */; };
 		2A66D51D2437310A00635F70 /* WiredColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A66D50F2437310A00635F70 /* WiredColors.swift */; };
-		2A8E9E6524333AB5005B5261 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2A8E9E6324333AB5005B5261 /* InfoPlist.strings */; };
-		2A8E9E6824333AB5005B5261 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2A8E9E6624333AB5005B5261 /* InfoPlist.strings */; };
-		2A8E9E6B24333AB5005B5261 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2A8E9E6924333AB5005B5261 /* Localizable.strings */; };
 		2A8E9E8024337B6F005B5261 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A8E9E7F24337B6E005B5261 /* Sparkle.framework */; };
 		2A8E9E8124337B6F005B5261 /* Sparkle.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2A8E9E7F24337B6E005B5261 /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2AAF558124376FFC00A07732 /* BotMainWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAF558024376FFC00A07732 /* BotMainWindow.swift */; };
@@ -180,10 +177,6 @@
 		2A66D50D2437310A00635F70 /* AttributedString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttributedString.swift; sourceTree = "<group>"; };
 		2A66D50E2437310A00635F70 /* TimeAgo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeAgo.swift; sourceTree = "<group>"; };
 		2A66D50F2437310A00635F70 /* WiredColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WiredColors.swift; sourceTree = "<group>"; };
-		2A8E9E5E2433357E005B5261 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
-		2A8E9E6424333AB5005B5261 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		2A8E9E6724333AB5005B5261 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		2A8E9E6A24333AB5005B5261 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2A8E9E7F24337B6E005B5261 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = Carthage/Build/Mac/Sparkle.framework; sourceTree = "<group>"; };
 		2AAF558024376FFC00A07732 /* BotMainWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BotMainWindow.swift; sourceTree = "<group>"; };
 		2AAF55832437940100A07732 /* mcp.command */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = mcp.command; sourceTree = "<group>"; };
@@ -360,8 +353,6 @@
 				4C74286722DCECE900D6E6F9 /* Main.storyboard */,
 				4C74286522DCECE900D6E6F9 /* Assets.xcassets */,
 				4C74286A22DCECE900D6E6F9 /* Info.plist */,
-				2A8E9E6924333AB5005B5261 /* Localizable.strings */,
-				2A8E9E6624333AB5005B5261 /* InfoPlist.strings */,
 			);
 			path = "Wired-Bot";
 			sourceTree = "<group>";
@@ -372,7 +363,6 @@
 				4CD0204F22DF04BD0008B36C /* WiredSwift.h */,
 				4C4C3EF622E1164700BC2DD9 /* Sources */,
 				4CD0205022DF04BD0008B36C /* Info.plist */,
-				2A8E9E6324333AB5005B5261 /* InfoPlist.strings */,
 				4C9C5CDF2430F478007B6CF0 /* Reachability.framework */,
 				4CF6736E2403FD7A00A8EDC2 /* Gzip.framework */,
 				4CFB161F23FC89A7000EE688 /* KeychainAccess.framework */,
@@ -520,7 +510,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1130;
 				LastUpgradeCheck = 1130;
-				ORGANIZATIONNAME = "Read-Write";
+				ORGANIZATIONNAME = "Prof. Dr. Luigi";
 				TargetAttributes = {
 					4C74285D22DCECE800D6E6F9 = {
 						CreatedOnToolsVersion = 10.1;
@@ -532,14 +522,13 @@
 					};
 				};
 			};
-			buildConfigurationList = 4C74285922DCECE800D6E6F9 /* Build configuration list for PBXProject "WiredSwift" */;
+			buildConfigurationList = 4C74285922DCECE800D6E6F9 /* Build configuration list for PBXProject "Wired-Bot" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
-				de,
 			);
 			mainGroup = 4C74285522DCECE800D6E6F9;
 			packageReferences = (
@@ -570,10 +559,8 @@
 			files = (
 				4C1319AF231862DF00C9FA0C /* README.md in Resources */,
 				4C74286622DCECE900D6E6F9 /* Assets.xcassets in Resources */,
-				2A8E9E6B24333AB5005B5261 /* Localizable.strings in Resources */,
 				4C0A99F123FBD4F30008A7A6 /* LICENSE in Resources */,
 				4C74286922DCECE900D6E6F9 /* Main.storyboard in Resources */,
-				2A8E9E6824333AB5005B5261 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -582,7 +569,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C0A99F223FBD4F30008A7A6 /* LICENSE in Resources */,
-				2A8E9E6524333AB5005B5261 /* InfoPlist.strings in Resources */,
 				4CD0205D22DF11920008B36C /* wired.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -680,35 +666,10 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		2A8E9E6324333AB5005B5261 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2A8E9E6424333AB5005B5261 /* de */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		2A8E9E6624333AB5005B5261 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2A8E9E6724333AB5005B5261 /* de */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		2A8E9E6924333AB5005B5261 /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2A8E9E6A24333AB5005B5261 /* de */,
-			);
-			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
 		4C74286722DCECE900D6E6F9 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				4C74286822DCECE900D6E6F9 /* Base */,
-				2A8E9E5E2433357E005B5261 /* de */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -859,8 +820,8 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				MARKETING_VERSION = 0.0.3;
-				PRODUCT_BUNDLE_IDENTIFIER = "wiredbot.read-write.fr";
+				MARKETING_VERSION = 0.0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = wiredbot.istation.pw;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Wired-Bot/Extensions/Wired-Bridging-Header.h";
@@ -890,8 +851,8 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				MARKETING_VERSION = 0.0.3;
-				PRODUCT_BUNDLE_IDENTIFIER = "wiredbot.read-write.fr";
+				MARKETING_VERSION = 0.0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = wiredbot.istation.pw;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Wired-Bot/Extensions/Wired-Bridging-Header.h";
@@ -978,7 +939,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4C74285922DCECE800D6E6F9 /* Build configuration list for PBXProject "WiredSwift" */ = {
+		4C74285922DCECE800D6E6F9 /* Build configuration list for PBXProject "Wired-Bot" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4C74286C22DCECEA00D6E6F9 /* Debug */,

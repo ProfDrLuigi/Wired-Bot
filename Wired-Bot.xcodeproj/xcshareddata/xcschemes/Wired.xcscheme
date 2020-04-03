@@ -17,7 +17,7 @@
                BlueprintIdentifier = "4C74285D22DCECE800D6E6F9"
                BuildableName = "Wired-Bot.app"
                BlueprintName = "Wired-Bot"
-               ReferencedContainer = "container:WiredSwift.xcodeproj">
+               ReferencedContainer = "container:Wired-Bot.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -47,7 +47,7 @@
             BlueprintIdentifier = "4C74285D22DCECE800D6E6F9"
             BuildableName = "Wired-Bot.app"
             BlueprintName = "Wired-Bot"
-            ReferencedContainer = "container:WiredSwift.xcodeproj">
+            ReferencedContainer = "container:Wired-Bot.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <CommandLineArguments>
@@ -77,7 +77,7 @@
             BlueprintIdentifier = "4C74285D22DCECE800D6E6F9"
             BuildableName = "Wired-Bot.app"
             BlueprintName = "Wired-Bot"
-            ReferencedContainer = "container:WiredSwift.xcodeproj">
+            ReferencedContainer = "container:Wired-Bot.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

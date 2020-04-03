@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1130"
+   LastUpgradeVersion = "1140"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4CD0204C22DF04BD0008B36C"
-               BuildableName = "WiredSwift.framework"
-               BlueprintName = "WiredSwift"
-               ReferencedContainer = "container:WiredSwift.xcodeproj">
+               BlueprintIdentifier = "4C74285D22DCECE800D6E6F9"
+               BuildableName = "Wired-Bot.app"
+               BlueprintName = "Wired-Bot"
+               ReferencedContainer = "container:Wired-Bot.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -28,16 +28,6 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4C93B2FB242FE96200A956C3"
-               BuildableName = "WiredSwfitTests.xctest"
-               BlueprintName = "WiredSwfitTests"
-               ReferencedContainer = "container:WiredSwift.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
@@ -50,6 +40,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "4C74285D22DCECE800D6E6F9"
+            BuildableName = "Wired-Bot.app"
+            BlueprintName = "Wired-Bot"
+            ReferencedContainer = "container:Wired-Bot.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -57,15 +57,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4CD0204C22DF04BD0008B36C"
-            BuildableName = "WiredSwift.framework"
-            BlueprintName = "WiredSwift"
-            ReferencedContainer = "container:WiredSwift.xcodeproj">
+            BlueprintIdentifier = "4C74285D22DCECE800D6E6F9"
+            BuildableName = "Wired-Bot.app"
+            BlueprintName = "Wired-Bot"
+            ReferencedContainer = "container:Wired-Bot.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
