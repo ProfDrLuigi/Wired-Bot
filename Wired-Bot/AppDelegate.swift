@@ -81,6 +81,28 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate {
                             _ = error as! ShellOutError
                         }
                      }
+                    if saidText.starts(with: "/bot posti") {
+                       let response = P7Message(withName: "wired.chat.send_say", spec: connection.spec)
+                       response.addParameter(field: "wired.chat.id", value: UInt32(1))
+                       do {
+                       let output = try shellOut(to: "curl -is --raw https://wired.istation.pw/postilon.txt | sort -R | head -n 1")
+                       response.addParameter(field: "wired.chat.say", value: output)
+                       _ = connection.send(message: response)
+                       } catch {
+                           _ = error as! ShellOutError
+                       }
+                    }
+                    if saidText.starts(with: "/bot roundhouseme") {
+                       let response = P7Message(withName: "wired.chat.send_say", spec: connection.spec)
+                       response.addParameter(field: "wired.chat.id", value: UInt32(1))
+                       do {
+                       let output = try shellOut(to: "curl -is --raw https://wired.istation.pw/chuck.txt | sort -R | head -n 1")
+                       response.addParameter(field: "wired.chat.say", value: output)
+                       _ = connection.send(message: response)
+                       } catch {
+                           _ = error as! ShellOutError
+                       }
+                    }
                 }
              }
             if message.name == "wired.chat.user_join" {
