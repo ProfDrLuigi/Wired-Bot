@@ -1,6 +1,7 @@
 github "1024jp/GzipSwift" "5.1.1"
 github "BiAtoms/Socket.swift" "2.4.0"
 github "IBM-Swift/BlueRSA" "1.0.35"
+github "JohnSundell/ShellOut" "2.3.0"
 github "MessageKit/MessageKit" "3.1.0"
 github "ashleymills/Reachability.swift" "v5.0.0"
 github "kishikawakatsumi/KeychainAccess" "v4.1.0"

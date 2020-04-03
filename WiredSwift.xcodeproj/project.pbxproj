@@ -28,6 +28,8 @@
 		2A8E9E8024337B6F005B5261 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A8E9E7F24337B6E005B5261 /* Sparkle.framework */; };
 		2A8E9E8124337B6F005B5261 /* Sparkle.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2A8E9E7F24337B6E005B5261 /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2AAF558124376FFC00A07732 /* BotMainWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAF558024376FFC00A07732 /* BotMainWindow.swift */; };
+		2AAF55872437996800A07732 /* mcp.command in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2AAF55832437940100A07732 /* mcp.command */; };
+		2AAF558B2437A11000A07732 /* ShellOut in Frameworks */ = {isa = PBXBuildFile; productRef = 2AAF558A2437A11000A07732 /* ShellOut */; };
 		4C0A99F123FBD4F30008A7A6 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 4C0A99F023FBD4F30008A7A6 /* LICENSE */; };
 		4C0A99F223FBD4F30008A7A6 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 4C0A99F023FBD4F30008A7A6 /* LICENSE */; };
 		4C0A99FA23FBFE6C0008A7A6 /* Preferences.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C0A99F923FBFE6C0008A7A6 /* Preferences.framework */; };
@@ -107,6 +109,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		2AAF55852437953E00A07732 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Extensionscripts;
+			dstSubfolderSpec = 7;
+			files = (
+				2AAF55872437996800A07732 /* mcp.command in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4C4C3EF322E115A800BC2DD9 /* Copy Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -174,6 +186,9 @@
 		2A8E9E6A24333AB5005B5261 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2A8E9E7F24337B6E005B5261 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = Carthage/Build/Mac/Sparkle.framework; sourceTree = "<group>"; };
 		2AAF558024376FFC00A07732 /* BotMainWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BotMainWindow.swift; sourceTree = "<group>"; };
+		2AAF55832437940100A07732 /* mcp.command */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = mcp.command; sourceTree = "<group>"; };
+		2AAF558C2437AEAC00A07732 /* WiredSwift.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WiredSwift.entitlements; sourceTree = "<group>"; };
+		2AAF55932437B20500A07732 /* AppleScriptObjC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppleScriptObjC.framework; path = System/Library/Frameworks/AppleScriptObjC.framework; sourceTree = SDKROOT; };
 		4C0A99F023FBD4F30008A7A6 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		4C0A99F923FBFE6C0008A7A6 /* Preferences.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Preferences.framework; path = Carthage/Build/Mac/Preferences.framework; sourceTree = SOURCE_ROOT; };
 		4C1319A82316E4E700C9FA0C /* SocketSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SocketSwift.framework; path = Carthage/Build/Mac/SocketSwift.framework; sourceTree = SOURCE_ROOT; };
@@ -191,7 +206,6 @@
 		4C74286522DCECE900D6E6F9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4C74286822DCECE900D6E6F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4C74286A22DCECE900D6E6F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4C74286B22DCECEA00D6E6F9 /* WiredSwift.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WiredSwift.entitlements; sourceTree = "<group>"; };
 		4C990ED12405D7380059BC8B /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		4C9C5CDF2430F478007B6CF0 /* Reachability.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Reachability.framework; path = Carthage/Build/Mac/Reachability.framework; sourceTree = SOURCE_ROOT; };
 		4CD0204D22DF04BD0008B36C /* WiredSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WiredSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -225,6 +239,7 @@
 				4CED2FC522E8F9A6000E5B9E /* CryptorRSA.framework in Frameworks */,
 				4CD0205422DF04BD0008B36C /* WiredSwift.framework in Frameworks */,
 				4C0A99FA23FBFE6C0008A7A6 /* Preferences.framework in Frameworks */,
+				2AAF558B2437A11000A07732 /* ShellOut in Frameworks */,
 				2A8E9E8024337B6F005B5261 /* Sparkle.framework in Frameworks */,
 				4C1319A92316E4E700C9FA0C /* SocketSwift.framework in Frameworks */,
 				4CF673712403FF3C00A8EDC2 /* Gzip.framework in Frameworks */,
@@ -285,6 +300,14 @@
 			path = BBCodeString;
 			sourceTree = "<group>";
 		};
+		2AAF5582243793E200A07732 /* Extensionscript */ = {
+			isa = PBXGroup;
+			children = (
+				2AAF55832437940100A07732 /* mcp.command */,
+			);
+			path = Extensionscript;
+			sourceTree = "<group>";
+		};
 		4C4C3EF622E1164700BC2DD9 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
@@ -326,13 +349,14 @@
 		4C74286022DCECE800D6E6F9 /* Wired-Bot */ = {
 			isa = PBXGroup;
 			children = (
+				2AAF5582243793E200A07732 /* Extensionscript */,
 				2A66D4F72437310A00635F70 /* Extensions */,
 				4C74286122DCECE800D6E6F9 /* AppDelegate.swift */,
 				2AAF558024376FFC00A07732 /* BotMainWindow.swift */,
 				2A66D4F5243730AF00635F70 /* ViewController.swift */,
+				2AAF558C2437AEAC00A07732 /* WiredSwift.entitlements */,
 				4C74286722DCECE900D6E6F9 /* Main.storyboard */,
 				4C74286522DCECE900D6E6F9 /* Assets.xcassets */,
-				4C74286B22DCECEA00D6E6F9 /* WiredSwift.entitlements */,
 				4C74286A22DCECE900D6E6F9 /* Info.plist */,
 				2A8E9E6924333AB5005B5261 /* Localizable.strings */,
 				2A8E9E6624333AB5005B5261 /* InfoPlist.strings */,
@@ -361,6 +385,7 @@
 		4CF6736B2403F48000A8EDC2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2AAF55932437B20500A07732 /* AppleScriptObjC.framework */,
 				2A8E9E7F24337B6E005B5261 /* Sparkle.framework */,
 			);
 			name = Frameworks;
@@ -445,6 +470,8 @@
 				4C74285B22DCECE800D6E6F9 /* Frameworks */,
 				4C74285C22DCECE800D6E6F9 /* Resources */,
 				4CD0205922DF04BD0008B36C /* Embed Frameworks */,
+				2AAF55852437953E00A07732 /* CopyFiles */,
+				2AAF558824379A8400A07732 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -454,6 +481,7 @@
 			name = "Wired-Bot";
 			packageProductDependencies = (
 				4CF673792404214800A8EDC2 /* CZlib */,
+				2AAF558A2437A11000A07732 /* ShellOut */,
 			);
 			productName = "Wired 3";
 			productReference = 4C74285E22DCECE800D6E6F9 /* Wired-Bot.app */;
@@ -521,6 +549,7 @@
 				4C75BA342433938400BE8857 /* XCRemoteSwiftPackageReference "KeychainAccess" */,
 				4C8874782434836C00A5D4A0 /* XCRemoteSwiftPackageReference "JGProgressHUD" */,
 				4C8874852434DE9000A5D4A0 /* XCRemoteSwiftPackageReference "Reachability" */,
+				2AAF55892437A11000A07732 /* XCRemoteSwiftPackageReference "ShellOut" */,
 			);
 			productRefGroup = 4C74285F22DCECE800D6E6F9 /* Products */;
 			projectDirPath = "";
@@ -557,6 +586,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2AAF558824379A8400A07732 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/bash;
+			shellScript = "cp -r \"${TARGET_BUILD_DIR}\"/Wired-Bot.app /Applications/\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4C74285A22DCECE800D6E6F9 /* Sources */ = {
@@ -797,7 +846,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 4ATFWV7M4B;
-				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_HARDENED_RUNTIME = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
@@ -827,7 +876,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 4ATFWV7M4B;
-				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_HARDENED_RUNTIME = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
@@ -953,6 +1002,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		2AAF55892437A11000A07732 /* XCRemoteSwiftPackageReference "ShellOut" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/JohnSundell/ShellOut.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.3.0;
+			};
+		};
 		4C75B99E2433705C00BE8857 /* XCRemoteSwiftPackageReference "CryptoSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/krzyzanowskim/CryptoSwift.git";
@@ -1020,6 +1077,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		2AAF558A2437A11000A07732 /* ShellOut */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2AAF55892437A11000A07732 /* XCRemoteSwiftPackageReference "ShellOut" */;
+			productName = ShellOut;
+		};
 		4C75B9AA2433722900BE8857 /* AEXML */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 4C75B9A72433717B00BE8857 /* XCRemoteSwiftPackageReference "AEXML" */;

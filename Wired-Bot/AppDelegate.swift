@@ -8,6 +8,8 @@
 
 import Cocoa
 import WiredSwift
+import ShellOut
+import Foundation
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate {
@@ -42,9 +44,42 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate {
                     if saidText.starts(with: "/bot uptime") {
                         let response = P7Message(withName: "wired.chat.send_say", spec: connection.spec)
                         response.addParameter(field: "wired.chat.id", value: UInt32(1))
-                        response.addParameter(field: "wired.chat.say", value: shell("uptime"))
+                        do {
+                        let output = try shellOut(to: "uptime")
+                        response.addParameter(field: "wired.chat.say", value: output)
+                        _ = connection.send(message: response)
+                        } catch {
+                            _ = error as! ShellOutError
+                        }
+                     }
+                     if saidText.starts(with: "/bot date") {
+                       let response = P7Message(withName: "wired.chat.send_say", spec: connection.spec)
+                       response.addParameter(field: "wired.chat.id", value: UInt32(1))
+                       do {
+                       let output = try shellOut(to: "date")
+                       response.addParameter(field: "wired.chat.say", value: output)
+                       _ = connection.send(message: response)
+                       } catch {
+                           _ = error as! ShellOutError
+                       }
+                    }
+                     if saidText.starts(with: "/bot test") {
+                        let response = P7Message(withName: "wired.chat.send_say", spec: connection.spec)
+                        response.addParameter(field: "wired.chat.id", value: UInt32(1))
+                        response.addParameter(field: "wired.chat.say", value: "blaaaaaa")
                         _ = connection.send(message: response)
                     }
+                    if saidText.starts(with: "/bot factme") {
+                        let response = P7Message(withName: "wired.chat.send_say", spec: connection.spec)
+                        response.addParameter(field: "wired.chat.id", value: UInt32(1))
+                        do {
+                        let output = try shellOut(to: "curl -is --raw https://api.chucknorris.io/jokes/random | sed 's/.*value\"://g' | tail -n 1 | sed 's/}//g'")
+                        response.addParameter(field: "wired.chat.say", value: output)
+                        _ = connection.send(message: response)
+                        } catch {
+                            _ = error as! ShellOutError
+                        }
+                     }
                 }
              }
             if message.name == "wired.chat.user_join" {
@@ -233,20 +268,5 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate {
         }
     }
     }
-    
-     func shell(_ command: String) -> String {
-         let task = Process()
-         task.launchPath = "/bin/bash"
-         task.arguments = ["-c", command]
 
-         let pipe = Pipe()
-         task.standardOutput = pipe
-         task.launch()
-
-         let data = pipe.fileHandleForReading.readDataToEndOfFile()
-         let output: String = NSString(data: data, encoding: String.Encoding.utf8.rawValue)! as String
-
-         return output
-     }
-    
 }
