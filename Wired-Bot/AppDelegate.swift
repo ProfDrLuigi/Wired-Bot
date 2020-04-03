@@ -39,12 +39,19 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate {
                         response.addParameter(field: "wired.chat.say", value: "Moooo :(")
                         _ = connection.send(message: response)
                     }
+                    if saidText.starts(with: "/bot uptime") {
+                        let response = P7Message(withName: "wired.chat.send_say", spec: connection.spec)
+                        response.addParameter(field: "wired.chat.id", value: UInt32(1))
+                        response.addParameter(field: "wired.chat.say", value: shell("uptime"))
+                        _ = connection.send(message: response)
+                    }
                 }
              }
             if message.name == "wired.chat.user_join" {
                let response = P7Message(withName: "wired.chat.send_say", spec: connection.spec)
                response.addParameter(field: "wired.chat.id", value: UInt32(1))
-               response.addParameter(field: "wired.chat.say", value: "Hello my friend. :-)")
+               //response.addParameter(field: "wired.chat.say", value: "Hello my friend. :-)")
+                response.addParameter(field: "wired.chat.say", value: "Hello my friend. :-)")
                 sleep(2)
                _ = connection.send(message: response)
             }
@@ -227,34 +234,19 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate {
     }
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-     @IBAction func send_text(_ sender: Any) {
-         // to send a test message on the connection we opened at launch
-         
-         // check if the local connection reference is not nil
-         if let connection = self.connection {
-             // if still connected
-             if connection.isConnected() {
-                 let message = P7Message(withName: "wired.chat.send_say", spec: connection.spec)
-                 // public chat ID : DO NOT FORGET to cast to UInt32 here
-                 // this is an inconsistency in the framework that need to be fixed
-                 message.addParameter(field: "wired.chat.id", value: UInt32(1))
-                 message.addParameter(field: "wired.chat.say", value: "Hello, world!")
-                 
-                 _ = connection.send(message: message)
-             }
-         }
-    }
-    
-    
-    
+     func shell(_ command: String) -> String {
+         let task = Process()
+         task.launchPath = "/bin/bash"
+         task.arguments = ["-c", command]
+
+         let pipe = Pipe()
+         task.standardOutput = pipe
+         task.launch()
+
+         let data = pipe.fileHandleForReading.readDataToEndOfFile()
+         let output: String = NSString(data: data, encoding: String.Encoding.utf8.rawValue)! as String
+
+         return output
+     }
     
 }
