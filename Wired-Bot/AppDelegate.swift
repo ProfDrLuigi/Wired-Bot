@@ -26,7 +26,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate {
                 // if the message contains a string in 'wired.chat.say' field
                 if let saidText = message.string(forField: "wired.chat.say") {
                     // the message message starts with 'Hello'
-                    if saidText.starts(with: "Hello") {
+                    if saidText.starts(with: "Hello Bot") {
                         // we auto reply 'Hey'
                         let response = P7Message(withName: "wired.chat.send_say", spec: connection.spec)
                         response.addParameter(field: "wired.chat.id", value: UInt32(1))
@@ -41,9 +41,22 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate {
                     }
                 }
              }
+            if message.name == "wired.chat.user_join" {
+               let response = P7Message(withName: "wired.chat.send_say", spec: connection.spec)
+               response.addParameter(field: "wired.chat.id", value: UInt32(1))
+               response.addParameter(field: "wired.chat.say", value: "Hello my friend. :-)")
+               _ = connection.send(message: response)
+            }
+            if message.name == "wired.chat.user_leave" {
+               let response = P7Message(withName: "wired.chat.send_say", spec: connection.spec)
+               response.addParameter(field: "wired.chat.id", value: UInt32(1))
+               response.addParameter(field: "wired.chat.say", value: "Hope to see you soon again. :(")
+               _ = connection.send(message: response)
+            }
         }
     }
     
+   
     func connectionDidReceiveError(connection: Connection, message: P7Message) {
         print("Error received: \(message)")
     }
@@ -189,10 +202,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate {
         connection.status = (status ?? "")
 
         if connection.connect(withUrl: url) {
-            //let message = P7Message(withName: "wired.send_login", spec: connection.spec)
-            //message.addParameter(field: "wired.user.login", value: "admin")
-            //message.addParameter(field: "wired.user.password", value: "")
-            //_ = connection.send(message: message)
             _ = connection.joinChat(chatID: 1)
             let greeting = UserDefaults.standard.bool(forKey: "Greeting")
             if greeting == true {
