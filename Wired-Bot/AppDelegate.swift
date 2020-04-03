@@ -21,9 +21,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate {
     var connection:Connection?
     
     func connectionDidReceiveMessage(connection: Connection, message: P7Message) {
-        // if the calling connection is the one we opened
         if connection == self.connection {
-            // if it is a chat message
+            if message.name == "wired.chat.user_kick" {
+                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "Connectbutton"), object: nil, userInfo: ["name" : connect_button])
+            }
             if message.name == "wired.chat.say" {
                 // if the message contains a string in 'wired.chat.say' field
                 if let saidText = message.string(forField: "wired.chat.say") {
@@ -112,6 +113,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate {
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         
+        UserDefaults.standard.set(false, forKey: "Connected")
+        
         NotificationCenter.default.addObserver(
         self,
         selector: #selector(self.pressSendbutton),
@@ -158,37 +161,42 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate {
         if goodbye_check == nil {
             UserDefaults.standard.set("See ya Folx!", forKey: "Goodbye_Text")
         }
-                
-        let spec = P7Spec()
+        
+        let autoconnect = UserDefaults.standard.bool(forKey: "Autoconnect")
+        if autoconnect == true {
+        
+            let spec = P7Spec()
 
-        let get_url = UserDefaults.standard.string(forKey: "Address")!
-        let url = Url(withString: "wired://" + get_url )
+            let get_url = UserDefaults.standard.string(forKey: "Address")!
+            let url = Url(withString: "wired://" + get_url )
 
-        let connection = Connection(withSpec: spec, delegate: self)
+            let connection = Connection(withSpec: spec, delegate: self)
 
-        let nickname = UserDefaults.standard.string(forKey: "Nick")
-        connection.nick = (nickname ?? "")
+            let nickname = UserDefaults.standard.string(forKey: "Nick")
+            connection.nick = (nickname ?? "")
 
-        let status = UserDefaults.standard.string(forKey: "Status")
-        connection.status = (status ?? "")
+            let status = UserDefaults.standard.string(forKey: "Status")
+            connection.status = (status ?? "")
 
-        if connection.connect(withUrl: url) {
-            //let message = P7Message(withName: "wired.send_login", spec: connection.spec)
-            //message.addParameter(field: "wired.user.login", value: "admin")
-            //message.addParameter(field: "wired.user.password", value: "")
-            //_ = connection.send(message: message)
-            _ = connection.joinChat(chatID: 1)
-            let greeting = UserDefaults.standard.bool(forKey: "Greeting")
-            if greeting == true {
-                self.connection = connection
-                let message2 = P7Message(withName: "wired.chat.send_say", spec: connection.spec)
-                message2.addParameter(field: "wired.chat.id", value: UInt32(1))
-                let chat_text = UserDefaults.standard.string(forKey: "Greeting_Text")
-                message2.addParameter(field: "wired.chat.say", value: chat_text)
-                _ = connection.send(message: message2)
+            if connection.connect(withUrl: url) {
+                //let message = P7Message(withName: "wired.send_login", spec: connection.spec)
+                //message.addParameter(field: "wired.user.login", value: "admin")
+                //message.addParameter(field: "wired.user.password", value: "")
+                //_ = connection.send(message: message)
+                _ = connection.joinChat(chatID: 1)
+                let greeting = UserDefaults.standard.bool(forKey: "Greeting")
+                if greeting == true {
+                    self.connection = connection
+                    let message2 = P7Message(withName: "wired.chat.send_say", spec: connection.spec)
+                    message2.addParameter(field: "wired.chat.id", value: UInt32(1))
+                    let chat_text = UserDefaults.standard.string(forKey: "Greeting_Text")
+                    message2.addParameter(field: "wired.chat.say", value: chat_text)
+                    _ = connection.send(message: message2)
+                    UserDefaults.standard.set(true, forKey: "Connected")
+                }
+            } else {
+                print(connection.socket.errors)
             }
-        } else {
-            print(connection.socket.errors)
         }
     }
 
@@ -204,6 +212,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate {
                     let chat_text = UserDefaults.standard.string(forKey: "Goodbye_Text")
                     message.addParameter(field: "wired.chat.say", value: chat_text)
                     _ = connection.send(message: message)
+                    UserDefaults.standard.set(false, forKey: "Connected")
                 }
             }
         }
@@ -211,6 +220,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate {
 
     
     @objc private func pressSendbutton(notification: NSNotification){
+        let defaults = UserDefaults.standard
+        defaults.synchronize()
         if let connection = self.connection {
             if connection.isConnected() {
                 //Set Nickname
@@ -237,7 +248,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate {
         let url = Url(withString: "wired://" + get_url )
 
         let connection = Connection(withSpec: spec, delegate: self)
-
+        
         let nickname = UserDefaults.standard.string(forKey: "Nick")
         connection.nick = (nickname ?? "")
 
@@ -254,6 +265,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate {
                 let chat_text = UserDefaults.standard.string(forKey: "Greeting_Text")
                 message2.addParameter(field: "wired.chat.say", value: chat_text)
                 _ = connection.send(message: message2)
+                UserDefaults.standard.set(true, forKey: "Connected")
             }
         } else {
             print(connection.socket.errors)
@@ -265,6 +277,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate {
     if let connection = self.connection {
         if connection.isConnected() {
             _ = connection.disconnect()
+            UserDefaults.standard.set(false, forKey: "Connected")
         }
     }
     }

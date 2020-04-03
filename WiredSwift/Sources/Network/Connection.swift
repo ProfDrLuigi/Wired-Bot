@@ -127,7 +127,6 @@ public class Connection: NSObject {
                 let interval = Date().timeIntervalSince(lpd)
                 if interval > 65 {
                     Logger.error("Lost ping, server is probably down, disconnecting...")
-                    
                     if self.isConnected() {
                         self.disconnect()
                     }
