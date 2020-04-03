@@ -13,7 +13,9 @@ import WiredSwift
 class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate {
 
     @IBOutlet weak var send_button: NSButton!
-    
+    @IBOutlet weak var disconnect_button: NSButton!
+    @IBOutlet weak var connect_button: NSButton!
+
     var connection:Connection?
     
     func connectionDidReceiveMessage(connection: Connection, message: P7Message) {
@@ -59,6 +61,18 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate {
         selector: #selector(self.pressSendbutton),
         name: NSNotification.Name(rawValue: "Sendbutton"),
         object: nil)
+ 
+        NotificationCenter.default.addObserver(
+        self,
+        selector: #selector(self.pressConnectbutton),
+        name: NSNotification.Name(rawValue: "Connectbutton"),
+        object: nil)
+        
+        NotificationCenter.default.addObserver(
+        self,
+        selector: #selector(self.pressDisconnectbutton),
+        name: NSNotification.Name(rawValue: "Disconnectbutton"),
+        object: nil)
         
         let nickname_check = UserDefaults.standard.string(forKey: "Nick")
         if nickname_check == nil {
@@ -80,6 +94,14 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate {
         if password_check == nil {
             UserDefaults.standard.set("", forKey: "Password")
         }
+        let greeting_check = UserDefaults.standard.string(forKey: "Greeting_Text")
+        if greeting_check == nil {
+            UserDefaults.standard.set("Hi Folx, whazzup? :-)", forKey: "Greeting_Text")
+        }
+        let goodbye_check = UserDefaults.standard.string(forKey: "Goodbye_Text")
+        if goodbye_check == nil {
+            UserDefaults.standard.set("See ya Folx!", forKey: "Goodbye_Text")
+        }
                 
         let spec = P7Spec()
 
@@ -95,20 +117,40 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate {
         connection.status = (status ?? "")
 
         if connection.connect(withUrl: url) {
-            print("connected")
+            //let message = P7Message(withName: "wired.send_login", spec: connection.spec)
+            //message.addParameter(field: "wired.user.login", value: "admin")
+            //message.addParameter(field: "wired.user.password", value: "")
+            //_ = connection.send(message: message)
             _ = connection.joinChat(chatID: 1)
-            // we keep a reference to the working connection here
-            self.connection = connection
-            let message = P7Message(withName: "wired.chat.send_say", spec: connection.spec)
-            message.addParameter(field: "wired.chat.id", value: UInt32(1))
-            message.addParameter(field: "wired.chat.say", value: "Hi Folx, whazzup?")
-            _ = connection.send(message: message)
+            let greeting = UserDefaults.standard.bool(forKey: "Greeting")
+            if greeting == true {
+                self.connection = connection
+                let message2 = P7Message(withName: "wired.chat.send_say", spec: connection.spec)
+                message2.addParameter(field: "wired.chat.id", value: UInt32(1))
+                let chat_text = UserDefaults.standard.string(forKey: "Greeting_Text")
+                message2.addParameter(field: "wired.chat.say", value: chat_text)
+                _ = connection.send(message: message2)
+            }
         } else {
             print(connection.socket.errors)
         }
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
+        let defaults = UserDefaults.standard
+        defaults.synchronize()
+        let goodbye = UserDefaults.standard.bool(forKey: "Goodbye")
+        if goodbye == true {
+            if let connection = self.connection {
+                if connection.isConnected() {
+                    let message = P7Message(withName: "wired.chat.send_say", spec: connection.spec)
+                    message.addParameter(field: "wired.chat.id", value: UInt32(1))
+                    let chat_text = UserDefaults.standard.string(forKey: "Goodbye_Text")
+                    message.addParameter(field: "wired.chat.say", value: chat_text)
+                    _ = connection.send(message: message)
+                }
+            }
+        }
     }
 
     
@@ -131,11 +173,49 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate {
     }
 
 
+    @objc private func pressConnectbutton(notification: NSNotification){
+
+        let spec = P7Spec()
+
+        let get_url = UserDefaults.standard.string(forKey: "Address")!
+        let url = Url(withString: "wired://" + get_url )
+
+        let connection = Connection(withSpec: spec, delegate: self)
+
+        let nickname = UserDefaults.standard.string(forKey: "Nick")
+        connection.nick = (nickname ?? "")
+
+        let status = UserDefaults.standard.string(forKey: "Status")
+        connection.status = (status ?? "")
+
+        if connection.connect(withUrl: url) {
+            //let message = P7Message(withName: "wired.send_login", spec: connection.spec)
+            //message.addParameter(field: "wired.user.login", value: "admin")
+            //message.addParameter(field: "wired.user.password", value: "")
+            //_ = connection.send(message: message)
+            _ = connection.joinChat(chatID: 1)
+            let greeting = UserDefaults.standard.bool(forKey: "Greeting")
+            if greeting == true {
+                self.connection = connection
+                let message2 = P7Message(withName: "wired.chat.send_say", spec: connection.spec)
+                message2.addParameter(field: "wired.chat.id", value: UInt32(1))
+                let chat_text = UserDefaults.standard.string(forKey: "Greeting_Text")
+                message2.addParameter(field: "wired.chat.say", value: chat_text)
+                _ = connection.send(message: message2)
+            }
+        } else {
+            print(connection.socket.errors)
+        }
+
+    }
     
-    
-    
-    
-    
+    @objc private func pressDisconnectbutton(notification: NSNotification){
+    if let connection = self.connection {
+        if connection.isConnected() {
+            _ = connection.disconnect()
+        }
+    }
+    }
     
     
     
