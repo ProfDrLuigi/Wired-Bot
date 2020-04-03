@@ -12,6 +12,8 @@ import WiredSwift
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate {
 
+    @IBOutlet weak var send_button: NSButton!
+    
     var connection:Connection?
     
     func connectionDidReceiveMessage(connection: Connection, message: P7Message) {
@@ -52,6 +54,13 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate {
 
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
+        
+        NotificationCenter.default.addObserver(
+        self,
+        selector: #selector(self.pressSendbutton),
+        name: NSNotification.Name(rawValue: "Sendbutton"),
+        object: nil)
+        
         let nickname_check = UserDefaults.standard.string(forKey: "Nick")
         if nickname_check == nil {
             UserDefaults.standard.set("Wired-Bot", forKey: "Nick")
@@ -120,4 +129,18 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate {
             }
         }
    }
+    
+    
+    @objc private func pressSendbutton(notification: NSNotification){
+        if let connection = self.connection {
+            if connection.isConnected() {
+                let message = P7Message(withName: "wired.user.set_status", spec: connection.spec)
+                let status = UserDefaults.standard.string(forKey: "Status")
+                message.addParameter(field: "wired.user.status", value: status)
+                _ = connection.send(message: message)
+            }
+        }
+    }
+
+    
 }

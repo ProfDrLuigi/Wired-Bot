@@ -8,16 +8,13 @@
 
 import Cocoa
 import Foundation
-import WiredSwift
 
 class BotMainWindow: NSViewController {
 
-    var connection:Connection?
-   
+    @IBOutlet weak var send_button: NSButton!
+
     @IBAction func set_values(_ sender: Any) {
-        let message = P7Message(withName: "wired.chat.send_say", spec: connection!.spec)
-                message.addParameter(field: "wired.chat.id", value: UInt32(1))
-                message.addParameter(field: "wired.chat.say", value: "Hello, world!")
-        _ = connection!.send(message: message)
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "Sendbutton"), object: nil, userInfo: ["name" : self.send_button.stringValue as Any])
     }
+
 }
