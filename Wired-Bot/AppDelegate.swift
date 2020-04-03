@@ -11,6 +11,7 @@ import WiredSwift
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate {
+
     var connection:Connection?
     
     func connectionDidReceiveMessage(connection: Connection, message: P7Message) {
@@ -26,6 +27,13 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate {
                         let response = P7Message(withName: "wired.chat.send_say", spec: connection.spec)
                         response.addParameter(field: "wired.chat.id", value: UInt32(1))
                         response.addParameter(field: "wired.chat.say", value: "Hey :-)")
+                        _ = connection.send(message: response)
+                    }
+                    if saidText.starts(with: "Go away") {
+                        // we auto reply 'Hey'
+                        let response = P7Message(withName: "wired.chat.send_say", spec: connection.spec)
+                        response.addParameter(field: "wired.chat.id", value: UInt32(1))
+                        response.addParameter(field: "wired.chat.say", value: "Moooo :(")
                         _ = connection.send(message: response)
                     }
                 }
@@ -44,33 +52,55 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate {
 
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        // Insert code here to initialize your application
-        
+        let nickname_check = UserDefaults.standard.string(forKey: "Nick")
+        if nickname_check == nil {
+            UserDefaults.standard.set("Wired-Bot", forKey: "Nick")
+        }
+        let status_check = UserDefaults.standard.string(forKey: "Status")
+        if status_check == nil {
+            UserDefaults.standard.set("Watching you :-)", forKey: "Status")
+        }
+        let address_check = UserDefaults.standard.string(forKey: "Address")
+        if address_check == nil {
+            UserDefaults.standard.set("localhost:4871", forKey: "Address")
+        }
+        let login_check = UserDefaults.standard.string(forKey: "Login")
+        if login_check == nil {
+            UserDefaults.standard.set("guest", forKey: "Login")
+        }
+        let password_check = UserDefaults.standard.string(forKey: "Password")
+        if password_check == nil {
+            UserDefaults.standard.set("", forKey: "Password")
+        }
+                
         let spec = P7Spec()
 
-        // the Wired URL to connect to
-        let url = Url(withString: "wired://localhost:4871")
+        let get_url = UserDefaults.standard.string(forKey: "Address")!
+        let url = Url(withString: "wired://" + get_url )
 
-        // init connection
         let connection = Connection(withSpec: spec, delegate: self)
-        connection.nick = "Wired-Bot"
-        connection.status = "I´m connected (:"
 
-        // perform connect
+        let nickname = UserDefaults.standard.string(forKey: "Nick")
+        connection.nick = (nickname ?? "")
+
+        let status = UserDefaults.standard.string(forKey: "Status")
+        connection.status = (status ?? "")
+
         if connection.connect(withUrl: url) {
             print("connected")
             _ = connection.joinChat(chatID: 1)
-            
             // we keep a reference to the working connection here
             self.connection = connection
+            let message = P7Message(withName: "wired.chat.send_say", spec: connection.spec)
+            message.addParameter(field: "wired.chat.id", value: UInt32(1))
+            message.addParameter(field: "wired.chat.say", value: "Hi Folx, whazzup?")
+            _ = connection.send(message: message)
         } else {
-            // not connected
             print(connection.socket.errors)
         }
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
-        // Insert code here to tear down your application
     }
 
     @IBAction func send_text(_ sender: Any) {

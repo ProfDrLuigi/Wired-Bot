@@ -27,6 +27,7 @@
 		2A8E9E6B24333AB5005B5261 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2A8E9E6924333AB5005B5261 /* Localizable.strings */; };
 		2A8E9E8024337B6F005B5261 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A8E9E7F24337B6E005B5261 /* Sparkle.framework */; };
 		2A8E9E8124337B6F005B5261 /* Sparkle.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2A8E9E7F24337B6E005B5261 /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2AAF557F243758E200A07732 /* BotMainWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAF557E243758E200A07732 /* BotMainWindow.swift */; };
 		4C0A99F123FBD4F30008A7A6 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 4C0A99F023FBD4F30008A7A6 /* LICENSE */; };
 		4C0A99F223FBD4F30008A7A6 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 4C0A99F023FBD4F30008A7A6 /* LICENSE */; };
 		4C0A99FA23FBFE6C0008A7A6 /* Preferences.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C0A99F923FBFE6C0008A7A6 /* Preferences.framework */; };
@@ -172,6 +173,7 @@
 		2A8E9E6724333AB5005B5261 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2A8E9E6A24333AB5005B5261 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2A8E9E7F24337B6E005B5261 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = Carthage/Build/Mac/Sparkle.framework; sourceTree = "<group>"; };
+		2AAF557E243758E200A07732 /* BotMainWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BotMainWindow.swift; sourceTree = "<group>"; };
 		4C0A99F023FBD4F30008A7A6 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		4C0A99F923FBFE6C0008A7A6 /* Preferences.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Preferences.framework; path = Carthage/Build/Mac/Preferences.framework; sourceTree = SOURCE_ROOT; };
 		4C1319A82316E4E700C9FA0C /* SocketSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SocketSwift.framework; path = Carthage/Build/Mac/SocketSwift.framework; sourceTree = SOURCE_ROOT; };
@@ -326,6 +328,7 @@
 			children = (
 				2A66D4F72437310A00635F70 /* Extensions */,
 				4C74286122DCECE800D6E6F9 /* AppDelegate.swift */,
+				2AAF557E243758E200A07732 /* BotMainWindow.swift */,
 				2A66D4F5243730AF00635F70 /* ViewController.swift */,
 				4C74286722DCECE900D6E6F9 /* Main.storyboard */,
 				4C74286522DCECE900D6E6F9 /* Assets.xcassets */,
@@ -582,6 +585,7 @@
 				2A66D5172437310A00635F70 /* NSMutableAttributedString+BBCodeString.m in Sources */,
 				4C2000962421588C00A4D77A /* WiredError.swift in Sources */,
 				2A66D5122437310A00635F70 /* NSColor.swift in Sources */,
+				2AAF557F243758E200A07732 /* BotMainWindow.swift in Sources */,
 				4CFA18D2230C6ECE00E2A2EC /* ServerInfo.swift in Sources */,
 				2A66D5112437310A00635F70 /* MSCBadgedTemplateImage.swift in Sources */,
 				4C74286222DCECE800D6E6F9 /* AppDelegate.swift in Sources */,
