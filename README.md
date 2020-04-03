@@ -3,5 +3,5 @@ Init dependencies:
 brew: https://brew.sh/
 
     brew install carthage
-    cd WiredSwift
+    cd Wired-Bot
     carthage update
