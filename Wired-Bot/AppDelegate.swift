@@ -32,7 +32,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate {
                         _ = connection.send(message: response)
                     }
                     if saidText.starts(with: "Go away") {
-                        // we auto reply 'Hey'
                         let response = P7Message(withName: "wired.chat.send_say", spec: connection.spec)
                         response.addParameter(field: "wired.chat.id", value: UInt32(1))
                         response.addParameter(field: "wired.chat.say", value: "Moooo :(")
@@ -112,35 +111,60 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate {
     func applicationWillTerminate(_ aNotification: Notification) {
     }
 
-    @IBAction func send_text(_ sender: Any) {
-        // to send a test message on the connection we opened at launch
-        
-        // check if the local connection reference is not nil
-        if let connection = self.connection {
-            // if still connected
-            if connection.isConnected() {
-                let message = P7Message(withName: "wired.chat.send_say", spec: connection.spec)
-                // public chat ID : DO NOT FORGET to cast to UInt32 here
-                // this is an inconsistency in the framework that need to be fixed
-                message.addParameter(field: "wired.chat.id", value: UInt32(1))
-                message.addParameter(field: "wired.chat.say", value: "Hello, world!")
-                
-                _ = connection.send(message: message)
-            }
-        }
-   }
-    
     
     @objc private func pressSendbutton(notification: NSNotification){
         if let connection = self.connection {
             if connection.isConnected() {
-                let message = P7Message(withName: "wired.user.set_status", spec: connection.spec)
+                //Set Nickname
+                let message_nick = P7Message(withName: "wired.user.set_nick", spec: connection.spec)
+                let nick = UserDefaults.standard.string(forKey: "Nick")
+                message_nick.addParameter(field: "wired.user.nick", value: nick)
+                _ = connection.send(message: message_nick)
+                
+                //Set Status
+                let message_status = P7Message(withName: "wired.user.set_status", spec: connection.spec)
                 let status = UserDefaults.standard.string(forKey: "Status")
-                message.addParameter(field: "wired.user.status", value: status)
-                _ = connection.send(message: message)
+                message_status.addParameter(field: "wired.user.status", value: status)
+                _ = connection.send(message: message_status)
             }
         }
     }
 
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+     @IBAction func send_text(_ sender: Any) {
+         // to send a test message on the connection we opened at launch
+         
+         // check if the local connection reference is not nil
+         if let connection = self.connection {
+             // if still connected
+             if connection.isConnected() {
+                 let message = P7Message(withName: "wired.chat.send_say", spec: connection.spec)
+                 // public chat ID : DO NOT FORGET to cast to UInt32 here
+                 // this is an inconsistency in the framework that need to be fixed
+                 message.addParameter(field: "wired.chat.id", value: UInt32(1))
+                 message.addParameter(field: "wired.chat.say", value: "Hello, world!")
+                 
+                 _ = connection.send(message: message)
+             }
+         }
+    }
+    
+    
+    
     
 }
