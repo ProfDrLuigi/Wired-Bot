@@ -45,6 +45,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate {
                let response = P7Message(withName: "wired.chat.send_say", spec: connection.spec)
                response.addParameter(field: "wired.chat.id", value: UInt32(1))
                response.addParameter(field: "wired.chat.say", value: "Hello my friend. :-)")
+                sleep(2)
                _ = connection.send(message: response)
             }
             if message.name == "wired.chat.user_leave" {
