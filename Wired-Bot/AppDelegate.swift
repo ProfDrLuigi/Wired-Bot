@@ -217,16 +217,16 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate {
                 //message.addParameter(field: "wired.user.password", value: "")
                 //_ = connection.send(message: message)
                 _ = connection.joinChat(chatID: 1)
-                    self.connection = connection
-                    let message2 = P7Message(withName: "wired.chat.send_say", spec: connection.spec)
-                    message2.addParameter(field: "wired.chat.id", value: UInt32(1))
-                    let chat_text = UserDefaults.standard.string(forKey: "Greeting_Text")
-                    message2.addParameter(field: "wired.chat.say", value: chat_text)
-                    let greeting = UserDefaults.standard.bool(forKey: "Greeting")
-                    if greeting == true {
+                self.connection = connection
+                let message2 = P7Message(withName: "wired.chat.send_say", spec: connection.spec)
+                message2.addParameter(field: "wired.chat.id", value: UInt32(1))
+                let chat_text = UserDefaults.standard.string(forKey: "Greeting_Text")
+                message2.addParameter(field: "wired.chat.say", value: chat_text)
+                let greeting = UserDefaults.standard.bool(forKey: "Greeting")
+                if greeting == true {
                     _ = connection.send(message: message2)
-                    }
-                    UserDefaults.standard.set(true, forKey: "Connected")
+                }
+                UserDefaults.standard.set(true, forKey: "Connected")
             } else {
                 print(connection.socket.errors)
             }
@@ -289,7 +289,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate {
         let url = Url(withString: "wired://" + get_url )
 
         let connection = Connection(withSpec: spec, delegate: self)
-        
+
         let nickname = UserDefaults.standard.string(forKey: "Nick")
         connection.nick = (nickname ?? "")
 
@@ -297,17 +297,21 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate {
         connection.status = (status ?? "")
 
         if connection.connect(withUrl: url) {
+            //let message = P7Message(withName: "wired.send_login", spec: connection.spec)
+            //message.addParameter(field: "wired.user.login", value: "admin")
+            //message.addParameter(field: "wired.user.password", value: "")
+            //_ = connection.send(message: message)
             _ = connection.joinChat(chatID: 1)
+            self.connection = connection
+            let message2 = P7Message(withName: "wired.chat.send_say", spec: connection.spec)
+            message2.addParameter(field: "wired.chat.id", value: UInt32(1))
+            let chat_text = UserDefaults.standard.string(forKey: "Greeting_Text")
+            message2.addParameter(field: "wired.chat.say", value: chat_text)
             let greeting = UserDefaults.standard.bool(forKey: "Greeting")
             if greeting == true {
-                self.connection = connection
-                let message2 = P7Message(withName: "wired.chat.send_say", spec: connection.spec)
-                message2.addParameter(field: "wired.chat.id", value: UInt32(1))
-                let chat_text = UserDefaults.standard.string(forKey: "Greeting_Text")
-                message2.addParameter(field: "wired.chat.say", value: chat_text)
                 _ = connection.send(message: message2)
-                UserDefaults.standard.set(true, forKey: "Connected")
             }
+            UserDefaults.standard.set(true, forKey: "Connected")
         } else {
             print(connection.socket.errors)
         }
@@ -319,6 +323,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate {
         if connection.isConnected() {
             _ = connection.disconnect()
             UserDefaults.standard.set(false, forKey: "Connected")
+            //let defaults = UserDefaults.standard
+            //defaults.synchronize()
         }
     }
     }
