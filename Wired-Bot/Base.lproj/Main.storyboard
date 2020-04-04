@@ -217,7 +217,7 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                                 <connections>
-                                    <binding destination="rIl-mn-5MV" name="value" keyPath="values.Greeting_Text" id="mlJ-Pz-Nvj"/>
+                                    <binding destination="Ayo-MQ-MGo" name="value" keyPath="values.Greeting_Text" id="f4j-Ip-YXH"/>
                                 </connections>
                             </textField>
                             <textField focusRingType="none" verticalHuggingPriority="750" fixedFrame="YES" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VfG-qH-eim">
@@ -242,7 +242,7 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                                 <connections>
-                                    <binding destination="rIl-mn-5MV" name="value" keyPath="values.Address" id="uWq-XD-SkZ"/>
+                                    <binding destination="Ayo-MQ-MGo" name="value" keyPath="values.Address" id="uIP-iF-sfc"/>
                                 </connections>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Cx-pG-UGE">
@@ -299,7 +299,7 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                                 <connections>
-                                    <binding destination="rIl-mn-5MV" name="value" keyPath="values.Login" id="UFk-b9-zUT"/>
+                                    <binding destination="Ayo-MQ-MGo" name="value" keyPath="values.Login" id="2Zk-KI-oVs"/>
                                 </connections>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TL0-Gs-FCT">
@@ -329,7 +329,7 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                                 <connections>
-                                    <binding destination="rIl-mn-5MV" name="value" keyPath="values.Goodbye_Text" id="L1F-d1-1RT"/>
+                                    <binding destination="Ayo-MQ-MGo" name="value" keyPath="values.Goodbye_Text" id="ug7-zw-UJz"/>
                                 </connections>
                             </textField>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3hX-qn-UkT">
@@ -366,7 +366,7 @@
                                     </allowedInputSourceLocales>
                                 </secureTextFieldCell>
                                 <connections>
-                                    <binding destination="rIl-mn-5MV" name="value" keyPath="values.Password" id="FUM-Ov-Ucg"/>
+                                    <binding destination="Ayo-MQ-MGo" name="value" keyPath="values.Password" id="PF3-83-wVp"/>
                                 </connections>
                             </secureTextField>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WAg-j4-vuO">
