@@ -370,7 +370,7 @@
                                 </connections>
                             </secureTextField>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WAg-j4-vuO">
-                                <rect key="frame" x="23" y="60" width="121" height="18"/>
+                                <rect key="frame" x="26" y="18" width="121" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="check" title="Connect at start" bezelStyle="regularSquare" imagePosition="left" inset="2" id="Fhq-LV-dHA">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -389,6 +389,17 @@
                                 </buttonCell>
                                 <connections>
                                     <action selector="dismissController:" target="wY3-t6-Ggu" id="hdP-2b-sJB"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oHT-bT-djd">
+                                <rect key="frame" x="26" y="38" width="117" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="check" title="Welcome Users" bezelStyle="regularSquare" imagePosition="left" inset="2" id="aPq-Qj-4FR">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <binding destination="Ayo-MQ-MGo" name="value" keyPath="values.WelcomeUsers" id="RAV-jK-dUg"/>
                                 </connections>
                             </button>
                         </subviews>

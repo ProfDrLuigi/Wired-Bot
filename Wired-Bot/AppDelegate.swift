@@ -111,18 +111,20 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate {
                 }
              }
             if message.name == "wired.chat.user_join" {
-               let response = P7Message(withName: "wired.chat.send_say", spec: connection.spec)
-               response.addParameter(field: "wired.chat.id", value: UInt32(1))
-               //response.addParameter(field: "wired.chat.say", value: "Hello my friend. :-)")
-                response.addParameter(field: "wired.chat.say", value: "Hello my friend. :-)")
-                sleep(2)
-               _ = connection.send(message: response)
+                let welcome = UserDefaults.standard.bool(forKey: "WelcomeUsers")
+                if welcome == true {
+                   let response = P7Message(withName: "wired.chat.send_say", spec: connection.spec)
+                   response.addParameter(field: "wired.chat.id", value: UInt32(1))
+                   response.addParameter(field: "wired.chat.say", value: "Hello my friend. :-)")
+                   sleep(2)
+                   _ = connection.send(message: response)
+                }
             }
             if message.name == "wired.chat.user_leave" {
                let response = P7Message(withName: "wired.chat.send_say", spec: connection.spec)
                response.addParameter(field: "wired.chat.id", value: UInt32(1))
                response.addParameter(field: "wired.chat.say", value: "Hope to see you soon again. :(")
-               _ = connection.send(message: response)
+               //_ = connection.send(message: response)
             }
         }
     }

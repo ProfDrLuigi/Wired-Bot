@@ -11,6 +11,13 @@ import Foundation
 
 class BotMainWindow: NSViewController {
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        UserDefaults.standard.addObserver(self, forKeyPath: "Connected", options: NSKeyValueObservingOptions.new, context: nil)
+        
+        // Do any additional setup after loading the view.
+    }
     
     @IBAction func connect(_ sender: Any) {
         let connected_check = UserDefaults.standard.bool(forKey: "Connected")
@@ -30,6 +37,8 @@ class BotMainWindow: NSViewController {
         }
     }
     
-    @objc private func onlinestatus(notification: NSNotification){
-     }
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+
+        print("bllaaaaa")
+    }
 }
