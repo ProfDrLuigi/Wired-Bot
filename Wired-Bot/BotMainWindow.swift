@@ -15,6 +15,18 @@ class BotMainWindow: NSViewController {
     @IBOutlet weak var disconnect_button: NSButton!
     @IBOutlet weak var connect_button: NSButton!
 
+    
+    @IBAction func set_nick(_ sender: Any) {
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "setNick"), object: nil)
+    }
+    
+    @IBAction func set_status(_ sender: Any) {
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "setStatus"), object: nil)
+    }
+    
+    
+    
+    
     @IBAction func set_values(_ sender: Any) {
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "Sendbutton"), object: nil, userInfo: ["name" : self.send_button.stringValue as Any])
     }

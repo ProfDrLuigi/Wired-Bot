@@ -17,14 +17,19 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate {
     @IBOutlet weak var send_button: NSButton!
     @IBOutlet weak var disconnect_button: NSButton!
     @IBOutlet weak var connect_button: NSButton!
+    
+    func applicationShouldTerminateAfterLastWindowClosed (_
+        theApplication: NSApplication) -> Bool {
+        return true
+    }
 
     var connection:Connection?
     
     func connectionDidReceiveMessage(connection: Connection, message: P7Message) {
         if connection == self.connection {
-            if message.name == "wired.chat.user_kick" {
-                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "Connectbutton"), object: nil, userInfo: ["name" : connect_button])
-            }
+            //if message.name == "wired.chat.user_kick" {
+              //   NotificationCenter.default.post(name: NSNotification.Name(rawValue: "Connectbutton"), object: nil, userInfo: ["name" : connect_button])
+            //}
             if message.name == "wired.chat.say" {
                 // if the message contains a string in 'wired.chat.say' field
                 if let saidText = message.string(forField: "wired.chat.say") {
@@ -67,7 +72,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate {
                      if saidText.starts(with: "/bot test") {
                         let response = P7Message(withName: "wired.chat.send_say", spec: connection.spec)
                         response.addParameter(field: "wired.chat.id", value: UInt32(1))
-                        response.addParameter(field: "wired.chat.say", value: "blaaaaaa")
+                         response.addParameter(field: "wired.chat.say", value: "bla")
                         _ = connection.send(message: response)
                     }
                     if saidText.starts(with: "/bot factme") {
@@ -135,12 +140,18 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate {
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         
-        UserDefaults.standard.set(false, forKey: "Connected")
+        //UserDefaults.standard.set(false, forKey: "Connected")
+ 
+        NotificationCenter.default.addObserver(
+        self,
+        selector: #selector(self.setNick),
+        name: NSNotification.Name(rawValue: "setNick"),
+        object: nil)
         
         NotificationCenter.default.addObserver(
         self,
-        selector: #selector(self.pressSendbutton),
-        name: NSNotification.Name(rawValue: "Sendbutton"),
+        selector: #selector(self.setStatus),
+        name: NSNotification.Name(rawValue: "setStatus"),
         object: nil)
  
         NotificationCenter.default.addObserver(
@@ -206,53 +217,61 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate {
                 //message.addParameter(field: "wired.user.password", value: "")
                 //_ = connection.send(message: message)
                 _ = connection.joinChat(chatID: 1)
-                let greeting = UserDefaults.standard.bool(forKey: "Greeting")
-                if greeting == true {
                     self.connection = connection
                     let message2 = P7Message(withName: "wired.chat.send_say", spec: connection.spec)
                     message2.addParameter(field: "wired.chat.id", value: UInt32(1))
                     let chat_text = UserDefaults.standard.string(forKey: "Greeting_Text")
                     message2.addParameter(field: "wired.chat.say", value: chat_text)
+                    let greeting = UserDefaults.standard.bool(forKey: "Greeting")
+                    if greeting == true {
                     _ = connection.send(message: message2)
+                    }
                     UserDefaults.standard.set(true, forKey: "Connected")
-                }
             } else {
                 print(connection.socket.errors)
             }
         }
     }
 
+    
     func applicationWillTerminate(_ aNotification: Notification) {
         let defaults = UserDefaults.standard
         defaults.synchronize()
-        let goodbye = UserDefaults.standard.bool(forKey: "Goodbye")
-        if goodbye == true {
             if let connection = self.connection {
                 if connection.isConnected() {
                     let message = P7Message(withName: "wired.chat.send_say", spec: connection.spec)
                     message.addParameter(field: "wired.chat.id", value: UInt32(1))
                     let chat_text = UserDefaults.standard.string(forKey: "Goodbye_Text")
                     message.addParameter(field: "wired.chat.say", value: chat_text)
-                    _ = connection.send(message: message)
+                    let goodbye = UserDefaults.standard.bool(forKey: "Goodbye")
+                    if goodbye == true {
+                        _ = connection.send(message: message)
+                    }
                     UserDefaults.standard.set(false, forKey: "Connected")
-                }
             }
         }
     }
 
     
-    @objc private func pressSendbutton(notification: NSNotification){
+    @objc private func setNick(notification: NSNotification){
         let defaults = UserDefaults.standard
         defaults.synchronize()
         if let connection = self.connection {
             if connection.isConnected() {
-                //Set Nickname
                 let message_nick = P7Message(withName: "wired.user.set_nick", spec: connection.spec)
                 let nick = UserDefaults.standard.string(forKey: "Nick")
                 message_nick.addParameter(field: "wired.user.nick", value: nick)
                 _ = connection.send(message: message_nick)
-                
-                //Set Status
+            }
+        }
+    }
+    
+    
+    @objc private func setStatus(notification: NSNotification){
+        let defaults = UserDefaults.standard
+        defaults.synchronize()
+        if let connection = self.connection {
+            if connection.isConnected() {
                 let message_status = P7Message(withName: "wired.user.set_status", spec: connection.spec)
                 let status = UserDefaults.standard.string(forKey: "Status")
                 message_status.addParameter(field: "wired.user.status", value: status)
@@ -260,8 +279,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate {
             }
         }
     }
-
-
+    
+    
     @objc private func pressConnectbutton(notification: NSNotification){
 
         let spec = P7Spec()
