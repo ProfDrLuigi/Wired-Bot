@@ -316,7 +316,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate {
                 let iconsrc = UserDefaults.standard.string(forKey: "IconSrc") ?? ""
                 let output = try shellOut(to: "base64", arguments: [iconsrc])
                 UserDefaults.standard.set(output, forKey: "Avatar")
-                print(output)
                 message.addParameter(field: "wired.user.icon", value: Data(base64Encoded: output, options: .ignoreUnknownCharacters))
                 _ = connection.send(message: message)
                 } catch {
