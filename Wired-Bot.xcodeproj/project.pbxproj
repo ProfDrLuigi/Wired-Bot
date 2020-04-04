@@ -28,6 +28,7 @@
 		2AAF55872437996800A07732 /* mcp.command in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2AAF55832437940100A07732 /* mcp.command */; };
 		2AAF558B2437A11000A07732 /* ShellOut in Frameworks */ = {isa = PBXBuildFile; productRef = 2AAF558A2437A11000A07732 /* ShellOut */; };
 		2AB81D942438E5BC002274CD /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB81D932438E5BC002274CD /* Preferences.swift */; };
+		2AB81D9624390727002274CD /* Commands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB81D9524390727002274CD /* Commands.swift */; };
 		4C0A99F123FBD4F30008A7A6 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 4C0A99F023FBD4F30008A7A6 /* LICENSE */; };
 		4C0A99F223FBD4F30008A7A6 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 4C0A99F023FBD4F30008A7A6 /* LICENSE */; };
 		4C0A99FA23FBFE6C0008A7A6 /* Preferences.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C0A99F923FBFE6C0008A7A6 /* Preferences.framework */; };
@@ -185,6 +186,7 @@
 		2AAF55932437B20500A07732 /* AppleScriptObjC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppleScriptObjC.framework; path = System/Library/Frameworks/AppleScriptObjC.framework; sourceTree = SDKROOT; };
 		2AB2AED02437BB8000C5B242 /* wiredbot.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = wiredbot.html; sourceTree = "<group>"; };
 		2AB81D932438E5BC002274CD /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
+		2AB81D9524390727002274CD /* Commands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commands.swift; sourceTree = "<group>"; };
 		4C0A99F023FBD4F30008A7A6 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		4C0A99F923FBFE6C0008A7A6 /* Preferences.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Preferences.framework; path = Carthage/Build/Mac/Preferences.framework; sourceTree = SOURCE_ROOT; };
 		4C1319A82316E4E700C9FA0C /* SocketSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SocketSwift.framework; path = Carthage/Build/Mac/SocketSwift.framework; sourceTree = SOURCE_ROOT; };
@@ -350,6 +352,7 @@
 				2A66D4F72437310A00635F70 /* Extensions */,
 				4C74286122DCECE800D6E6F9 /* AppDelegate.swift */,
 				2AAF558024376FFC00A07732 /* BotMainWindow.swift */,
+				2AB81D9524390727002274CD /* Commands.swift */,
 				2AB81D932438E5BC002274CD /* Preferences.swift */,
 				2A66D4F5243730AF00635F70 /* ViewController.swift */,
 				2AAF558C2437AEAC00A07732 /* WiredSwift.entitlements */,
@@ -631,6 +634,7 @@
 				4C74286222DCECE800D6E6F9 /* AppDelegate.swift in Sources */,
 				4CD0206022E0FCE20008B36C /* P7Spec.swift in Sources */,
 				2A66D4F6243730AF00635F70 /* ViewController.swift in Sources */,
+				2AB81D9624390727002274CD /* Commands.swift in Sources */,
 				4C4C3EEB22E1131B00BC2DD9 /* Const.swift in Sources */,
 				2A66D5102437310A00635F70 /* UnselectedTableRowView.swift in Sources */,
 				2AB81D942438E5BC002274CD /* Preferences.swift in Sources */,

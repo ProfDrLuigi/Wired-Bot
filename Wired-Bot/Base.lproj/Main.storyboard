@@ -408,7 +408,42 @@
                 <customObject id="6fH-EH-f3Z" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <userDefaultsController id="Ayo-MQ-MGo"/>
             </objects>
-            <point key="canvasLocation" x="1520.5" y="-148"/>
+            <point key="canvasLocation" x="1552" y="-195"/>
+        </scene>
+        <!--Commands-->
+        <scene sceneID="icr-UL-R13">
+            <objects>
+                <viewController title="Commands" id="xJd-eX-l6X" customClass="Commands" customModule="Wired_Bot" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="cxe-Bw-cUP">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qI7-Ye-5Qf">
+                                <rect key="frame" x="-2" y="228" width="484" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Commands" id="RQU-Nr-1Vp">
+                                    <font key="font" metaFont="system" size="30"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RgN-uv-3ij">
+                                <rect key="frame" x="203" y="13" width="75" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Close" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="EO2-Xo-IMO">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="dismissController:" target="xJd-eX-l6X" id="pEL-lc-TTf"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                    </view>
+                </viewController>
+                <customObject id="p5H-8Y-Ibx" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1385" y="187"/>
         </scene>
         <!--Bot Main Window-->
         <scene sceneID="pBP-29-UNj">
@@ -476,8 +511,18 @@
                                     <action selector="reconnect:" target="H4d-wo-nee" id="QA9-t2-2k3"/>
                                 </connections>
                             </button>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l8f-V0-Wr4" userLabel="Red dot">
+                                <rect key="frame" x="237" y="116" width="19" height="19"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSStatusUnavailable" id="aAG-zH-YKo"/>
+                            </imageView>
+                            <imageView hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mee-Ny-Gb7" userLabel="Green dot">
+                                <rect key="frame" x="237" y="116" width="19" height="19"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSStatusAvailable" id="XZh-yo-CCS"/>
+                            </imageView>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hwH-Bc-XRt">
-                                <rect key="frame" x="123" y="13" width="110" height="32"/>
+                                <rect key="frame" x="61" y="13" width="110" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="Preferences" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="RDM-3x-3i1">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -487,15 +532,23 @@
                                     <segue destination="wY3-t6-Ggu" kind="sheet" id="5GV-r9-j0t"/>
                                 </connections>
                             </button>
-                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l8f-V0-Wr4">
-                                <rect key="frame" x="237" y="116" width="19" height="19"/>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cJb-Nl-LVS">
+                                <rect key="frame" x="191" y="13" width="110" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSStatusUnavailable" id="aAG-zH-YKo"/>
-                            </imageView>
+                                <buttonCell key="cell" type="push" title="Commands" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Af4-UE-dBn">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <segue destination="xJd-eX-l6X" kind="sheet" id="3Ab-Aj-jcP"/>
+                                </connections>
+                            </button>
                         </subviews>
                     </view>
                     <connections>
                         <outlet property="connect_button" destination="fP3-hH-6J6" id="n0B-S9-Eml"/>
+                        <outlet property="connect_indicator_green" destination="Mee-Ny-Gb7" id="oGI-ag-jnl"/>
+                        <outlet property="connect_indicator_red" destination="l8f-V0-Wr4" id="arn-02-qCh"/>
                         <outlet property="disconnect_button" destination="ZOg-Zc-kO4" id="PEv-CP-Mkg"/>
                     </connections>
                 </viewController>
@@ -504,6 +557,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="NSStatusAvailable" width="16" height="16"/>
         <image name="NSStatusUnavailable" width="16" height="16"/>
         <image name="bot" width="512" height="512"/>
     </resources>

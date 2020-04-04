@@ -229,8 +229,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate {
                     _ = connection.send(message: message2)
                 }
                 UserDefaults.standard.set(true, forKey: "Connected")
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "Connectionstatus"), object: nil)
             } else {
                 print(connection.socket.errors)
+                connectalert()
             }
         }
     }
@@ -331,4 +333,15 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate {
     }
     }
 
+    
+    func connectalert (){
+        print("conn refused")
+        let alert = NSAlert()
+        alert.messageText = NSLocalizedString("It is not possible to log on to the server", comment: "")
+        alert.informativeText = NSLocalizedString("Maybe it is not running or the access data is wrong!", comment: "")
+        alert.alertStyle = .warning
+        let Button = NSLocalizedString("Bummer", comment: "")
+        alert.addButton(withTitle: Button)
+        alert.runModal()
+    }
 }
