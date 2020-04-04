@@ -316,21 +316,22 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate {
                 _ = connection.send(message: message2)
             }
             UserDefaults.standard.set(true, forKey: "Connected")
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "Connectionstatus"), object: nil)
         } else {
             print(connection.socket.errors)
+            connectalert()
         }
 
     }
+
     
     @objc private func pressDisconnectbutton(notification: NSNotification){
-    if let connection = self.connection {
-        if connection.isConnected() {
-            _ = connection.disconnect()
-            UserDefaults.standard.set(false, forKey: "Connected")
-            //let defaults = UserDefaults.standard
-            //defaults.synchronize()
+        if let connection = self.connection {
+            if connection.isConnected() {
+                _ = connection.disconnect()
+                UserDefaults.standard.set(false, forKey: "Connected")
+            }
         }
-    }
     }
 
     

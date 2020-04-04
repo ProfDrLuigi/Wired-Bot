@@ -73,11 +73,6 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="VOq-y0-SEH"/>
-                                        <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW">
-                                            <connections>
-                                                <action selector="preferencesMenuItemActionHandler:" target="Ady-hI-5gd" id="KfQ-LK-z8T"/>
-                                            </connections>
-                                        </menuItem>
                                         <menuItem title="Check for Updates..." id="F0u-z0-FVU">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
@@ -438,6 +433,19 @@
                                     <action selector="dismissController:" target="xJd-eX-l6X" id="pEL-lc-TTf"/>
                                 </connections>
                             </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UhV-7g-d07">
+                                <rect key="frame" x="26" y="187" width="37" height="16"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="Asy-Pc-L4O">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <box verticalHuggingPriority="750" fixedFrame="YES" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="A9C-zZ-Ujs">
+                                <rect key="frame" x="20" y="217" width="440" height="5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            </box>
                         </subviews>
                     </view>
                 </viewController>
@@ -546,10 +554,8 @@
                         </subviews>
                     </view>
                     <connections>
-                        <outlet property="connect_button" destination="fP3-hH-6J6" id="n0B-S9-Eml"/>
                         <outlet property="connect_indicator_green" destination="Mee-Ny-Gb7" id="oGI-ag-jnl"/>
                         <outlet property="connect_indicator_red" destination="l8f-V0-Wr4" id="arn-02-qCh"/>
-                        <outlet property="disconnect_button" destination="ZOg-Zc-kO4" id="PEv-CP-Mkg"/>
                     </connections>
                 </viewController>
             </objects>
