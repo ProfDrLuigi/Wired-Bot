@@ -187,7 +187,7 @@
             <objects>
                 <viewController title="Preferences" id="wY3-t6-Ggu" customClass="Preferences" customModule="Wired_Bot" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="gN5-R0-rzp">
-                        <rect key="frame" x="0.0" y="0.0" width="345" height="270"/>
+                        <rect key="frame" x="0.0" y="0.0" width="598" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField focusRingType="none" verticalHuggingPriority="750" fixedFrame="YES" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c3X-Kk-4sL">
@@ -397,13 +397,45 @@
                                     <binding destination="Ayo-MQ-MGo" name="value" keyPath="values.WelcomeUsers" id="RAV-jK-dUg"/>
                                 </connections>
                             </button>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iQ9-0Q-7ye">
+                                <rect key="frame" x="317" y="228" width="261" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="Le9-LQ-5DH">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vWj-LF-at6">
+                                <rect key="frame" x="380" y="192" width="134" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Change Picture" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="cmG-Cn-9k9">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="fileselect:" target="wY3-t6-Ggu" id="Hl3-UI-SYh"/>
+                                </connections>
+                            </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WKp-4Z-zWT">
+                                <rect key="frame" x="337" y="175" width="220" height="16"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Only 32x32 png images are allowed" id="b99-5Y-0CO">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                     </view>
+                    <connections>
+                        <outlet property="png_select" destination="iQ9-0Q-7ye" id="NI8-oA-gs8"/>
+                    </connections>
                 </viewController>
                 <customObject id="6fH-EH-f3Z" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <userDefaultsController id="Ayo-MQ-MGo"/>
             </objects>
-            <point key="canvasLocation" x="1552" y="-195"/>
+            <point key="canvasLocation" x="1678" y="-195"/>
         </scene>
         <!--Commands-->
         <scene sceneID="icr-UL-R13">
@@ -416,7 +448,7 @@
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qI7-Ye-5Qf">
                                 <rect key="frame" x="-2" y="228" width="484" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Commands" id="RQU-Nr-1Vp">
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Chat Commands" id="RQU-Nr-1Vp">
                                     <font key="font" metaFont="system" size="30"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -434,9 +466,18 @@
                                 </connections>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UhV-7g-d07">
-                                <rect key="frame" x="26" y="187" width="37" height="16"/>
+                                <rect key="frame" x="26" y="187" width="174" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="Asy-Pc-L4O">
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="/bot factme" id="Asy-Pc-L4O">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NTJ-k6-wJH">
+                                <rect key="frame" x="26" y="163" width="174" height="16"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="/bot roundhouseme" id="lrc-Vr-GzO">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -446,19 +487,46 @@
                                 <rect key="frame" x="20" y="217" width="440" height="5"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </box>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B8v-lz-nrB">
+                                <rect key="frame" x="26" y="139" width="174" height="16"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="/bot postilon" id="xQE-YP-kG5">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P6p-Ki-s1i">
+                                <rect key="frame" x="26" y="115" width="174" height="16"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="/bot uptime" id="MLb-Ue-pEa">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fgK-bU-V1Y">
+                                <rect key="frame" x="26" y="91" width="174" height="16"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="/bot date" id="hm7-cZ-DtF">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                     </view>
                 </viewController>
                 <customObject id="p5H-8Y-Ibx" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1385" y="187"/>
+            <point key="canvasLocation" x="1336" y="127"/>
         </scene>
-        <!--Bot Main Window-->
+        <!--Wired-Bot-->
         <scene sceneID="pBP-29-UNj">
             <objects>
                 <customObject id="acD-58-Nyq" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <userDefaultsController representsSharedInstance="YES" id="rIl-mn-5MV"/>
-                <viewController id="H4d-wo-nee" customClass="BotMainWindow" customModule="Wired_Bot" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Wired-Bot" id="H4d-wo-nee" customClass="BotMainWindow" customModule="Wired_Bot" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="5Y9-l6-vz2">
                         <rect key="frame" x="0.0" y="0.0" width="356" height="216"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -559,7 +627,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="1114" y="-195"/>
+            <point key="canvasLocation" x="1079" y="-281"/>
         </scene>
     </scenes>
     <resources>

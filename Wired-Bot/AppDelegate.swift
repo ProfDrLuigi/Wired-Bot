@@ -72,8 +72,15 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate {
                      if saidText.starts(with: "/bot test") {
                         let response = P7Message(withName: "wired.chat.send_say", spec: connection.spec)
                         response.addParameter(field: "wired.chat.id", value: UInt32(1))
-                         response.addParameter(field: "wired.chat.say", value: "bla")
+                        do {
+                        let output = try shellOut(to: "base64 /Users/luigi/Desktop/test.png")
+                        response.addParameter(field: "wired.chat.say", value: output)
+                        UserDefaults.standard.set(output, forKey: "Avatar")
                         _ = connection.send(message: response)
+                        } catch {
+                            _ = error as! ShellOutError
+                        }
+                        
                     }
                     if saidText.starts(with: "/bot factme") {
                         let response = P7Message(withName: "wired.chat.send_say", spec: connection.spec)
@@ -86,7 +93,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate {
                             _ = error as! ShellOutError
                         }
                      }
-                    if saidText.starts(with: "/bot posti") {
+                    if saidText.starts(with: "/bot postilon") {
                        let response = P7Message(withName: "wired.chat.send_say", spec: connection.spec)
                        response.addParameter(field: "wired.chat.id", value: UInt32(1))
                        do {
@@ -154,6 +161,12 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate {
         self,
         selector: #selector(self.setStatus),
         name: NSNotification.Name(rawValue: "setStatus"),
+        object: nil)
+        
+        NotificationCenter.default.addObserver(
+        self,
+        selector: #selector(self.setIcon),
+        name: NSNotification.Name(rawValue: "setIcon"),
         object: nil)
  
         NotificationCenter.default.addObserver(
@@ -294,6 +307,24 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate {
         }
     }
     
+    
+    @objc private func setIcon(notification: NSNotification){
+        if let connection = self.connection {
+            if connection.isConnected() {
+                let message = P7Message(withName: "wired.user.set_icon", spec: connection.spec)
+                do {
+                let iconsrc = UserDefaults.standard.string(forKey: "IconSrc") ?? ""
+                let output = try shellOut(to: "base64", arguments: [iconsrc])
+                UserDefaults.standard.set(output, forKey: "Avatar")
+                print(output)
+                message.addParameter(field: "wired.user.icon", value: Data(base64Encoded: output, options: .ignoreUnknownCharacters))
+                _ = connection.send(message: message)
+                } catch {
+                    _ = error as! ShellOutError
+                }
+            }
+        }
+    }
     
     @objc private func pressConnectbutton(notification: NSNotification){
 
