@@ -30,9 +30,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate {
     
     func connectionDidReceiveMessage(connection: Connection, message: P7Message) {
         if connection == self.connection {
-            //if message.name == "wired.chat.user_kick" {
-              //   NotificationCenter.default.post(name: NSNotification.Name(rawValue: "Connectbutton"), object: nil, userInfo: ["name" : connect_button])
-            //}
             if message.name == "wired.chat.say" {
                 // if the message contains a string in 'wired.chat.say' field
                 if let saidText = message.string(forField: "wired.chat.say") {
@@ -127,13 +124,22 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate {
             if message.name == "wired.chat.user_leave" {
                let response = P7Message(withName: "wired.chat.send_say", spec: connection.spec)
                response.addParameter(field: "wired.chat.id", value: UInt32(1))
+                
+
                response.addParameter(field: "wired.chat.say", value: "Hope to see you soon again. :(")
                _ = connection.send(message: response)
             }
-            if message.name == "wired.file.directory_changed" {
-               let response = P7Message(withName: "wired.file.directory_changed", spec: connection.spec)
-               response.addParameter(field: "wired.file.path", value: "/Test")
-               _ = connection.send(message: response)
+            let watchedfolder = UserDefaults.standard.string(forKey: "WatchedFolder") ?? ""
+            if watchedfolder != "" {
+                if message.name == "wired.file.directory_changed" {
+                    let names = ["Yes. Fresh meat is arrived in ", "Woohoo. We have some new stuff in ", "WTF? Believe it or not. New Stuff in "]
+                    let randomName = names.randomElement()!
+                    let watchedfolder = UserDefaults.standard.string(forKey: "WatchedFolder") ?? ""
+                    let response = P7Message(withName: "wired.chat.send_say", spec: connection.spec)
+                    response.addParameter(field: "wired.chat.id", value: UInt32(1))
+                    response.addParameter(field: "wired.chat.say", value: "📂 " + randomName + "\"" + watchedfolder + "\"")
+                    _ = connection.send(message: response)
+                }
             }
         }
     }
@@ -237,7 +243,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate {
             connection.status = (status ?? "")
 
             if connection.connect(withUrl: url) {
-  
                 _ = connection.joinChat(chatID: 1)
                 self.connection = connection
 
@@ -257,9 +262,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate {
                 avatar.addParameter(field: "wired.user.icon", value: Data(base64Encoded: picture, options: .ignoreUnknownCharacters))
                 _ = connection.send(message: avatar)
 
-                //let subscription = P7Message(withName: "wired.file.subscribe_directory", spec: connection.spec)
+                let watchedfolder = UserDefaults.standard.string(forKey: "WatchedFolder") ?? ""
+                
                 let subscription = P7Message(withName: "wired.file.subscribe_directory", spec: connection.spec)
-                //subscription.addParameter(field: "wired.file.path", value: "/Test")
+                subscription.addParameter(field: "wired.file.path", value: watchedfolder)
                 _ = connection.send(message: subscription)
                 
             } else {
@@ -356,13 +362,14 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate {
         if connection.connect(withUrl: url) {
             _ = connection.joinChat(chatID: 1)
             self.connection = connection
+
             let message2 = P7Message(withName: "wired.chat.send_say", spec: connection.spec)
             message2.addParameter(field: "wired.chat.id", value: UInt32(1))
             let chat_text = UserDefaults.standard.string(forKey: "Greeting_Text")
             message2.addParameter(field: "wired.chat.say", value: chat_text)
             let greeting = UserDefaults.standard.bool(forKey: "Greeting")
             if greeting == true {
-                _ = connection.send(message: message2)
+            _ = connection.send(message: message2)
             }
             UserDefaults.standard.set(true, forKey: "Connected")
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "Connectionstatus"), object: nil)
@@ -371,6 +378,12 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate {
             let avatar = P7Message(withName: "wired.user.set_icon", spec: connection.spec)
             avatar.addParameter(field: "wired.user.icon", value: Data(base64Encoded: picture, options: .ignoreUnknownCharacters))
             _ = connection.send(message: avatar)
+
+            let watchedfolder = UserDefaults.standard.string(forKey: "WatchedFolder") ?? ""
+            
+            let subscription = P7Message(withName: "wired.file.subscribe_directory", spec: connection.spec)
+            subscription.addParameter(field: "wired.file.path", value: watchedfolder)
+            _ = connection.send(message: subscription)
         } else {
             print(connection.socket.errors)
             connectalert()
