@@ -132,7 +132,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate {
             }
             if message.name == "wired.file.directory_changed" {
                let response = P7Message(withName: "wired.file.directory_changed", spec: connection.spec)
-               response.addParameter(field: "wired.file.path", value: "Test")
+               response.addParameter(field: "wired.file.path", value: "/Test")
                _ = connection.send(message: response)
             }
         }
@@ -236,15 +236,11 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate {
             let status = UserDefaults.standard.string(forKey: "Status")
             connection.status = (status ?? "")
 
-
             if connection.connect(withUrl: url) {
+  
                 _ = connection.joinChat(chatID: 1)
                 self.connection = connection
-                
-                let message = P7Message(withName: "wired.file.subscribe_directory", spec: connection.spec)
-                message.addParameter(field: "wired.file.path", value: "Test")
-                _ = connection.send(message: message)
-                
+
                 let message2 = P7Message(withName: "wired.chat.send_say", spec: connection.spec)
                 message2.addParameter(field: "wired.chat.id", value: UInt32(1))
                 let chat_text = UserDefaults.standard.string(forKey: "Greeting_Text")
@@ -260,6 +256,11 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate {
                 let avatar = P7Message(withName: "wired.user.set_icon", spec: connection.spec)
                 avatar.addParameter(field: "wired.user.icon", value: Data(base64Encoded: picture, options: .ignoreUnknownCharacters))
                 _ = connection.send(message: avatar)
+
+                //let subscription = P7Message(withName: "wired.file.subscribe_directory", spec: connection.spec)
+                let subscription = P7Message(withName: "wired.file.subscribe_directory", spec: connection.spec)
+                //subscription.addParameter(field: "wired.file.path", value: "/Test")
+                _ = connection.send(message: subscription)
                 
             } else {
                 print(connection.socket.errors)
