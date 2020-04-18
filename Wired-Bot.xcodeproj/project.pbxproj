@@ -29,6 +29,7 @@
 		2AB81D942438E5BC002274CD /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB81D932438E5BC002274CD /* Preferences.swift */; };
 		2AB81D9624390727002274CD /* Commands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB81D9524390727002274CD /* Commands.swift */; };
 		2ACE1EEF244B46D800DE1253 /* Preferences in Frameworks */ = {isa = PBXBuildFile; productRef = 2ACE1EEE244B46D800DE1253 /* Preferences */; };
+		2ACE1EF3244B497900DE1253 /* wired.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2ACE1EF2244B497900DE1253 /* wired.xml */; };
 		2AE75AAF244B374000A209A7 /* WiredSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2AE75AAE244B374000A209A7 /* WiredSwift */; };
 		4C0A99F123FBD4F30008A7A6 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 4C0A99F023FBD4F30008A7A6 /* LICENSE */; };
 		4C1319AF231862DF00C9FA0C /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 4C1319AE231862DF00C9FA0C /* README.md */; };
@@ -44,9 +45,10 @@
 		2AAF55852437953E00A07732 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
-			dstPath = Extensionscripts;
+			dstPath = "";
 			dstSubfolderSpec = 7;
 			files = (
+				2ACE1EF3244B497900DE1253 /* wired.xml in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,6 +97,7 @@
 		2AB2AED02437BB8000C5B242 /* wiredbot.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = wiredbot.html; sourceTree = "<group>"; };
 		2AB81D932438E5BC002274CD /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 		2AB81D9524390727002274CD /* Commands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commands.swift; sourceTree = "<group>"; };
+		2ACE1EF2244B497900DE1253 /* wired.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = wired.xml; sourceTree = "<group>"; };
 		4C0A99F023FBD4F30008A7A6 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		4C1319AE231862DF00C9FA0C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		4C374D9B23FDE02E006D3E7C /* swift.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; name = swift.yml; path = .github/workflows/swift.yml; sourceTree = "<group>"; };
@@ -165,6 +168,7 @@
 		4C74285522DCECE800D6E6F9 = {
 			isa = PBXGroup;
 			children = (
+				2ACE1EF2244B497900DE1253 /* wired.xml */,
 				4C990ED12405D7380059BC8B /* .gitignore */,
 				4C0A99F023FBD4F30008A7A6 /* LICENSE */,
 				4C1319AE231862DF00C9FA0C /* README.md */,

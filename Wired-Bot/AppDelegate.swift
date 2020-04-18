@@ -24,7 +24,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate {
     }
 
     var connection:Connection?
-    
+
+    let spec_path = Bundle.main.path(forResource: "wired", ofType: "xml")
+
     func connectionDidReceiveMessage(connection: Connection, message: P7Message) {
         if connection == self.connection {
             if message.name == "wired.chat.say" {
@@ -239,23 +241,25 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate {
         let autoconnect = UserDefaults.standard.bool(forKey: "Autoconnect")
         if autoconnect == true {
 
-            let spec = P7Spec()
-
+            let spec = P7Spec(withPath: spec_path)
+            
             let get_url = UserDefaults.standard.string(forKey: "Address")!
             let url = Url(withString: "wired://" + get_url )
             let user_login = UserDefaults.standard.string(forKey: "Login")
             let user_pass = UserDefaults.standard.string(forKey: "Password")
             url.login = user_login ?? ""
             url.password = user_pass ?? ""
-
+                     
             let connection = Connection(withSpec: spec, delegate: self)
-
+            
             let nickname = UserDefaults.standard.string(forKey: "Nick")
             connection.nick = (nickname ?? "")
 
             let status = UserDefaults.standard.string(forKey: "Status")
             connection.status = (status ?? "")
 
+            
+            
             if connection.connect(withUrl: url) {
                 _ = connection.joinChat(chatID: 1)
                 self.connection = connection
@@ -357,7 +361,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate {
     
     @objc private func pressConnectbutton(notification: NSNotification){
 
-        let spec = P7Spec()
+        let spec = P7Spec(withPath: spec_path)
 
         let get_url = UserDefaults.standard.string(forKey: "Address")!
         let url = Url(withString: "wired://" + get_url )
