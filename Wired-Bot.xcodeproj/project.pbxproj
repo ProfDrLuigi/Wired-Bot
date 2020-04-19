@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A4CC61C244C4792007CCBA3 /* NLPBot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4CC61A244C4792007CCBA3 /* NLPBot.swift */; };
+		2A4CC620244C47DA007CCBA3 /* FeedKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2A4CC61F244C47DA007CCBA3 /* FeedKit */; };
+		2A4CC623244C4840007CCBA3 /* Yams in Frameworks */ = {isa = PBXBuildFile; productRef = 2A4CC622244C4840007CCBA3 /* Yams */; };
+		2A4CC626244C4852007CCBA3 /* Fuse in Frameworks */ = {isa = PBXBuildFile; productRef = 2A4CC625244C4852007CCBA3 /* Fuse */; };
 		2A66D4F6243730AF00635F70 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A66D4F5243730AF00635F70 /* ViewController.swift */; };
 		2A66D5102437310A00635F70 /* UnselectedTableRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A66D4F82437310A00635F70 /* UnselectedTableRowView.swift */; };
 		2A66D5112437310A00635F70 /* MSCBadgedTemplateImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A66D4F92437310A00635F70 /* MSCBadgedTemplateImage.swift */; };
@@ -67,6 +71,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2A4CC61A244C4792007CCBA3 /* NLPBot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NLPBot.swift; sourceTree = "<group>"; };
 		2A66D4F5243730AF00635F70 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2A66D4F82437310A00635F70 /* UnselectedTableRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnselectedTableRowView.swift; sourceTree = "<group>"; };
 		2A66D4F92437310A00635F70 /* MSCBadgedTemplateImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSCBadgedTemplateImage.swift; sourceTree = "<group>"; };
@@ -121,6 +126,9 @@
 				4CF6737A2404214800A8EDC2 /* CZlib in Frameworks */,
 				2AAF558B2437A11000A07732 /* ShellOut in Frameworks */,
 				2A8E9E8024337B6F005B5261 /* Sparkle.framework in Frameworks */,
+				2A4CC626244C4852007CCBA3 /* Fuse in Frameworks */,
+				2A4CC623244C4840007CCBA3 /* Yams in Frameworks */,
+				2A4CC620244C47DA007CCBA3 /* FeedKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -195,6 +203,7 @@
 				2A66D4F72437310A00635F70 /* Extensions */,
 				4C74286122DCECE800D6E6F9 /* AppDelegate.swift */,
 				2AAF558024376FFC00A07732 /* BotMainWindow.swift */,
+				2A4CC61A244C4792007CCBA3 /* NLPBot.swift */,
 				2AB81D9524390727002274CD /* Commands.swift */,
 				2AB81D932438E5BC002274CD /* Preferences.swift */,
 				2A66D4F5243730AF00635F70 /* ViewController.swift */,
@@ -238,6 +247,9 @@
 				2AAF558A2437A11000A07732 /* ShellOut */,
 				2AE75AAE244B374000A209A7 /* WiredSwift */,
 				2ACE1EEE244B46D800DE1253 /* Preferences */,
+				2A4CC61F244C47DA007CCBA3 /* FeedKit */,
+				2A4CC622244C4840007CCBA3 /* Yams */,
+				2A4CC625244C4852007CCBA3 /* Fuse */,
 			);
 			productName = "Wired 3";
 			productReference = 4C74285E22DCECE800D6E6F9 /* Wired-Bot.app */;
@@ -280,6 +292,9 @@
 				2AAF55892437A11000A07732 /* XCRemoteSwiftPackageReference "ShellOut" */,
 				2AE75AAD244B374000A209A7 /* XCRemoteSwiftPackageReference "WiredSwift" */,
 				2ACE1EED244B46D800DE1253 /* XCRemoteSwiftPackageReference "Preferences" */,
+				2A4CC61E244C47DA007CCBA3 /* XCRemoteSwiftPackageReference "FeedKit" */,
+				2A4CC621244C4840007CCBA3 /* XCRemoteSwiftPackageReference "Yams" */,
+				2A4CC624244C4852007CCBA3 /* XCRemoteSwiftPackageReference "fuse-swift" */,
 			);
 			productRefGroup = 4C74285F22DCECE800D6E6F9 /* Products */;
 			projectDirPath = "";
@@ -335,6 +350,7 @@
 				2A66D5152437310A00635F70 /* BBElement.m in Sources */,
 				2A66D5142437310A00635F70 /* FileManager+ResourceFork.swift in Sources */,
 				2A66D51D2437310A00635F70 /* WiredColors.swift in Sources */,
+				2A4CC61C244C4792007CCBA3 /* NLPBot.swift in Sources */,
 				2A66D5192437310A00635F70 /* BBParsingElement.m in Sources */,
 				2A66D51B2437310A00635F70 /* AttributedString.swift in Sources */,
 				2A66D5132437310A00635F70 /* TabViewController.swift in Sources */,
@@ -575,6 +591,30 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		2A4CC61E244C47DA007CCBA3 /* XCRemoteSwiftPackageReference "FeedKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/nmdias/FeedKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.1.2;
+			};
+		};
+		2A4CC621244C4840007CCBA3 /* XCRemoteSwiftPackageReference "Yams" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jpsim/Yams.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+		2A4CC624244C4852007CCBA3 /* XCRemoteSwiftPackageReference "fuse-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/krisk/fuse-swift";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		2AAF55892437A11000A07732 /* XCRemoteSwiftPackageReference "ShellOut" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/JohnSundell/ShellOut.git";
@@ -666,6 +706,21 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		2A4CC61F244C47DA007CCBA3 /* FeedKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2A4CC61E244C47DA007CCBA3 /* XCRemoteSwiftPackageReference "FeedKit" */;
+			productName = FeedKit;
+		};
+		2A4CC622244C4840007CCBA3 /* Yams */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2A4CC621244C4840007CCBA3 /* XCRemoteSwiftPackageReference "Yams" */;
+			productName = Yams;
+		};
+		2A4CC625244C4852007CCBA3 /* Fuse */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2A4CC624244C4852007CCBA3 /* XCRemoteSwiftPackageReference "fuse-swift" */;
+			productName = Fuse;
+		};
 		2AAF558A2437A11000A07732 /* ShellOut */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 2AAF55892437A11000A07732 /* XCRemoteSwiftPackageReference "ShellOut" */;
