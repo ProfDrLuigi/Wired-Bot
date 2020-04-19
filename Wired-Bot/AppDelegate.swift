@@ -186,6 +186,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate, BotDeleg
     
     func connectionDisconnected(connection: Connection, error: Error?) {
         // if we received a disconnect signal, we clear the local connection reference
+        UserDefaults.standard.set(false, forKey: "Connected")
         self.connection = nil
     }
 
