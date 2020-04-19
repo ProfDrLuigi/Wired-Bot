@@ -32,7 +32,6 @@
 		2AAF558B2437A11000A07732 /* ShellOut in Frameworks */ = {isa = PBXBuildFile; productRef = 2AAF558A2437A11000A07732 /* ShellOut */; };
 		2AB81D942438E5BC002274CD /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB81D932438E5BC002274CD /* Preferences.swift */; };
 		2AB81D9624390727002274CD /* Commands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB81D9524390727002274CD /* Commands.swift */; };
-		2ACE1EEF244B46D800DE1253 /* Preferences in Frameworks */ = {isa = PBXBuildFile; productRef = 2ACE1EEE244B46D800DE1253 /* Preferences */; };
 		2ACE1EF3244B497900DE1253 /* wired.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2ACE1EF2244B497900DE1253 /* wired.xml */; };
 		2AE75AAF244B374000A209A7 /* WiredSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2AE75AAE244B374000A209A7 /* WiredSwift */; };
 		4C0A99F123FBD4F30008A7A6 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 4C0A99F023FBD4F30008A7A6 /* LICENSE */; };
@@ -42,7 +41,6 @@
 		4C74286922DCECE900D6E6F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C74286722DCECE900D6E6F9 /* Main.storyboard */; };
 		4CE2AA54243350160072E0B3 /* (null) in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4CE2AA55243350190072E0B3 /* (null) in Frameworks */ = {isa = PBXBuildFile; };
-		4CF6737A2404214800A8EDC2 /* CZlib in Frameworks */ = {isa = PBXBuildFile; productRef = 4CF673792404214800A8EDC2 /* CZlib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -121,9 +119,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4CE2AA55243350190072E0B3 /* (null) in Frameworks */,
-				2ACE1EEF244B46D800DE1253 /* Preferences in Frameworks */,
 				2AE75AAF244B374000A209A7 /* WiredSwift in Frameworks */,
-				4CF6737A2404214800A8EDC2 /* CZlib in Frameworks */,
 				2AAF558B2437A11000A07732 /* ShellOut in Frameworks */,
 				2A8E9E8024337B6F005B5261 /* Sparkle.framework in Frameworks */,
 				2A4CC626244C4852007CCBA3 /* Fuse in Frameworks */,
@@ -243,10 +239,8 @@
 			);
 			name = "Wired-Bot";
 			packageProductDependencies = (
-				4CF673792404214800A8EDC2 /* CZlib */,
 				2AAF558A2437A11000A07732 /* ShellOut */,
 				2AE75AAE244B374000A209A7 /* WiredSwift */,
-				2ACE1EEE244B46D800DE1253 /* Preferences */,
 				2A4CC61F244C47DA007CCBA3 /* FeedKit */,
 				2A4CC622244C4840007CCBA3 /* Yams */,
 				2A4CC625244C4852007CCBA3 /* Fuse */,
@@ -281,17 +275,8 @@
 			);
 			mainGroup = 4C74285522DCECE800D6E6F9;
 			packageReferences = (
-				4CF673762404191600A8EDC2 /* XCRemoteSwiftPackageReference "CZlib" */,
-				4C75B99E2433705C00BE8857 /* XCRemoteSwiftPackageReference "CryptoSwift" */,
-				4C75B9A1243370C900BE8857 /* XCRemoteSwiftPackageReference "Socket.swift" */,
-				4C75B9A4243370F700BE8857 /* XCRemoteSwiftPackageReference "BlueRSA" */,
-				4C75B9A72433717B00BE8857 /* XCRemoteSwiftPackageReference "AEXML" */,
-				4C75BA342433938400BE8857 /* XCRemoteSwiftPackageReference "KeychainAccess" */,
-				4C8874782434836C00A5D4A0 /* XCRemoteSwiftPackageReference "JGProgressHUD" */,
-				4C8874852434DE9000A5D4A0 /* XCRemoteSwiftPackageReference "Reachability" */,
 				2AAF55892437A11000A07732 /* XCRemoteSwiftPackageReference "ShellOut" */,
 				2AE75AAD244B374000A209A7 /* XCRemoteSwiftPackageReference "WiredSwift" */,
-				2ACE1EED244B46D800DE1253 /* XCRemoteSwiftPackageReference "Preferences" */,
 				2A4CC61E244C47DA007CCBA3 /* XCRemoteSwiftPackageReference "FeedKit" */,
 				2A4CC621244C4840007CCBA3 /* XCRemoteSwiftPackageReference "Yams" */,
 				2A4CC624244C4852007CCBA3 /* XCRemoteSwiftPackageReference "fuse-swift" */,
@@ -623,84 +608,12 @@
 				minimumVersion = 2.3.0;
 			};
 		};
-		2ACE1EED244B46D800DE1253 /* XCRemoteSwiftPackageReference "Preferences" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/sindresorhus/Preferences";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.1;
-			};
-		};
 		2AE75AAD244B374000A209A7 /* XCRemoteSwiftPackageReference "WiredSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/nark/WiredSwift";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 1.0.0;
-			};
-		};
-		4C75B99E2433705C00BE8857 /* XCRemoteSwiftPackageReference "CryptoSwift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/krzyzanowskim/CryptoSwift.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.3.0;
-			};
-		};
-		4C75B9A1243370C900BE8857 /* XCRemoteSwiftPackageReference "Socket.swift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/BiAtoms/Socket.swift.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.4.0;
-			};
-		};
-		4C75B9A4243370F700BE8857 /* XCRemoteSwiftPackageReference "BlueRSA" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/IBM-Swift/BlueRSA";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.35;
-			};
-		};
-		4C75B9A72433717B00BE8857 /* XCRemoteSwiftPackageReference "AEXML" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/tadija/AEXML.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 4.5.0;
-			};
-		};
-		4C75BA342433938400BE8857 /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 4.1.0;
-			};
-		};
-		4C8874782434836C00A5D4A0 /* XCRemoteSwiftPackageReference "JGProgressHUD" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/JonasGessner/JGProgressHUD";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.1.0;
-			};
-		};
-		4C8874852434DE9000A5D4A0 /* XCRemoteSwiftPackageReference "Reachability" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ashleymills/Reachability.swift";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
-			};
-		};
-		4CF673762404191600A8EDC2 /* XCRemoteSwiftPackageReference "CZlib" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/IBM-Swift/CZlib.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.1.2;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -726,20 +639,10 @@
 			package = 2AAF55892437A11000A07732 /* XCRemoteSwiftPackageReference "ShellOut" */;
 			productName = ShellOut;
 		};
-		2ACE1EEE244B46D800DE1253 /* Preferences */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 2ACE1EED244B46D800DE1253 /* XCRemoteSwiftPackageReference "Preferences" */;
-			productName = Preferences;
-		};
 		2AE75AAE244B374000A209A7 /* WiredSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 2AE75AAD244B374000A209A7 /* XCRemoteSwiftPackageReference "WiredSwift" */;
 			productName = WiredSwift;
-		};
-		4CF673792404214800A8EDC2 /* CZlib */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4CF673762404191600A8EDC2 /* XCRemoteSwiftPackageReference "CZlib" */;
-			productName = CZlib;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
