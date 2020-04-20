@@ -51,22 +51,5 @@ class Preferences: NSViewController {
             return
         }
     }
-    
-    
-    @IBAction func emojicons(_ sender: Any) {
-        let event1 = CGEvent(keyboardEventSource: nil, virtualKey: 0x37, keyDown: true);
-        event1?.flags = CGEventFlags.maskControl;
-        event1?.post(tap: CGEventTapLocation.cghidEventTap);
-
-        let event2 = CGEvent(keyboardEventSource: nil, virtualKey: 0x3B, keyDown: true);
-        event2?.flags = CGEventFlags.maskControl;
-        event2?.post(tap: CGEventTapLocation.cghidEventTap);
-        
-        let event3 = CGEvent(keyboardEventSource: nil, virtualKey: 0x31, keyDown: true);
-        event3?.flags = CGEventFlags.maskControl;
-        event3?.post(tap: CGEventTapLocation.cghidEventTap);
-      
-        
-    }
-    
+   
 }

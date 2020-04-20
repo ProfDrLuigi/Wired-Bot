@@ -52,8 +52,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate, BotDeleg
 
     var connection:Connection?
 
-    let spec_path = Bundle.main.path(forResource: "wired", ofType: "xml")
-    
     func connectionDidReceiveMessage(connection: Connection, message: P7Message) {
         if connection == self.connection {
             if message.name == "wired.chat.say" {
@@ -284,7 +282,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate, BotDeleg
         let autoconnect = UserDefaults.standard.bool(forKey: "Autoconnect")
         if autoconnect == true {
 
-            let spec = P7Spec(withPath: spec_path)
+            let spec = P7Spec()
             
             let get_url = UserDefaults.standard.string(forKey: "Address")!
             let url = Url(withString: "wired://" + get_url )
@@ -351,7 +349,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate, BotDeleg
 
     }
 
-    
     func applicationWillTerminate(_ aNotification: Notification) {
         let defaults = UserDefaults.standard
         defaults.synchronize()
@@ -418,7 +415,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate, BotDeleg
     
     @objc private func pressConnectbutton(notification: NSNotification){
 
-        let spec = P7Spec(withPath: spec_path)
+        let spec = P7Spec()
 
         let get_url = UserDefaults.standard.string(forKey: "Address")!
         let url = Url(withString: "wired://" + get_url )

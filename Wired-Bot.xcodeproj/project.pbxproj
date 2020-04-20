@@ -11,8 +11,6 @@
 		2A4CC620244C47DA007CCBA3 /* FeedKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2A4CC61F244C47DA007CCBA3 /* FeedKit */; };
 		2A4CC623244C4840007CCBA3 /* Yams in Frameworks */ = {isa = PBXBuildFile; productRef = 2A4CC622244C4840007CCBA3 /* Yams */; };
 		2A4CC626244C4852007CCBA3 /* Fuse in Frameworks */ = {isa = PBXBuildFile; productRef = 2A4CC625244C4852007CCBA3 /* Fuse */; };
-		2A5C7BC9244DA42B005D3755 /* FileWatcher_macOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A5C7BC7244DA426005D3755 /* FileWatcher_macOS.framework */; };
-		2A5C7BCA244DA42B005D3755 /* FileWatcher_macOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2A5C7BC7244DA426005D3755 /* FileWatcher_macOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2A66D4F6243730AF00635F70 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A66D4F5243730AF00635F70 /* ViewController.swift */; };
 		2A66D5102437310A00635F70 /* UnselectedTableRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A66D4F82437310A00635F70 /* UnselectedTableRowView.swift */; };
 		2A66D5112437310A00635F70 /* MSCBadgedTemplateImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A66D4F92437310A00635F70 /* MSCBadgedTemplateImage.swift */; };
@@ -62,7 +60,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				2A5C7BCA244DA42B005D3755 /* FileWatcher_macOS.framework in Embed Frameworks */,
 				4CE2AA54243350160072E0B3 /* (null) in Embed Frameworks */,
 				2A8E9E8124337B6F005B5261 /* Sparkle.framework in Embed Frameworks */,
 			);
@@ -73,7 +70,6 @@
 
 /* Begin PBXFileReference section */
 		2A4CC61A244C4792007CCBA3 /* NLPBot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NLPBot.swift; sourceTree = "<group>"; };
-		2A5C7BC7244DA426005D3755 /* FileWatcher_macOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FileWatcher_macOS.framework; path = Carthage/Build/Mac/FileWatcher_macOS.framework; sourceTree = "<group>"; };
 		2A66D4F5243730AF00635F70 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2A66D4F82437310A00635F70 /* UnselectedTableRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnselectedTableRowView.swift; sourceTree = "<group>"; };
 		2A66D4F92437310A00635F70 /* MSCBadgedTemplateImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSCBadgedTemplateImage.swift; sourceTree = "<group>"; };
@@ -129,7 +125,6 @@
 				2A4CC626244C4852007CCBA3 /* Fuse in Frameworks */,
 				2A4CC623244C4840007CCBA3 /* Yams in Frameworks */,
 				2A4CC620244C47DA007CCBA3 /* FeedKit in Frameworks */,
-				2A5C7BC9244DA42B005D3755 /* FileWatcher_macOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,7 +214,6 @@
 		4CF6736B2403F48000A8EDC2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				2A5C7BC7244DA426005D3755 /* FileWatcher_macOS.framework */,
 				2A8E9E7F24337B6E005B5261 /* Sparkle.framework */,
 			);
 			name = Frameworks;

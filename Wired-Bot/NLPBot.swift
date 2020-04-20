@@ -82,7 +82,7 @@ public class Bot {
         if let v = config?["nick"] as? String {
             self.nickname = v
         }
-        
+
         if let v = config?["fuzzyness"] as? Double {
             self.fuzzyness = v
         }

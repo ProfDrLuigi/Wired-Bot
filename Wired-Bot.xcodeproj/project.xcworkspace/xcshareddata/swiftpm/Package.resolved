@@ -51,7 +51,7 @@
         "repositoryURL": "https://github.com/krisk/fuse-swift",
         "state": {
           "branch": "master",
-          "revision": "717d8d64ffed2e9e0d5bab9cfd0df930465fbff5",
+          "revision": "c7adb16edc119b6b3cfd5f2bc8ca5a7323482926",
           "version": null
         }
       },
@@ -87,8 +87,8 @@
         "repositoryURL": "https://github.com/nark/WiredSwift",
         "state": {
           "branch": null,
-          "revision": "9dad2d5ac2d57f0375812d10445e648e062b8fb7",
-          "version": "1.0.1"
+          "revision": "fb389d7e39582aa90596c4e7b7020bf2d65df1a6",
+          "version": "1.0.6"
         }
       },
       {
