@@ -1,4 +1,2 @@
-github "MessageKit/MessageKit" "3.1.0"
-github "nathantannar4/InputBarAccessoryView" "4.3.2"
-github "sindresorhus/Preferences" "v1.0.1"
+github "eonist/FileWatcher" "ff8488d5472ae7e885641844bf9a9fe6a4be5f1c"
 github "sparkle-project/Sparkle" "v1.23.0"

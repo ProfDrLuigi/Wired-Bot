@@ -10,6 +10,7 @@ import Cocoa
 import WiredSwift
 import ShellOut
 import Foundation
+//import FileWatcher_macOS
 
 extension String
 {
@@ -22,7 +23,7 @@ extension String
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate, BotDelegate {
-
+    
     private static var config:[String:Any] = [:]
     
     private static var bot:Bot!
@@ -128,10 +129,17 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate, BotDeleg
                        }
                     }
                      if saidText.starts(with: "/bot test") {
-                        print("yo")
-                        for dir in self.directories {
-                            //d.bot(self, wantToList: dir)
-                            print(dir)
+                        let keys: [URLResourceKey] = [.volumeNameKey, .volumeIsRemovableKey, .volumeIsEjectableKey]
+                        let paths = FileManager().mountedVolumeURLs(includingResourceValuesForKeys: keys, options: [])
+                        if let urls = paths {
+                            for url in urls {
+                                let components = url.pathComponents
+                                if components.count > 1
+                                   && components[1] == "Volumes"
+                                {
+                                    print(url)
+                                }
+                            }
                         }
                     }
                 }
@@ -327,6 +335,20 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate, BotDeleg
                 connectalert()
             }
         }
+
+        
+        //let filewatcher = FileWatcher([NSString(string: "~/Desktop/Test/mac.txt").expandingTildeInPath])
+        //filewatcher.callback = { event in
+        //let path = "/Users/luigi/Desktop/Test/mac.txt"
+        //let data: NSData? = NSData(contentsOfFile: path)
+        //    if let fileData = data {
+        //        let content = NSString(data: fileData as Data, encoding:String.Encoding.utf8.rawValue)! as String
+        //        print(content)
+        //    }
+        //}
+        //filewatcher.queue = DispatchQueue.global()
+        //filewatcher.start() // start monitoring
+
     }
 
     
