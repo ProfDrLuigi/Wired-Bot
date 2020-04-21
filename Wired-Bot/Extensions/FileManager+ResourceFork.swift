@@ -19,7 +19,7 @@ extension FileManager {
             let attributes = try FileManager.default.attributesOfItem(atPath: path)
             
             print(attributes)
-            print(attributes[.size])
+            print(attributes[.size] ?? "")
             
             return attributes[.size] as! UInt64
             
@@ -58,7 +58,7 @@ extension FileManager {
         attrs.fileattr      = 0
         attrs.forkattr      = 0
         
-        var mpath = path
+        let mpath = path
         let attrOK = mpath.withCString { (cstr) -> Bool in
             if getattrlist(cstr, &attrs, &finderinfo, MemoryLayout<FileManagerFinderInfo>.size, UInt32(FSOPT_NOFOLLOW)) < 0 {
                 return true

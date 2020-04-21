@@ -10,7 +10,6 @@ import Cocoa
 import WiredSwift
 import ShellOut
 import Foundation
-//import FileWatcher_macOS
 
 extension String
 {
@@ -536,21 +535,21 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate, BotDeleg
     /feeds show the latest feeds entries
     /files show latest indexed files
     """
-                if let d = self.delegate {
+                if self.delegate != nil {
                     print(help)
                    //d.bot(self, wantToSend: help)
                }
             }
             else if command == "/files" {
                 if self.feeds.count > 0 {
-                    if let d = self.delegate {
+                    if self.delegate != nil {
                         for dir in self.directories {
                             //d.bot(self, wantToList: dir)
                             print(dir)
                         }
                     }
                 } else {
-                    if let d = self.delegate {
+                    if self.delegate != nil {
                         //d.bot(self, wantToSend: "Sorry, no watched directory has been configured yet")
                         print("Sorry, no watched directory has been configured ye")
                     }
