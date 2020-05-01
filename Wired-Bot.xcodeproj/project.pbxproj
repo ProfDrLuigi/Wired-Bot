@@ -28,6 +28,7 @@
 		2A66D51B2437310A00635F70 /* AttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A66D50D2437310A00635F70 /* AttributedString.swift */; };
 		2A66D51C2437310A00635F70 /* TimeAgo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A66D50E2437310A00635F70 /* TimeAgo.swift */; };
 		2A66D51D2437310A00635F70 /* WiredColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A66D50F2437310A00635F70 /* WiredColors.swift */; };
+		2A9F5659245C27E300BD3865 /* RandomGreetings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9F5658245C27E300BD3865 /* RandomGreetings.swift */; };
 		2AAF558124376FFC00A07732 /* BotMainWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAF558024376FFC00A07732 /* BotMainWindow.swift */; };
 		2AAF558B2437A11000A07732 /* ShellOut in Frameworks */ = {isa = PBXBuildFile; productRef = 2AAF558A2437A11000A07732 /* ShellOut */; };
 		2AB81D942438E5BC002274CD /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB81D932438E5BC002274CD /* Preferences.swift */; };
@@ -95,6 +96,7 @@
 		2A66D50E2437310A00635F70 /* TimeAgo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeAgo.swift; sourceTree = "<group>"; };
 		2A66D50F2437310A00635F70 /* WiredColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WiredColors.swift; sourceTree = "<group>"; };
 		2A8E9E7F24337B6E005B5261 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = Carthage/Build/Mac/Sparkle.framework; sourceTree = "<group>"; };
+		2A9F5658245C27E300BD3865 /* RandomGreetings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomGreetings.swift; sourceTree = "<group>"; };
 		2AAF558024376FFC00A07732 /* BotMainWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BotMainWindow.swift; sourceTree = "<group>"; };
 		2AAF558C2437AEAC00A07732 /* WiredSwift.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WiredSwift.entitlements; sourceTree = "<group>"; };
 		2AB2AED02437BB8000C5B242 /* wiredbot.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = wiredbot.html; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 				2AAF558024376FFC00A07732 /* BotMainWindow.swift */,
 				2A4CC61A244C4792007CCBA3 /* NLPBot.swift */,
 				2AB81D9524390727002274CD /* Commands.swift */,
+				2A9F5658245C27E300BD3865 /* RandomGreetings.swift */,
 				2AB81D932438E5BC002274CD /* Preferences.swift */,
 				2A66D4F5243730AF00635F70 /* ViewController.swift */,
 				2AAF558C2437AEAC00A07732 /* WiredSwift.entitlements */,
@@ -231,8 +234,8 @@
 				4C74285C22DCECE800D6E6F9 /* Resources */,
 				4CD0205922DF04BD0008B36C /* Embed Frameworks */,
 				2AAF55852437953E00A07732 /* CopyFiles */,
-				2AAF558824379A8400A07732 /* ShellScript */,
 				2A29DE9D245C160B00112421 /* Code Sign */,
+				2AAF558824379A8400A07732 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -368,6 +371,7 @@
 				2A66D5102437310A00635F70 /* UnselectedTableRowView.swift in Sources */,
 				2AB81D942438E5BC002274CD /* Preferences.swift in Sources */,
 				2A66D51A2437310A00635F70 /* BBAttribute.m in Sources */,
+				2A9F5659245C27E300BD3865 /* RandomGreetings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
