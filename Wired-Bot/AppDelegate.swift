@@ -19,6 +19,14 @@ extension String
     }
 }
 
+extension Array where Element: Equatable {
+
+    // Remove first collection element that is equal to the given `object`:
+    mutating func remove(object: Element) {
+        guard let index = firstIndex(of: object) else {return}
+        remove(at: index)
+    }
+}
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate, BotDelegate {
@@ -189,11 +197,16 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate, BotDeleg
                         SentencesArray.append(check_GreetingUser_Text_Random_6)
                     }
 
+                    let last_used = UserDefaults.standard.string(forKey: "GreetingUser_Text_Last_Used")
+                    
+                    let objectToRemove = last_used
+                    SentencesArray.remove(object: objectToRemove)
+                    _ = SentencesArray.randomElement()
+                    
                     let text = (SentencesArray.randomElement()!! as NSString).replacingOccurrences(of: "%NICK%", with: userNick!)
 
-                        
-                    //.replace(target: "%NICK%", withString: userNick!)
-
+                    UserDefaults.standard.set(text, forKey: "GreetingUser_Text_Last_Used")
+                    
                     response.addParameter(field: "wired.chat.say", value: text)
                     sleep(2)
                    _ = connection.send(message: response)
