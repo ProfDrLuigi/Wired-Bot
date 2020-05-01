@@ -149,11 +149,53 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate, BotDeleg
                 let userNick = AppDelegate.user(withID: userID!)?.nick
                 let message = UserDefaults.standard.bool(forKey: "GreetingUser")
                 if message == true {
-                   let response = P7Message(withName: "wired.chat.send_say", spec: connection.spec)
-                   response.addParameter(field: "wired.chat.id", value: UInt32(1))
-                    let text = UserDefaults.standard.string(forKey: "GreetingUser_Text")!.replace(target: "%NICK%", withString: userNick!)
+                    let response = P7Message(withName: "wired.chat.send_say", spec: connection.spec)
+                    response.addParameter(field: "wired.chat.id", value: UInt32(1))
+                    
+                    let check_GreetingUser_Text = UserDefaults.standard.string(forKey: "GreetingUser_Text")
+                    
+                    var SentencesArray = [check_GreetingUser_Text]
+                    
+                    let check_GreetingUser_Text_Random_1 = UserDefaults.standard.string(forKey: "GreetingUser_Text_Random_1")
+                    let check_GreetingUser_Text_Random_2 = UserDefaults.standard.string(forKey: "GreetingUser_Text_Random_2")
+                    let check_GreetingUser_Text_Random_3 = UserDefaults.standard.string(forKey: "GreetingUser_Text_Random_3")
+                    let check_GreetingUser_Text_Random_4 = UserDefaults.standard.string(forKey: "GreetingUser_Text_Random_4")
+                    let check_GreetingUser_Text_Random_5 = UserDefaults.standard.string(forKey: "GreetingUser_Text_Random_5")
+                    let check_GreetingUser_Text_Random_6 = UserDefaults.standard.string(forKey: "GreetingUser_Text_Random_6")
+                    
+                    let check_GreetingUser_Text_Random_1_deactivated = UserDefaults.standard.bool(forKey: "GreetingUser_Text_Random_1_deactivated")
+                    let check_GreetingUser_Text_Random_2_deactivated = UserDefaults.standard.bool(forKey: "GreetingUser_Text_Random_2_deactivated")
+                    let check_GreetingUser_Text_Random_3_deactivated = UserDefaults.standard.bool(forKey: "GreetingUser_Text_Random_3_deactivated")
+                    let check_GreetingUser_Text_Random_4_deactivated = UserDefaults.standard.bool(forKey: "GreetingUser_Text_Random_4_deactivated")
+                    let check_GreetingUser_Text_Random_5_deactivated = UserDefaults.standard.bool(forKey: "GreetingUser_Text_Random_5_deactivated")
+                    let check_GreetingUser_Text_Random_6_deactivated = UserDefaults.standard.bool(forKey: "GreetingUser_Text_Random_6_deactivated")
+                    
+                    if check_GreetingUser_Text_Random_1_deactivated == false && check_GreetingUser_Text_Random_1 != "" {
+                        SentencesArray.append(check_GreetingUser_Text_Random_1)
+                    }
+                    if check_GreetingUser_Text_Random_2_deactivated == false && check_GreetingUser_Text_Random_2 != "" {
+                        SentencesArray.append(check_GreetingUser_Text_Random_2)
+                    }
+                    if check_GreetingUser_Text_Random_3_deactivated == false && check_GreetingUser_Text_Random_3 != "" {
+                        SentencesArray.append(check_GreetingUser_Text_Random_3)
+                    }
+                    if check_GreetingUser_Text_Random_4_deactivated == false && check_GreetingUser_Text_Random_4 != "" {
+                        SentencesArray.append(check_GreetingUser_Text_Random_4)
+                    }
+                    if check_GreetingUser_Text_Random_5_deactivated == false && check_GreetingUser_Text_Random_5 != "" {
+                        SentencesArray.append(check_GreetingUser_Text_Random_5)
+                    }
+                    if check_GreetingUser_Text_Random_6_deactivated == false && check_GreetingUser_Text_Random_6 != "" {
+                        SentencesArray.append(check_GreetingUser_Text_Random_6)
+                    }
+
+                    let text = (SentencesArray.randomElement()!! as NSString).replacingOccurrences(of: "%NICK%", with: userNick!)
+
+                        
+                    //.replace(target: "%NICK%", withString: userNick!)
+
                     response.addParameter(field: "wired.chat.say", value: text)
-                   sleep(2)
+                    sleep(2)
                    _ = connection.send(message: response)
                 }
 
