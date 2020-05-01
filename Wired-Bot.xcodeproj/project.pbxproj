@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A29DE98245C112700112421 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A8E9E7F24337B6E005B5261 /* Sparkle.framework */; };
+		2A29DE99245C112700112421 /* Sparkle.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2A8E9E7F24337B6E005B5261 /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2A4CC61C244C4792007CCBA3 /* NLPBot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4CC61A244C4792007CCBA3 /* NLPBot.swift */; };
 		2A4CC620244C47DA007CCBA3 /* FeedKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2A4CC61F244C47DA007CCBA3 /* FeedKit */; };
 		2A4CC623244C4840007CCBA3 /* Yams in Frameworks */ = {isa = PBXBuildFile; productRef = 2A4CC622244C4840007CCBA3 /* Yams */; };
@@ -26,8 +28,6 @@
 		2A66D51B2437310A00635F70 /* AttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A66D50D2437310A00635F70 /* AttributedString.swift */; };
 		2A66D51C2437310A00635F70 /* TimeAgo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A66D50E2437310A00635F70 /* TimeAgo.swift */; };
 		2A66D51D2437310A00635F70 /* WiredColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A66D50F2437310A00635F70 /* WiredColors.swift */; };
-		2A8E9E8024337B6F005B5261 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A8E9E7F24337B6E005B5261 /* Sparkle.framework */; };
-		2A8E9E8124337B6F005B5261 /* Sparkle.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2A8E9E7F24337B6E005B5261 /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2AAF558124376FFC00A07732 /* BotMainWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAF558024376FFC00A07732 /* BotMainWindow.swift */; };
 		2AAF558B2437A11000A07732 /* ShellOut in Frameworks */ = {isa = PBXBuildFile; productRef = 2AAF558A2437A11000A07732 /* ShellOut */; };
 		2AB81D942438E5BC002274CD /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB81D932438E5BC002274CD /* Preferences.swift */; };
@@ -61,7 +61,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				4CE2AA54243350160072E0B3 /* (null) in Embed Frameworks */,
-				2A8E9E8124337B6F005B5261 /* Sparkle.framework in Embed Frameworks */,
+				2A29DE99245C112700112421 /* Sparkle.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -121,7 +121,7 @@
 				4CE2AA55243350190072E0B3 /* (null) in Frameworks */,
 				2AE75AAF244B374000A209A7 /* WiredSwift in Frameworks */,
 				2AAF558B2437A11000A07732 /* ShellOut in Frameworks */,
-				2A8E9E8024337B6F005B5261 /* Sparkle.framework in Frameworks */,
+				2A29DE98245C112700112421 /* Sparkle.framework in Frameworks */,
 				2A4CC626244C4852007CCBA3 /* Fuse in Frameworks */,
 				2A4CC623244C4840007CCBA3 /* Yams in Frameworks */,
 				2A4CC620244C47DA007CCBA3 /* FeedKit in Frameworks */,
@@ -232,6 +232,7 @@
 				4CD0205922DF04BD0008B36C /* Embed Frameworks */,
 				2AAF55852437953E00A07732 /* CopyFiles */,
 				2AAF558824379A8400A07732 /* ShellScript */,
+				2A29DE9D245C160B00112421 /* Code Sign */,
 			);
 			buildRules = (
 			);
@@ -305,6 +306,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		2A29DE9D245C160B00112421 /* Code Sign */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Code Sign";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n# Type a script or drag a script file from your workspace to insert its path.\ncodesign --force --sign \"Apple Development: profdrluigi@gmx.de (TTMSQ63D2J)\" \"$BUILT_PRODUCTS_DIR/$PRODUCT_NAME.app\"\n";
+		};
 		2AAF558824379A8400A07732 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -497,8 +516,8 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 5;
-				DEVELOPMENT_TEAM = 4ATFWV7M4B;
+				CURRENT_PROJECT_VERSION = 6;
+				DEVELOPMENT_TEAM = VAVAMJQGB2;
 				ENABLE_HARDENED_RUNTIME = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -510,7 +529,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				MARKETING_VERSION = 0.0.5;
+				MARKETING_VERSION = 0.0.6;
 				PRODUCT_BUNDLE_IDENTIFIER = wiredbot.istation.pw;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -529,8 +548,8 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 5;
-				DEVELOPMENT_TEAM = 4ATFWV7M4B;
+				CURRENT_PROJECT_VERSION = 6;
+				DEVELOPMENT_TEAM = VAVAMJQGB2;
 				ENABLE_HARDENED_RUNTIME = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -542,7 +561,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				MARKETING_VERSION = 0.0.5;
+				MARKETING_VERSION = 0.0.6;
 				PRODUCT_BUNDLE_IDENTIFIER = wiredbot.istation.pw;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
