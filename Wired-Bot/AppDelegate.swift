@@ -457,6 +457,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate, BotDeleg
             if connection.isConnected() {
                 let message = P7Message(withName: "wired.user.set_icon", spec: connection.spec)
                 do {
+                print("bla")
                 let iconsrc = UserDefaults.standard.string(forKey: "IconSrc") ?? ""
                 let output = try shellOut(to: "base64", arguments: [iconsrc])
                 UserDefaults.standard.set(output, forKey: "Avatar")

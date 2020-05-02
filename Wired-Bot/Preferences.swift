@@ -10,10 +10,23 @@ import Cocoa
 import Foundation
 
 class Preferences: NSViewController {
-
-    @IBOutlet weak var png_select: NSTextField!
-
     
+    
+    @IBOutlet weak var avatar: NSImageView!
+    
+    override func viewDidLoad() {
+        
+//        let base64pic = UserDefaults.standard.string(forKey: "Avatar")!
+//        let decodedData = NSData(base64Encoded: base64pic, options: [])
+//            if let data = decodedData {
+//                let decodedimage = NSImage(data: data as Data)
+//                self.avatar.image = decodedimage
+//            } else {
+//                print("error with decodedData")
+//            }
+
+    }
+
     @IBAction func set_nick(_ sender: Any) {
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "setNick"), object: nil)
     }
@@ -21,11 +34,6 @@ class Preferences: NSViewController {
     @IBAction func set_status(_ sender: Any) {
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "setStatus"), object: nil)
     }
-
-    @IBAction func set_icon(_ sender: Any) {
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "setIcon"), object: nil)
-    }
-    
 
     @IBAction func fileselect(_ sender: Any) {
         let dialog = NSOpenPanel();
@@ -41,15 +49,29 @@ class Preferences: NSViewController {
             
             if (result != nil) {
                 let path = result!.path
-                png_select.stringValue = path
                 let picpath = (path as String)
                 UserDefaults.standard.set(picpath, forKey: "IconSrc")
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "setIcon"), object: nil)
+                let base64pic = UserDefaults.standard.string(forKey: "Avatar")!
+                let decodedData = NSData(base64Encoded: base64pic, options: [])
+                    if let data = decodedData {
+                        let decodedimage = NSImage(data: data as Data)
+                        self.avatar.image = decodedimage
+                    } else {
+                        print("error with decodedData")
+                    }
             }
         } else {
             // User clicked on "Cancel"
             return
         }
     }
+    
+    
+    
+    @IBAction func close(_ sender: Any) {
+        self.view.window?.close()
+    }
+    
    
 }
