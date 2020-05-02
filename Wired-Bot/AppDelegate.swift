@@ -28,6 +28,41 @@ extension Array where Element: Equatable {
     }
 }
 
+extension NSImage {
+    var base64String: String? {
+        guard let rep = NSBitmapImageRep(
+            bitmapDataPlanes: nil,
+            pixelsWide: Int(size.width),
+            pixelsHigh: Int(size.height),
+            bitsPerSample: 8,
+            samplesPerPixel: 4,
+            hasAlpha: true,
+            isPlanar: false,
+            colorSpaceName: .calibratedRGB,
+            bytesPerRow: 0,
+            bitsPerPixel: 0
+            ) else {
+                print("Couldn't create bitmap representation")
+                return nil
+        }
+
+        NSGraphicsContext.saveGraphicsState()
+        NSGraphicsContext.current = NSGraphicsContext(bitmapImageRep: rep)
+        draw(at: NSZeroPoint, from: NSZeroRect, operation: .sourceOver, fraction: 1.0)
+        NSGraphicsContext.restoreGraphicsState()
+
+        guard let data = rep.representation(using: NSBitmapImageRep.FileType.png, properties: [NSBitmapImageRep.PropertyKey.compressionFactor: 1.0]) else {
+            print("Couldn't create PNG")
+            return nil
+        }
+
+        // With prefix
+        // return "data:image/png;base64,\(data.base64EncodedString(options: []))"
+        // Without prefix
+        return data.base64EncodedString(options: []);
+    }
+}
+
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate, BotDelegate {
     
@@ -453,19 +488,16 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate, BotDeleg
     
     
     @objc private func setIcon(notification: NSNotification){
+        let filepath = UserDefaults.standard.string(forKey: "IconSrc") ?? ""
+        let imageRef = NSImage(byReferencingFile: filepath)
+        let encoded = imageRef?.base64String
+        UserDefaults.standard.set(encoded, forKey: "Avatar")
         if let connection = self.connection {
             if connection.isConnected() {
                 let message = P7Message(withName: "wired.user.set_icon", spec: connection.spec)
-                do {
-                print("bla")
-                let iconsrc = UserDefaults.standard.string(forKey: "IconSrc") ?? ""
-                let output = try shellOut(to: "base64", arguments: [iconsrc])
-                UserDefaults.standard.set(output, forKey: "Avatar")
-                message.addParameter(field: "wired.user.icon", value: Data(base64Encoded: output, options: .ignoreUnknownCharacters))
+                let output2 = UserDefaults.standard.string(forKey: "Avatar")!
+                message.addParameter(field: "wired.user.icon", value: Data(base64Encoded: output2, options: .ignoreUnknownCharacters))
                 _ = connection.send(message: message)
-                } catch {
-                    _ = error as! ShellOutError
-                }
             }
         }
     }

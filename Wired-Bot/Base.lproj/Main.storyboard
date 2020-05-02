@@ -1002,7 +1002,7 @@
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="check_greeting1:" target="BKG-8o-an1" id="kx4-1s-BZi"/>
+                                    <action selector="check_greeting4:" target="BKG-8o-an1" id="MWO-wb-chl"/>
                                     <binding destination="MiB-s8-cWR" name="value" keyPath="values.GreetingUser_Text_Random_4_deactivated" id="Uvp-Cz-3XO"/>
                                 </connections>
                             </button>
@@ -1014,7 +1014,7 @@
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="check_greeting2:" target="BKG-8o-an1" id="Gnf-H9-Yt5"/>
+                                    <action selector="check_greeting5:" target="BKG-8o-an1" id="W4b-uZ-8cb"/>
                                     <binding destination="MiB-s8-cWR" name="value" keyPath="values.GreetingUser_Text_Random_5_deactivated" id="Os6-tL-iDP"/>
                                 </connections>
                             </button>
@@ -1026,7 +1026,7 @@
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="check_greeting3:" target="BKG-8o-an1" id="2kk-xB-xnY"/>
+                                    <action selector="check_greeting6:" target="BKG-8o-an1" id="EKa-Cx-ZcP"/>
                                     <binding destination="MiB-s8-cWR" name="value" keyPath="values.GreetingUser_Text_Random_6_deactivated" id="pow-TG-17M"/>
                                 </connections>
                             </button>
@@ -1161,7 +1161,7 @@
         <!--Misc-->
         <scene sceneID="s6X-VA-0db">
             <objects>
-                <viewController title="Misc" id="mHF-p3-4hY" customClass="Preferences" customModule="Wired_Bot" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Misc" id="mHF-p3-4hY" customClass="PreferencesMisc" customModule="Wired_Bot" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="Pyg-IY-gxd">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1184,22 +1184,13 @@
                                                 <action selector="fileselect:" target="mHF-p3-4hY" id="Oij-5A-YVD"/>
                                             </connections>
                                         </button>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zdo-mP-C43">
-                                            <rect key="frame" x="143" y="165" width="226" height="14"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <textFieldCell key="cell" lineBreakMode="clipping" title="(max size 32 x 32 px)" id="SwE-AU-u1A">
-                                                <font key="font" metaFont="message" size="11"/>
-                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
-                                        </textField>
                                         <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ljq-3F-VeO">
-                                            <rect key="frame" x="311" y="148" width="48" height="48"/>
+                                            <rect key="frame" x="182" y="152" width="46" height="46"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="rsp-79-XWZ"/>
+                                            <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" id="rsp-79-XWZ"/>
                                         </imageView>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7sq-zM-0PN">
-                                            <rect key="frame" x="18" y="126" width="240" height="18"/>
+                                            <rect key="frame" x="18" y="69" width="240" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="check" title="Connect automatically after starting" bezelStyle="regularSquare" imagePosition="left" inset="2" id="dEA-Zu-DvC">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -1209,6 +1200,15 @@
                                                 <binding destination="7f5-bY-tNh" name="value" keyPath="values.Autocommect" id="DTe-vL-VBk"/>
                                             </connections>
                                         </button>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zdo-mP-C43">
+                                            <rect key="frame" x="126" y="133" width="158" height="14"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="(max size 32 x 32 px)" id="SwE-AU-u1A">
+                                                <font key="font" metaFont="message" size="11"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
                                     </subviews>
                                 </view>
                             </box>
@@ -1220,13 +1220,13 @@
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="close:" target="mHF-p3-4hY" id="SkN-9Y-Mc9"/>
+                                    <action selector="close:" target="mHF-p3-4hY" id="Igc-N2-fEt"/>
                                 </connections>
                             </button>
                         </subviews>
                     </view>
                     <connections>
-                        <outlet property="avatar" destination="Ljq-3F-VeO" id="pj2-Xr-l7J"/>
+                        <outlet property="avatar" destination="Ljq-3F-VeO" id="ocd-gu-MrB"/>
                     </connections>
                 </viewController>
                 <customObject id="4S3-RQ-ayO" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
