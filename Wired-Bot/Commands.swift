@@ -11,5 +11,9 @@ import Foundation
 
 class Commands: NSViewController {
 
+  
+    @IBAction func close_window(_ sender: Any) {
+        self.view.window?.close()
+    }
     
 }

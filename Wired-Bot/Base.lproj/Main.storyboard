@@ -377,7 +377,7 @@
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="klmk:" target="xJd-eX-l6X" id="puM-ih-h6c"/>
+                                    <action selector="close_window:" target="xJd-eX-l6X" id="01m-8K-nrl"/>
                                 </connections>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UhV-7g-d07">

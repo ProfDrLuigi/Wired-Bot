@@ -546,7 +546,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate, BotDeleg
         url.password = user_pass ?? ""
 
         let connection = Connection(withSpec: spec, delegate: self)
-
    
         let nickname = UserDefaults.standard.string(forKey: "Nick")
         connection.nick = (nickname ?? "")
