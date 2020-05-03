@@ -439,12 +439,13 @@
         <!--Preferences-->
         <scene sceneID="nVY-Tv-xH9">
             <objects>
-                <tabViewController title="Preferences" selectedTabViewItemIndex="0" id="fj9-5N-P5U" sceneMemberID="viewController">
+                <tabViewController title="Preferences" selectedTabViewItemIndex="4" id="fj9-5N-P5U" sceneMemberID="viewController">
                     <tabViewItems>
                         <tabViewItem label="Account" identifier="" id="4JN-rJ-9wq"/>
                         <tabViewItem label="Greetings" identifier="" id="MCA-dK-w22"/>
                         <tabViewItem label="Watched Folder" id="mui-8P-AqJ"/>
                         <tabViewItem label="Misc" id="3vM-Z4-eQ3"/>
+                        <tabViewItem label="Wisdom" id="1cY-6J-AOx"/>
                     </tabViewItems>
                     <tabView key="tabView" type="noTabsNoBorder" id="aFh-c0-MWe">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
@@ -460,6 +461,7 @@
                         <segue destination="Jig-xc-1nb" kind="relationship" relationship="tabItems" id="eSy-TC-0nD"/>
                         <segue destination="hZN-k3-hbm" kind="relationship" relationship="tabItems" id="bZU-97-3hb"/>
                         <segue destination="mHF-p3-4hY" kind="relationship" relationship="tabItems" id="bZD-rA-HjQ"/>
+                        <segue destination="DTP-QD-zUr" kind="relationship" relationship="tabItems" id="1p5-yI-grK"/>
                     </connections>
                 </tabViewController>
                 <customObject id="Cuf-u4-NS6" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -1249,6 +1251,84 @@
                 <userDefaultsController id="7f5-bY-tNh"/>
             </objects>
             <point key="canvasLocation" x="2224" y="-754"/>
+        </scene>
+        <!--Wisdom-->
+        <scene sceneID="SfX-I6-ik2">
+            <objects>
+                <viewController title="Wisdom" id="DTP-QD-zUr" customClass="Preferences" customModule="Wired_Bot" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="RGb-rm-acn">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <box fixedFrame="YES" boxType="custom" borderWidth="2" cornerRadius="10" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="opT-HJ-Co5">
+                                <rect key="frame" x="20" y="77" width="410" height="203"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <view key="contentView" id="FQz-Ix-leo">
+                                    <rect key="frame" x="2" y="2" width="406" height="199"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vot-Uu-XBV">
+                                            <rect key="frame" x="18" y="163" width="138" height="18"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="check" title="Chuck Norris Facts" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="7qw-Y9-DTs">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <binding destination="WKA-2D-N5e" name="value" keyPath="values.ChuckNorrisFacts" id="wGU-jl-HBI"/>
+                                            </connections>
+                                        </button>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YPD-dW-bfU">
+                                            <rect key="frame" x="325" y="164" width="39" height="16"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="60" id="0Ib-Bz-5o9">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                            <connections>
+                                                <binding destination="WKA-2D-N5e" name="value" keyPath="values.ChuckNorrisFacts_Interval" id="jb3-sL-Ddi"/>
+                                            </connections>
+                                        </textField>
+                                        <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lSV-1y-QOI">
+                                            <rect key="frame" x="360" y="158" width="19" height="28"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <stepperCell key="cell" continuous="YES" alignment="left" minValue="1" maxValue="60" doubleValue="1" id="Orh-Ce-JGv"/>
+                                            <connections>
+                                                <binding destination="WKA-2D-N5e" name="value" keyPath="values.ChuckNorrisFacts_Interval" id="WFC-wM-rR3"/>
+                                            </connections>
+                                        </stepper>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GgM-bN-HIN">
+                                            <rect key="frame" x="206" y="164" width="122" height="16"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <textFieldCell key="cell" lineBreakMode="clipping" title="Interval in Minutes :" id="60n-jf-5nd">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                    </subviews>
+                                </view>
+                                <color key="fillColor" name="unemphasizedSelectedTextBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </box>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dnn-Dd-c1H">
+                                <rect key="frame" x="188" y="36" width="75" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Close" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ASu-xj-i4D">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="close:" target="DTP-QD-zUr" id="Ukv-3u-eH0"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                    </view>
+                </viewController>
+                <customObject id="Jyf-Ss-acs" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <userDefaultsController id="WKA-2D-N5e"/>
+            </objects>
+            <point key="canvasLocation" x="2224" y="-1122"/>
         </scene>
     </scenes>
     <resources>

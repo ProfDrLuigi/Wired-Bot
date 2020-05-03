@@ -375,7 +375,16 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate, BotDeleg
         if watcher_check == nil {
             UserDefaults.standard.set("Yeah. New stuff arrived in ", forKey: "WatcherNotification_Text")
         }
+ 
+        let chuck_check = UserDefaults.standard.string(forKey: "ChuckNorrisFacts")
+        if chuck_check == nil {
+            UserDefaults.standard.set(false, forKey: "ChuckNorrisFacts")
+        }
         
+        let chuck_interval_check = UserDefaults.standard.string(forKey: "ChuckNorrisFacts_Interval")
+        if chuck_interval_check == nil {
+            UserDefaults.standard.set("5", forKey: "ChuckNorrisFacts_Interval")
+        }
         
         let avatar_check = UserDefaults.standard.string(forKey: "Avatar")
         if avatar_check == nil {
