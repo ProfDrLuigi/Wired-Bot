@@ -439,7 +439,7 @@
         <!--Preferences-->
         <scene sceneID="nVY-Tv-xH9">
             <objects>
-                <tabViewController title="Preferences" selectedTabViewItemIndex="4" id="fj9-5N-P5U" sceneMemberID="viewController">
+                <tabViewController title="Preferences" selectedTabViewItemIndex="0" id="fj9-5N-P5U" sceneMemberID="viewController">
                     <tabViewItems>
                         <tabViewItem label="Account" identifier="" id="4JN-rJ-9wq"/>
                         <tabViewItem label="Greetings" identifier="" id="MCA-dK-w22"/>
@@ -1302,6 +1302,46 @@
                                             <rect key="frame" x="206" y="164" width="122" height="16"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <textFieldCell key="cell" lineBreakMode="clipping" title="Interval in Minutes :" id="60n-jf-5nd">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Loz-fJ-G8S">
+                                            <rect key="frame" x="18" y="133" width="138" height="18"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="check" title="Chuck Norris Facts" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="iEF-iF-dnN">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <binding destination="WKA-2D-N5e" name="value" keyPath="values.CommonQuotes" id="CVZ-qj-reJ"/>
+                                            </connections>
+                                        </button>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S8H-nj-Fcs">
+                                            <rect key="frame" x="325" y="134" width="39" height="16"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="60" id="j2F-l6-LiL">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                            <connections>
+                                                <binding destination="WKA-2D-N5e" name="value" keyPath="values.CommonQuotes_Interval" id="QyR-Uk-Axt"/>
+                                            </connections>
+                                        </textField>
+                                        <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="C8w-7S-chX">
+                                            <rect key="frame" x="360" y="128" width="19" height="28"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <stepperCell key="cell" continuous="YES" alignment="left" minValue="1" maxValue="60" doubleValue="1" id="q0N-k8-d75"/>
+                                            <connections>
+                                                <binding destination="WKA-2D-N5e" name="value" keyPath="values.CommonQuotes_Interval" id="EhJ-yC-FeO"/>
+                                            </connections>
+                                        </stepper>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qv4-If-cd8">
+                                            <rect key="frame" x="206" y="134" width="122" height="16"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <textFieldCell key="cell" lineBreakMode="clipping" title="Interval in Minutes :" id="FfF-1y-IzY">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>

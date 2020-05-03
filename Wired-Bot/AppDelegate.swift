@@ -10,6 +10,7 @@ import Cocoa
 import WiredSwift
 import ShellOut
 import Foundation
+import FeedKit
 
 extension String
 {
@@ -171,18 +172,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate, BotDeleg
                        }
                     }
                      if saidText.starts(with: "/bot test") {
-                        let keys: [URLResourceKey] = [.volumeNameKey, .volumeIsRemovableKey, .volumeIsEjectableKey]
-                        let paths = FileManager().mountedVolumeURLs(includingResourceValuesForKeys: keys, options: [])
-                        if let urls = paths {
-                            for url in urls {
-                                let components = url.pathComponents
-                                if components.count > 1
-                                   && components[1] == "Volumes"
-                                {
-                                    print(url)
-                                }
-                            }
-                        }
+                        let feedURL = URL(string: "http://images.apple.com/main/rss/hotnews/hotnews.rss")!
+                        let parser = FeedParser(URL: feedURL)
+                        let result = parser.parse()
+                        print(result)
                     }
                 }
              }
@@ -289,10 +282,15 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate, BotDeleg
 
     
     func   applicationDidFinishLaunching(_ aNotification: Notification) {
-        
+       
         UserDefaults.standard.set(false, forKey: "Connected")
-        //Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.SendaPing), userInfo: nil, repeats: true)
- 
+        UserDefaults.standard.set(false, forKey: "ChuckNorrisFacts_Running")
+        UserDefaults.standard.set(false, forKey: "CommonQuotes_Running")
+        
+        Timer.scheduledTimer(timeInterval: 15.0, target: self, selector: #selector(self.wired_ping), userInfo: nil, repeats: true)
+        Timer.scheduledTimer(timeInterval: 63.0, target: self, selector: #selector(self.ChuckNorrisFacts), userInfo: nil, repeats: true)
+        Timer.scheduledTimer(timeInterval: 63.0, target: self, selector: #selector(self.CommonQuotes(notification:)), userInfo: nil, repeats: true)
+        
         NotificationCenter.default.addObserver(
         self,
         selector: #selector(self.setNick),
@@ -610,10 +608,80 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate, BotDeleg
         }
     }
 
-    
+    @objc func wired_ping() {
+        if let connection = self.connection {
+        if connection.isConnected() {
+            let response = P7Message(withName: "wired.send_ping", spec: connection.spec)
+            _ = connection.send(message: response)
+       }
+        }
+    }
+
     @objc private func ResetIcon(notification: NSNotification){
         UserDefaults.standard.set(defaulticon, forKey: "Avatar")
     }
+    
+    @objc private func ChuckNorrisFacts(notification: NSNotification){
+        if let connection = self.connection {
+        if connection.isConnected() {
+        let run_check = UserDefaults.standard.bool(forKey: "ChuckNorrisFacts_Running")
+        if run_check == false {
+        UserDefaults.standard.set(true, forKey: "ChuckNorrisFacts_Running")
+        let factme = UserDefaults.standard.bool(forKey: "ChuckNorrisFacts")
+        if factme == true {
+            let minutes = UserDefaults.standard.string(forKey: "ChuckNorrisFacts_Interval")
+            let seconds = 60
+            let interval = Int(minutes!)! * seconds
+                DispatchQueue.global(qos: .background).async {
+                    sleep(UInt32(interval))
+                    let response = P7Message(withName: "wired.chat.send_say", spec: connection.spec)
+                    response.addParameter(field: "wired.chat.id", value: UInt32(1))
+                    do {
+                    let output = try shellOut(to: "curl -is --raw https://api.chucknorris.io/jokes/random | sed 's/.*value\"://g' | tail -n 1 | sed 's/}//g'")
+                    response.addParameter(field: "wired.chat.say", value: output)
+                    _ = connection.send(message: response)
+                    } catch {
+                        _ = error as! ShellOutError
+                    }
+                    UserDefaults.standard.set(false, forKey: "ChuckNorrisFacts_Running")
+                }
+            
+            }
+            }
+        }
+        }
+    }
+    
+    @objc private func CommonQuotes(notification: NSNotification){
+           if let connection = self.connection {
+           if connection.isConnected() {
+           let run_check = UserDefaults.standard.bool(forKey: "CommonQuotes_Running")
+           if run_check == false {
+           UserDefaults.standard.set(true, forKey: "CommonQuotes_Running")
+           let factme = UserDefaults.standard.bool(forKey: "CommonQuotes")
+           if factme == true {
+               let minutes = UserDefaults.standard.string(forKey: "CommonQuotes_Interval")
+               let seconds = 60
+               let interval = Int(minutes!)! * seconds
+                   DispatchQueue.global(qos: .background).async {
+                       sleep(UInt32(interval))
+                       let response = P7Message(withName: "wired.chat.send_say", spec: connection.spec)
+                       response.addParameter(field: "wired.chat.id", value: UInt32(1))
+                       do {
+                       let output = try shellOut(to: "curl -is --raw https://raw.githubusercontent.com/aprilmintacpineda/super-quotes/master/raw/quotes2.txt | sort -R | tail -n 1")
+                       response.addParameter(field: "wired.chat.say", value: output)
+                       _ = connection.send(message: response)
+                       } catch {
+                           _ = error as! ShellOutError
+                       }
+                       UserDefaults.standard.set(false, forKey: "CommonQuotes_Running")
+                   }
+               
+               }
+               }
+           }
+           }
+       }
     
     func connectalert (){
         print("conn refused")
@@ -647,6 +715,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate, BotDeleg
        }
        return nil
    }
+    
+    
     
     let defaulticon = "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"
 
