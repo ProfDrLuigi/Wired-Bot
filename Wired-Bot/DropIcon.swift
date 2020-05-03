@@ -1,6 +1,6 @@
 //
 //  DropZone.swift
-//  UnRarX
+//  Wired-Bot
 //
 //  Created by Prof. Dr. Luigi on 03.04.20.
 //  Copyright © 2020 Read-Write. All rights reserved.

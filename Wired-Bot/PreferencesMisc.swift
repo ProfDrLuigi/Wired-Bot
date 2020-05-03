@@ -23,14 +23,7 @@ class PreferencesMisc: NSViewController {
         name: NSNotification.Name(rawValue: "IconDropped"),
         object: nil)
         
-        let base64pic = UserDefaults.standard.string(forKey: "Avatar")!
-        let decodedData = NSData(base64Encoded: base64pic, options: [])
-            if let data = decodedData {
-                let decodedimage = NSImage(data: data as Data)
-                self.avatar.image = decodedimage
-            } else {
-                print("error with decodedData")
-            }
+        PicToBase()
 
     }
 
@@ -52,14 +45,7 @@ class PreferencesMisc: NSViewController {
                 UserDefaults.standard.set(picpath, forKey: "IconSrc")
                 UserDefaults.standard.synchronize()
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "setIcon"), object: nil)
-                let base64pic = UserDefaults.standard.string(forKey: "Avatar")!
-                let decodedData = NSData(base64Encoded: base64pic, options: [])
-                    if let data = decodedData {
-                        let decodedimage = NSImage(data: data as Data)
-                        self.avatar.image = decodedimage
-                    } else {
-                        print("error with decodedData")
-                    }
+                PicToBase()
             }
         } else {
             // User clicked on "Cancel"
@@ -67,14 +53,25 @@ class PreferencesMisc: NSViewController {
         }
     }
     
-    
-    
+
     @IBAction func close(_ sender: Any) {
         self.view.window?.close()
     }
     
+    @IBAction func reset_icon(_ sender: Any) {
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "ResetIcon"), object: nil)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "setIconReset"), object: nil)
+        PicToBase()
+    }
+    
+    
     @objc private func IconDropped(notification: NSNotification){
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "setIcon"), object: nil)
+        PicToBase()
+    }
+    
+    func PicToBase()
+    {
         let base64pic = UserDefaults.standard.string(forKey: "Avatar")!
         let decodedData = NSData(base64Encoded: base64pic, options: [])
             if let data = decodedData {
@@ -83,9 +80,6 @@ class PreferencesMisc: NSViewController {
             } else {
                 print("error with decodedData")
             }
-        
     }
-    
-    
-   
+
 }
