@@ -27,6 +27,8 @@ class BotMainWindow: NSViewController {
         selector: #selector(self.Connectionstatus),
         name: NSNotification.Name(rawValue: "Connectionstatus"),
         object: nil)
+        
+        self.preferredContentSize = NSMakeSize(self.view.frame.size.width, self.view.frame.size.height);
     }
     
     @IBAction func connect(_ sender: Any) {

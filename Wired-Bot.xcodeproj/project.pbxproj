@@ -11,6 +11,7 @@
 		2A29DE98245C112700112421 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A8E9E7F24337B6E005B5261 /* Sparkle.framework */; };
 		2A29DE99245C112700112421 /* Sparkle.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2A8E9E7F24337B6E005B5261 /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2A30E6DB245E1EE000FB203F /* PreferencesMisc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A30E6DA245E1EE000FB203F /* PreferencesMisc.swift */; };
+		2A30E6DE245EC24B00FB203F /* DropIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A30E6DD245EC24B00FB203F /* DropIcon.swift */; };
 		2A4CC61C244C4792007CCBA3 /* NLPBot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4CC61A244C4792007CCBA3 /* NLPBot.swift */; };
 		2A4CC620244C47DA007CCBA3 /* FeedKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2A4CC61F244C47DA007CCBA3 /* FeedKit */; };
 		2A4CC623244C4840007CCBA3 /* Yams in Frameworks */ = {isa = PBXBuildFile; productRef = 2A4CC622244C4840007CCBA3 /* Yams */; };
@@ -74,6 +75,7 @@
 /* Begin PBXFileReference section */
 		2A201420245D6742000187C8 /* PreferencesTabView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesTabView.swift; sourceTree = "<group>"; };
 		2A30E6DA245E1EE000FB203F /* PreferencesMisc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesMisc.swift; sourceTree = "<group>"; };
+		2A30E6DD245EC24B00FB203F /* DropIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropIcon.swift; sourceTree = "<group>"; };
 		2A4CC61A244C4792007CCBA3 /* NLPBot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NLPBot.swift; sourceTree = "<group>"; };
 		2A66D4F5243730AF00635F70 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2A66D4F82437310A00635F70 /* UnselectedTableRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnselectedTableRowView.swift; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 				4C74286122DCECE800D6E6F9 /* AppDelegate.swift */,
 				2AAF558024376FFC00A07732 /* BotMainWindow.swift */,
 				2A4CC61A244C4792007CCBA3 /* NLPBot.swift */,
+				2A30E6DD245EC24B00FB203F /* DropIcon.swift */,
 				2AB81D9524390727002274CD /* Commands.swift */,
 				2A9F5658245C27E300BD3865 /* RandomGreetings.swift */,
 				2AB81D932438E5BC002274CD /* Preferences.swift */,
@@ -367,6 +370,7 @@
 				2A66D51D2437310A00635F70 /* WiredColors.swift in Sources */,
 				2A4CC61C244C4792007CCBA3 /* NLPBot.swift in Sources */,
 				2A66D5192437310A00635F70 /* BBParsingElement.m in Sources */,
+				2A30E6DE245EC24B00FB203F /* DropIcon.swift in Sources */,
 				2A66D51B2437310A00635F70 /* AttributedString.swift in Sources */,
 				2A66D5132437310A00635F70 /* TabViewController.swift in Sources */,
 				2A66D5172437310A00635F70 /* NSMutableAttributedString+BBCodeString.m in Sources */,
@@ -528,7 +532,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = VAVAMJQGB2;
 				ENABLE_HARDENED_RUNTIME = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -541,7 +545,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				MARKETING_VERSION = 0.0.6;
+				MARKETING_VERSION = 0.0.8;
 				PRODUCT_BUNDLE_IDENTIFIER = wiredbot.istation.pw;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -560,7 +564,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = VAVAMJQGB2;
 				ENABLE_HARDENED_RUNTIME = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -573,7 +577,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				MARKETING_VERSION = 0.0.6;
+				MARKETING_VERSION = 0.0.8;
 				PRODUCT_BUNDLE_IDENTIFIER = wiredbot.istation.pw;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

@@ -1184,13 +1184,22 @@
                                                 <action selector="fileselect:" target="mHF-p3-4hY" id="Oij-5A-YVD"/>
                                             </connections>
                                         </button>
-                                        <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ljq-3F-VeO">
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zdo-mP-C43">
+                                            <rect key="frame" x="126" y="133" width="158" height="14"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="(max size 32 x 32 px)" id="SwE-AU-u1A">
+                                                <font key="font" metaFont="message" size="11"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ljq-3F-VeO" customClass="DropIcon" customModule="Wired_Bot" customModuleProvider="target">
                                             <rect key="frame" x="182" y="152" width="46" height="46"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" id="rsp-79-XWZ"/>
                                         </imageView>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7sq-zM-0PN">
-                                            <rect key="frame" x="18" y="69" width="240" height="18"/>
+                                            <rect key="frame" x="18" y="102" width="240" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="check" title="Connect automatically after starting" bezelStyle="regularSquare" imagePosition="left" inset="2" id="dEA-Zu-DvC">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -1200,10 +1209,10 @@
                                                 <binding destination="7f5-bY-tNh" name="value" keyPath="values.Autocommect" id="DTe-vL-VBk"/>
                                             </connections>
                                         </button>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zdo-mP-C43">
-                                            <rect key="frame" x="126" y="133" width="158" height="14"/>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v2a-2G-Xjs">
+                                            <rect key="frame" x="40" y="149" width="83" height="14"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="(max size 32 x 32 px)" id="SwE-AU-u1A">
+                                            <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Or Drag&amp;Drop" id="tFk-JN-h7k">
                                                 <font key="font" metaFont="message" size="11"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
