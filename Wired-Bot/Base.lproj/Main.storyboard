@@ -1268,9 +1268,9 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vot-Uu-XBV">
-                                            <rect key="frame" x="18" y="163" width="138" height="18"/>
+                                            <rect key="frame" x="18" y="163" width="167" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="check" title="Chuck Norris Facts" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="7qw-Y9-DTs">
+                                            <buttonCell key="cell" type="check" title="🇺🇸 Chuck Norris Facts " bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="7qw-Y9-DTs">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
@@ -1278,26 +1278,6 @@
                                                 <binding destination="WKA-2D-N5e" name="value" keyPath="values.ChuckNorrisFacts" id="wGU-jl-HBI"/>
                                             </connections>
                                         </button>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YPD-dW-bfU">
-                                            <rect key="frame" x="325" y="164" width="39" height="16"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="60" id="0Ib-Bz-5o9">
-                                                <font key="font" metaFont="system"/>
-                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
-                                            <connections>
-                                                <binding destination="WKA-2D-N5e" name="value" keyPath="values.ChuckNorrisFacts_Interval" id="jb3-sL-Ddi"/>
-                                            </connections>
-                                        </textField>
-                                        <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lSV-1y-QOI">
-                                            <rect key="frame" x="360" y="158" width="19" height="28"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <stepperCell key="cell" continuous="YES" alignment="left" minValue="1" maxValue="60" doubleValue="1" id="Orh-Ce-JGv"/>
-                                            <connections>
-                                                <binding destination="WKA-2D-N5e" name="value" keyPath="values.ChuckNorrisFacts_Interval" id="WFC-wM-rR3"/>
-                                            </connections>
-                                        </stepper>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GgM-bN-HIN">
                                             <rect key="frame" x="206" y="164" width="122" height="16"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -1307,45 +1287,105 @@
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
-                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Loz-fJ-G8S">
-                                            <rect key="frame" x="18" y="133" width="138" height="18"/>
+                                        <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BN2-Lw-M1y">
+                                            <rect key="frame" x="333" y="161" width="32" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="check" title="Chuck Norris Facts" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="iEF-iF-dnN">
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="SNV-Vh-X40">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                            <connections>
+                                                <binding destination="Nff-2w-KFG" name="value" keyPath="values.ChuckNorrisFacts_Interval" id="Pwm-HV-ImB"/>
+                                            </connections>
+                                        </textField>
+                                        <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lSV-1y-QOI">
+                                            <rect key="frame" x="370" y="157" width="19" height="28"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <stepperCell key="cell" continuous="YES" alignment="left" minValue="1" maxValue="60" doubleValue="1" id="Orh-Ce-JGv"/>
+                                            <connections>
+                                                <binding destination="WKA-2D-N5e" name="value" keyPath="values.ChuckNorrisFacts_Interval" id="WFC-wM-rR3"/>
+                                            </connections>
+                                        </stepper>
+                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rgj-nt-zyO">
+                                            <rect key="frame" x="18" y="133" width="167" height="18"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="check" title="🇩🇪 Chuck Norris Facts " bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="WqP-Xb-VhB">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
                                             <connections>
-                                                <binding destination="WKA-2D-N5e" name="value" keyPath="values.CommonQuotes" id="CVZ-qj-reJ"/>
+                                                <binding destination="WKA-2D-N5e" name="value" keyPath="values.ChuckNorrisFactsDe" id="a57-aR-8gx"/>
                                             </connections>
                                         </button>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S8H-nj-Fcs">
-                                            <rect key="frame" x="325" y="134" width="39" height="16"/>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bVv-lr-3I4">
+                                            <rect key="frame" x="206" y="134" width="122" height="16"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="60" id="j2F-l6-LiL">
+                                            <textFieldCell key="cell" lineBreakMode="clipping" title="Interval in Minutes :" id="2x0-1X-N1x">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
+                                        </textField>
+                                        <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KtD-Au-W1q">
+                                            <rect key="frame" x="333" y="131" width="32" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="CZ4-rK-QKg">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
                                             <connections>
-                                                <binding destination="WKA-2D-N5e" name="value" keyPath="values.CommonQuotes_Interval" id="QyR-Uk-Axt"/>
+                                                <binding destination="Nff-2w-KFG" name="value" keyPath="values.ChuckNorrisFactsDe_Interval" id="DZm-Fb-12e"/>
                                             </connections>
                                         </textField>
+                                        <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fm9-qO-LHh">
+                                            <rect key="frame" x="370" y="127" width="19" height="28"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <stepperCell key="cell" continuous="YES" alignment="left" minValue="1" maxValue="60" doubleValue="1" id="ZlC-dg-LvG"/>
+                                            <connections>
+                                                <binding destination="WKA-2D-N5e" name="value" keyPath="values.ChuckNorrisFactsDe_Interval" id="CI5-vb-k71"/>
+                                            </connections>
+                                        </stepper>
+                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Loz-fJ-G8S">
+                                            <rect key="frame" x="18" y="103" width="147" height="18"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="check" title="🇺🇸 Common Quotes" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="iEF-iF-dnN">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <binding destination="WKA-2D-N5e" name="value" keyPath="values.CommonQuotesEn" id="PHu-S8-OtT"/>
+                                            </connections>
+                                        </button>
                                         <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="C8w-7S-chX">
-                                            <rect key="frame" x="360" y="128" width="19" height="28"/>
+                                            <rect key="frame" x="370" y="98" width="19" height="28"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <stepperCell key="cell" continuous="YES" alignment="left" minValue="1" maxValue="60" doubleValue="1" id="q0N-k8-d75"/>
                                             <connections>
-                                                <binding destination="WKA-2D-N5e" name="value" keyPath="values.CommonQuotes_Interval" id="EhJ-yC-FeO"/>
+                                                <binding destination="WKA-2D-N5e" name="value" keyPath="values.CommonQuotesEn_Interval" id="WYx-9O-SsF"/>
                                             </connections>
                                         </stepper>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qv4-If-cd8">
-                                            <rect key="frame" x="206" y="134" width="122" height="16"/>
+                                            <rect key="frame" x="206" y="104" width="122" height="16"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <textFieldCell key="cell" lineBreakMode="clipping" title="Interval in Minutes :" id="FfF-1y-IzY">
                                                 <font key="font" metaFont="system"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
+                                        </textField>
+                                        <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O6Z-uY-R3D">
+                                            <rect key="frame" x="333" y="101" width="32" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="Spr-ax-ZR0">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                            <connections>
+                                                <binding destination="Nff-2w-KFG" name="value" keyPath="values.CommonQuotesEn_Interval" id="zEZ-XF-pkb"/>
+                                            </connections>
                                         </textField>
                                     </subviews>
                                 </view>
@@ -1367,6 +1407,7 @@
                 </viewController>
                 <customObject id="Jyf-Ss-acs" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <userDefaultsController id="WKA-2D-N5e"/>
+                <userDefaultsController id="Nff-2w-KFG"/>
             </objects>
             <point key="canvasLocation" x="2224" y="-1122"/>
         </scene>

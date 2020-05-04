@@ -142,7 +142,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate, BotDeleg
                         let response = P7Message(withName: "wired.chat.send_say", spec: connection.spec)
                         response.addParameter(field: "wired.chat.id", value: UInt32(1))
                         do {
-                        let output = try shellOut(to: "curl -is --raw https://api.chucknorris.io/jokes/random | sed 's/.*value\"://g' | tail -n 1 | sed 's/}//g'")
+                        let output = try shellOut(to: "curl -is --raw https://raw.githubusercontent.com/ProfDrLuigi/Wired-Bot-Quotes/master/norris-facts-en.txt | sort -R | tail -n 1")
                         response.addParameter(field: "wired.chat.say", value: output)
                         _ = connection.send(message: response)
                         } catch {
@@ -153,7 +153,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate, BotDeleg
                        let response = P7Message(withName: "wired.chat.send_say", spec: connection.spec)
                        response.addParameter(field: "wired.chat.id", value: UInt32(1))
                        do {
-                       let output = try shellOut(to: "curl -is --raw https://wired.istation.pw/postilon.txt | sort -R | head -n 1")
+                       let output = try shellOut(to: "curl -is --raw https://raw.githubusercontent.com/ProfDrLuigi/Wired-Bot-Quotes/master/postillon.txt | sort -R | head -n 1")
                        response.addParameter(field: "wired.chat.say", value: output)
                        _ = connection.send(message: response)
                        } catch {
@@ -164,7 +164,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate, BotDeleg
                        let response = P7Message(withName: "wired.chat.send_say", spec: connection.spec)
                        response.addParameter(field: "wired.chat.id", value: UInt32(1))
                        do {
-                       let output = try shellOut(to: "curl -is --raw https://wired.istation.pw/chuck.txt | sort -R | head -n 1")
+                       let output = try shellOut(to: "curl -is --raw https://raw.githubusercontent.com/ProfDrLuigi/Wired-Bot-Quotes/master/norris-facts-de.txt | sort -R | head -n 1")
                        response.addParameter(field: "wired.chat.say", value: output)
                        _ = connection.send(message: response)
                        } catch {
@@ -229,11 +229,11 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate, BotDeleg
                     
                     let objectToRemove = last_used
                     SentencesArray.remove(object: objectToRemove)
-                    _ = SentencesArray.randomElement()
+                    let picked_sentence = SentencesArray.randomElement()
                     
-                    let text = (SentencesArray.randomElement()!! as NSString).replacingOccurrences(of: "%NICK%", with: userNick!)
+                    let text = (picked_sentence!! as NSString).replacingOccurrences(of: "%NICK%", with: userNick!)
 
-                    UserDefaults.standard.set(text, forKey: "GreetingUser_Text_Last_Used")
+                    UserDefaults.standard.set(picked_sentence!! as NSString, forKey: "GreetingUser_Text_Last_Used")
                     
                     response.addParameter(field: "wired.chat.say", value: text)
                     sleep(2)
@@ -285,11 +285,11 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate, BotDeleg
        
         UserDefaults.standard.set(false, forKey: "Connected")
         UserDefaults.standard.set(false, forKey: "ChuckNorrisFacts_Running")
-        UserDefaults.standard.set(false, forKey: "CommonQuotes_Running")
+        UserDefaults.standard.set(false, forKey: "CommonQuotesEn_Running")
         
         Timer.scheduledTimer(timeInterval: 15.0, target: self, selector: #selector(self.wired_ping), userInfo: nil, repeats: true)
         Timer.scheduledTimer(timeInterval: 63.0, target: self, selector: #selector(self.ChuckNorrisFacts), userInfo: nil, repeats: true)
-        Timer.scheduledTimer(timeInterval: 63.0, target: self, selector: #selector(self.CommonQuotes(notification:)), userInfo: nil, repeats: true)
+        Timer.scheduledTimer(timeInterval: 63.0, target: self, selector: #selector(self.CommonQuotesEn(notification:)), userInfo: nil, repeats: true)
         
         NotificationCenter.default.addObserver(
         self,
@@ -637,8 +637,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate, BotDeleg
                     let response = P7Message(withName: "wired.chat.send_say", spec: connection.spec)
                     response.addParameter(field: "wired.chat.id", value: UInt32(1))
                     do {
-                    let output = try shellOut(to: "curl -is --raw https://api.chucknorris.io/jokes/random | sed 's/.*value\"://g' | tail -n 1 | sed 's/}//g'")
-                    response.addParameter(field: "wired.chat.say", value: output)
+                    let output = try shellOut(to: "curl -is --raw https://raw.githubusercontent.com/ProfDrLuigi/Wired-Bot-Quotes/master/norris-facts-en.txt | sort -R | tail -n 1")
+                    response.addParameter(field: "wired.chat.say", value: "<img src=\"https://github.com/ProfDrLuigi/Wired-Bot-Quotes/raw/master/pics/chuck_norris_64.png\"><br>" + "<b><i>" + output + "</b></i>")
                     _ = connection.send(message: response)
                     } catch {
                         _ = error as! ShellOutError
@@ -652,29 +652,29 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate, BotDeleg
         }
     }
     
-    @objc private func CommonQuotes(notification: NSNotification){
+    @objc private func CommonQuotesEn(notification: NSNotification){
            if let connection = self.connection {
            if connection.isConnected() {
-           let run_check = UserDefaults.standard.bool(forKey: "CommonQuotes_Running")
+           let run_check = UserDefaults.standard.bool(forKey: "CommonQuotesEn_Running")
            if run_check == false {
-           UserDefaults.standard.set(true, forKey: "CommonQuotes_Running")
-           let factme = UserDefaults.standard.bool(forKey: "CommonQuotes")
+           UserDefaults.standard.set(true, forKey: "CommonQuotesEn_Running")
+           let factme = UserDefaults.standard.bool(forKey: "CommonQuotesEn")
            if factme == true {
-               let minutes = UserDefaults.standard.string(forKey: "CommonQuotes_Interval")
+               let minutes = UserDefaults.standard.string(forKey: "CommonQuotesEn_Interval")
                let seconds = 60
                let interval = Int(minutes!)! * seconds
                    DispatchQueue.global(qos: .background).async {
                        sleep(UInt32(interval))
                        let response = P7Message(withName: "wired.chat.send_say", spec: connection.spec)
-                       response.addParameter(field: "wired.chat.id", value: UInt32(1))
+                    response.addParameter(field: "wired.chat.id", value: UInt32(1))
                        do {
-                       let output = try shellOut(to: "curl -is --raw https://raw.githubusercontent.com/aprilmintacpineda/super-quotes/master/raw/quotes2.txt | sort -R | tail -n 1")
-                       response.addParameter(field: "wired.chat.say", value: output)
+                       let output = try shellOut(to: "curl -is --raw https://raw.githubusercontent.com/ProfDrLuigi/Wired-Bot-Quotes/master/quotes-en.txt | sort -R | tail -n 1")
+                       response.addParameter(field: "wired.chat.say", value: "📚 " + "<b><i>" + output + "</b></i>")
                        _ = connection.send(message: response)
                        } catch {
                            _ = error as! ShellOutError
                        }
-                       UserDefaults.standard.set(false, forKey: "CommonQuotes_Running")
+                       UserDefaults.standard.set(false, forKey: "CommonQuotesEn_Running")
                    }
                
                }
