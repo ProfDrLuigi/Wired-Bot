@@ -633,12 +633,25 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate, BotDeleg
             let seconds = 60
             let interval = Int(minutes!)! * seconds
                 DispatchQueue.global(qos: .background).async {
-                    sleep(UInt32(interval))
                     let response = P7Message(withName: "wired.chat.send_say", spec: connection.spec)
                     response.addParameter(field: "wired.chat.id", value: UInt32(1))
                     do {
                     let output = try shellOut(to: "curl -is --raw https://raw.githubusercontent.com/ProfDrLuigi/Wired-Bot-Quotes/master/norris-facts-en.txt | sort -R | tail -n 1")
-                    response.addParameter(field: "wired.chat.say", value: "<img src=\"https://github.com/ProfDrLuigi/Wired-Bot-Quotes/raw/master/pics/chuck_norris_64.png\"><br>" + "<b><i>" + output + "</b></i>")
+                    sleep(UInt32(interval))
+                        
+                        let chuck_avatar = UserDefaults.standard.string(forKey: "ChuckNorrisFacts_Avatar_Width")
+                        if chuck_avatar == "Hide" {
+                            response.addParameter(field: "wired.chat.say", value: "<b><i>" + output + "</b></i>")
+                        } else if chuck_avatar == "32" {
+                            response.addParameter(field: "wired.chat.say", value: "<img src=\"https://github.com/ProfDrLuigi/Wired-Bot-Quotes/raw/master/pics/chuck_norris_32.png\"><br>" + "<b><i>" + output + "</b></i>")
+                        } else if chuck_avatar == "64" {
+                            response.addParameter(field: "wired.chat.say", value: "<img src=\"https://github.com/ProfDrLuigi/Wired-Bot-Quotes/raw/master/pics/chuck_norris_64.png\"><br>" + "<b><i>" + output + "</b></i>")
+                        } else if chuck_avatar == "128" {
+                            response.addParameter(field: "wired.chat.say", value: "<img src=\"https://github.com/ProfDrLuigi/Wired-Bot-Quotes/raw/master/pics/chuck_norris_128.png\"><br>" + "<b><i>" + output + "</b></i>")
+                        } else if chuck_avatar == "256" {
+                            response.addParameter(field: "wired.chat.say", value: "<img src=\"https://github.com/ProfDrLuigi/Wired-Bot-Quotes/raw/master/pics/chuck_norris_256.png\"><br>" + "<b><i>" + output + "</b></i>")
+                        }
+
                     _ = connection.send(message: response)
                     } catch {
                         _ = error as! ShellOutError
@@ -664,12 +677,23 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate, BotDeleg
                let seconds = 60
                let interval = Int(minutes!)! * seconds
                    DispatchQueue.global(qos: .background).async {
-                       sleep(UInt32(interval))
                        let response = P7Message(withName: "wired.chat.send_say", spec: connection.spec)
                     response.addParameter(field: "wired.chat.id", value: UInt32(1))
                        do {
                        let output = try shellOut(to: "curl -is --raw https://raw.githubusercontent.com/ProfDrLuigi/Wired-Bot-Quotes/master/quotes-en.txt | sort -R | tail -n 1")
-                       response.addParameter(field: "wired.chat.say", value: "📚 " + "<b><i>" + output + "</b></i>")
+                       sleep(UInt32(interval))
+                        let common_quotes_avatar = UserDefaults.standard.string(forKey: "CommonQuotes_Avatar_Width")
+                       if common_quotes_avatar == "Hide" {
+                           response.addParameter(field: "wired.chat.say", value: "<b><i>" + output + "</b></i>")
+                       } else if common_quotes_avatar == "32" {
+                           response.addParameter(field: "wired.chat.say", value: "<img src=\"https://github.com/ProfDrLuigi/Wired-Bot-Quotes/raw/master/pics/einstein_32.png\"><br>" + "<b><i>" + output + "</b></i>")
+                       } else if common_quotes_avatar == "64" {
+                           response.addParameter(field: "wired.chat.say", value: "<img src=\"https://github.com/ProfDrLuigi/Wired-Bot-Quotes/raw/master/pics/einstein_64.png\"><br>" + "<b><i>" + output + "</b></i>")
+                       } else if common_quotes_avatar == "128" {
+                           response.addParameter(field: "wired.chat.say", value: "<img src=\"https://github.com/ProfDrLuigi/Wired-Bot-Quotes/raw/master/pics/einstein_128.png\"><br>" + "<b><i>" + output + "</b></i>")
+                       } else if common_quotes_avatar == "256" {
+                           response.addParameter(field: "wired.chat.say", value: "<img src=\"https://github.com/ProfDrLuigi/Wired-Bot-Quotes/raw/master/pics/einstein_256.png\"><br>" + "<b><i>" + output + "</b></i>")
+                       }
                        _ = connection.send(message: response)
                        } catch {
                            _ = error as! ShellOutError
