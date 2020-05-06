@@ -821,17 +821,8 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="wired_green" id="WfA-uK-DyO"/>
                             </imageView>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NCZ-9g-PwQ">
-                                <rect key="frame" x="118" y="101" width="233" height="41"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Wired-Bot" id="aHY-Sp-CJp">
-                                    <font key="font" metaFont="systemBold" size="35"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mdD-oC-SMc">
-                                <rect key="frame" x="150" y="84" width="88" height="16"/>
+                                <rect key="frame" x="150" y="105" width="88" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Online status:" id="dbo-SB-Be6">
                                     <font key="font" metaFont="system"/>
@@ -840,15 +831,35 @@
                                 </textFieldCell>
                             </textField>
                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l8f-V0-Wr4" userLabel="Red dot">
-                                <rect key="frame" x="241" y="81" width="19" height="19"/>
+                                <rect key="frame" x="238" y="102" width="19" height="19"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSStatusUnavailable" id="aAG-zH-YKo"/>
                             </imageView>
                             <imageView hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mee-Ny-Gb7" userLabel="Green dot">
-                                <rect key="frame" x="241" y="81" width="19" height="19"/>
+                                <rect key="frame" x="238" y="102" width="19" height="19"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSStatusAvailable" id="XZh-yo-CCS"/>
                             </imageView>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m9n-Md-mMf">
+                                <rect key="frame" x="151" y="78" width="94" height="16"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="🎶 Listening to ..." bezelStyle="rounded" alignment="center" controlSize="mini" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Fgr-bp-JjO">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="menu" size="9"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="listening_to:" target="H4d-wo-nee" id="F1E-0L-LyM"/>
+                                </connections>
+                            </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NCZ-9g-PwQ">
+                                <rect key="frame" x="115" y="129" width="233" height="41"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Wired-Bot" id="aHY-Sp-CJp">
+                                    <font key="font" metaFont="systemBold" size="35"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                     </view>
                     <connections>
@@ -1434,26 +1445,92 @@
         <!--Listening-->
         <scene sceneID="2OZ-Rv-BAN">
             <objects>
-                <viewController title="Listening" id="WGl-Po-Ekz" sceneMemberID="viewController">
+                <viewController title="Listening" id="WGl-Po-Ekz" customClass="ListeningTo" customModule="Wired_Bot" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="jAf-AJ-djc">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <box fixedFrame="YES" boxType="custom" borderWidth="2" cornerRadius="10" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="g0U-XN-jBX">
-                                <rect key="frame" x="20" y="77" width="410" height="203"/>
+                                <rect key="frame" x="20" y="82" width="410" height="198"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <view key="contentView" id="GST-Ps-Kzl">
-                                    <rect key="frame" x="2" y="2" width="406" height="199"/>
+                                    <rect key="frame" x="2" y="2" width="406" height="194"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ysH-vh-gcf">
+                                            <rect key="frame" x="18" y="158" width="114" height="18"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="check" title="&quot;Is listening to&quot;" bezelStyle="regularSquare" imagePosition="left" inset="2" id="d0F-7j-zJV">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                                <connections>
+                                                    <action selector="listening:" target="WGl-Po-Ekz" id="eoj-lc-h5M"/>
+                                                </connections>
+                                            </buttonCell>
+                                            <connections>
+                                                <binding destination="gH5-FA-WgM" name="value" keyPath="values.ListeningTo" id="u9A-Kk-GUU"/>
+                                            </connections>
+                                        </button>
+                                        <textField focusRingType="none" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OSa-qz-10u">
+                                            <rect key="frame" x="207" y="136" width="179" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" enabled="NO" sendsActionOnEndEditing="YES" borderStyle="bezel" focusRingType="none" drawsBackground="YES" id="i08-J9-g7C">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                            <connections>
+                                                <binding destination="gH5-FA-WgM" name="value" keyPath="values.ListeningTo_Nick" id="Wtn-Mu-bCI"/>
+                                            </connections>
+                                        </textField>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6DG-4m-nNr">
+                                            <rect key="frame" x="205" y="159" width="115" height="16"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="Nickname in Chat:" id="92q-9P-XII">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HqY-oS-F6R">
+                                            <rect key="frame" x="18" y="134" width="149" height="18"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="check" title="Include Youtube Link" bezelStyle="regularSquare" imagePosition="left" inset="2" id="uQL-rH-EA6">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <binding destination="gH5-FA-WgM" name="value" keyPath="values.ListeningTo_YoutubeLink" id="dbJ-p2-Xem"/>
+                                            </connections>
+                                        </button>
+                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AjI-yg-Uwl">
+                                            <rect key="frame" x="18" y="22" width="370" height="80"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <textFieldCell key="cell" selectable="YES" id="mPf-gW-MM1">
+                                                <font key="font" metaFont="system"/>
+                                                <string key="title">Here the current track that is being played in Spotify is written into the chat at next song.
+
+You can also manually insert the "Listening to" on the main page using the button there.</string>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                    </subviews>
                                 </view>
                                 <color key="fillColor" name="unemphasizedSelectedTextBackgroundColor" catalog="System" colorSpace="catalog"/>
                             </box>
                         </subviews>
                     </view>
+                    <connections>
+                        <outlet property="include_youtube" destination="HqY-oS-F6R" id="IjQ-DP-5ud"/>
+                        <outlet property="listening_nick" destination="OSa-qz-10u" id="g0k-O8-gfs"/>
+                        <outlet property="listening_to" destination="ysH-vh-gcf" id="lYQ-Ry-JkG"/>
+                    </connections>
                 </viewController>
                 <customObject id="O3Z-Cd-qY6" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <userDefaultsController id="gH5-FA-WgM"/>
             </objects>
-            <point key="canvasLocation" x="1443" y="-1286"/>
+            <point key="canvasLocation" x="1714" y="-1410"/>
         </scene>
     </scenes>
     <resources>

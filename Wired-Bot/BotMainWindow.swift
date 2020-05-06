@@ -31,6 +31,19 @@ class BotMainWindow: NSViewController {
         self.preferredContentSize = NSMakeSize(self.view.frame.size.width, self.view.frame.size.height);
     }
     
+    @IBAction func listening_to(_ sender: Any) {
+        UserDefaults.standard.set("", forKey: "ListeningTo_Last")
+        let listeningto = UserDefaults.standard.bool(forKey: "ListeningTo")
+        if listeningto == false {
+            UserDefaults.standard.set(true, forKey: "ListeningTo")
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "ListeningTo"), object: nil)
+            UserDefaults.standard.set(false, forKey: "ListeningTo")
+        } else {
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "ListeningTo"), object: nil)
+        }
+    }
+    
+    
     @IBAction func connect(_ sender: Any) {
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "Connectbutton"), object: nil)
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "Connectionstatus"), object: nil)

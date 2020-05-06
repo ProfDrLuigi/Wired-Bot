@@ -172,21 +172,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate, BotDeleg
                        }
                     }
                      if saidText.starts(with: "/bot playing") {
-                        let scriptPath = Bundle.main.path(forResource: "Scripts", ofType: "")!
-                        let response = P7Message(withName: "wired.chat.send_say", spec: connection.spec)
-                        response.addParameter(field: "wired.chat.id", value: UInt32(1))
-                        do {
-                            try shellOut(to: "bash playing.sh", at: scriptPath)
-                            let currently_playing = UserDefaults.standard.string(forKey: "CurrentlyPlaying")
-                            let yt_query = "https://www.youtube.com/results?search_query="
-                            let yt_result = (currently_playing! as NSString).replacingOccurrences(of: " ", with: "+")
-                            response.addParameter(field: "wired.chat.say", value: "🎶 Prof. Dr. Luigi is listening to: " + currently_playing! + "\n" + yt_query + yt_result)
-                        _ = connection.send(message: response)
-                        } catch {
-                            _ = error as! ShellOutError
-                        }
+                        ListeningTo()
                     }
-                    
                 }
              }
             if message.name == "wired.chat.user_join" {
@@ -300,6 +287,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate, BotDeleg
         Timer.scheduledTimer(timeInterval: 15.0, target: self, selector: #selector(self.wired_ping), userInfo: nil, repeats: true)
         Timer.scheduledTimer(timeInterval: 63.0, target: self, selector: #selector(self.ChuckNorrisFacts), userInfo: nil, repeats: true)
         Timer.scheduledTimer(timeInterval: 63.0, target: self, selector: #selector(self.CommonQuotesEn(notification:)), userInfo: nil, repeats: true)
+        Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(self.ListeningTo), userInfo: nil, repeats: true)
         
         NotificationCenter.default.addObserver(
         self,
@@ -341,6 +329,12 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate, BotDeleg
         self,
         selector: #selector(self.ResetIcon),
         name: NSNotification.Name(rawValue: "ResetIcon"),
+        object: nil)
+        
+        NotificationCenter.default.addObserver(
+        self,
+        selector: #selector(self.ListeningTo),
+        name: NSNotification.Name(rawValue: "ListeningTo"),
         object: nil)
         
         let nickname_check = UserDefaults.standard.string(forKey: "Nick")
@@ -716,6 +710,39 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate, BotDeleg
            }
            }
        }
+    
+    @objc private func ListeningTo() {
+        if let connection = self.connection {
+        if connection.isConnected() {
+        let listeningto = UserDefaults.standard.bool(forKey: "ListeningTo")
+        if listeningto == true {
+            let scriptPath = Bundle.main.path(forResource: "Scripts", ofType: "")!
+            let response = P7Message(withName: "wired.chat.send_say", spec: connection.spec)
+            response.addParameter(field: "wired.chat.id", value: UInt32(1))
+            do {
+                try shellOut(to: "bash playing.sh", at: scriptPath)
+                let currently_playing = UserDefaults.standard.string(forKey: "ListeningTo_Current")
+                let last_played = UserDefaults.standard.string(forKey: "ListeningTo_Last")
+                if currently_playing != last_played {
+                    let listeningto_nick = UserDefaults.standard.string(forKey: "ListeningTo_Nick")
+                    let listening_youtubelink = UserDefaults.standard.bool(forKey: "ListeningTo_YoutubeLink")
+                    let yt_query = "https://www.youtube.com/results?search_query="
+                    let yt_result = (currently_playing! as NSString).replacingOccurrences(of: " ", with: "+")
+                    if listening_youtubelink == false {
+                        response.addParameter(field: "wired.chat.say", value: "🎶 " + listeningto_nick! + " is listening to: " + currently_playing!)
+                    } else {
+                        response.addParameter(field: "wired.chat.say", value: "🎶 " + listeningto_nick! + " is listening to: " + currently_playing! + "\n" + yt_query + yt_result)
+                    }
+                    _ = connection.send(message: response)
+                    UserDefaults.standard.set(currently_playing, forKey: "ListeningTo_Last")
+                }
+            } catch {
+                _ = error as! ShellOutError
+            }
+        }
+            }
+            }
+    }
     
     func connectalert (){
         print("conn refused")
