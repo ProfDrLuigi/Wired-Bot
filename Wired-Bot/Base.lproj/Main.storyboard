@@ -1052,7 +1052,7 @@
                         <rect key="contentRect" x="294" y="313" width="450" height="260"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1417"/>
                         <value key="minSize" type="size" width="450" height="260"/>
-                        <value key="maxSize" type="size" width="450" height="270"/>
+                        <value key="maxSize" type="size" width="450" height="260"/>
                         <connections>
                             <outlet property="delegate" destination="Rqj-2H-PMe" id="uUY-f4-dG1"/>
                         </connections>

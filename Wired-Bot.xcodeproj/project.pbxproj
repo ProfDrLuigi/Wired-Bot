@@ -37,8 +37,8 @@
 		2AB81D942438E5BC002274CD /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB81D932438E5BC002274CD /* Preferences.swift */; };
 		2AB81D9624390727002274CD /* Commands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB81D9524390727002274CD /* Commands.swift */; };
 		2ACE1EF3244B497900DE1253 /* wired.xml in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2ACE1EF2244B497900DE1253 /* wired.xml */; };
-		2AE3D91F2462AB4000BB8E5C /* Playing.sh in Resources */ = {isa = PBXBuildFile; fileRef = 2AE3D91E2462AB4000BB8E5C /* Playing.sh */; };
-		2AE3D9212462AD8200BB8E5C /* Playing.sh in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2AE3D91E2462AB4000BB8E5C /* Playing.sh */; };
+		2AE3D91F2462AB4000BB8E5C /* playing.sh in Resources */ = {isa = PBXBuildFile; fileRef = 2AE3D91E2462AB4000BB8E5C /* playing.sh */; };
+		2AE3D9212462AD8200BB8E5C /* playing.sh in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2AE3D91E2462AB4000BB8E5C /* playing.sh */; };
 		2AE75AAF244B374000A209A7 /* WiredSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2AE75AAE244B374000A209A7 /* WiredSwift */; };
 		4C0A99F123FBD4F30008A7A6 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 4C0A99F023FBD4F30008A7A6 /* LICENSE */; };
 		4C1319AF231862DF00C9FA0C /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 4C1319AE231862DF00C9FA0C /* README.md */; };
@@ -66,7 +66,7 @@
 			dstPath = Scripts;
 			dstSubfolderSpec = 7;
 			files = (
-				2AE3D9212462AD8200BB8E5C /* Playing.sh in CopyFiles */,
+				2AE3D9212462AD8200BB8E5C /* playing.sh in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,7 +121,7 @@
 		2AB81D932438E5BC002274CD /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 		2AB81D9524390727002274CD /* Commands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commands.swift; sourceTree = "<group>"; };
 		2ACE1EF2244B497900DE1253 /* wired.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = wired.xml; sourceTree = "<group>"; };
-		2AE3D91E2462AB4000BB8E5C /* Playing.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = Playing.sh; sourceTree = "<group>"; };
+		2AE3D91E2462AB4000BB8E5C /* playing.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = playing.sh; sourceTree = "<group>"; };
 		4C0A99F023FBD4F30008A7A6 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		4C1319AE231862DF00C9FA0C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		4C374D9B23FDE02E006D3E7C /* swift.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; name = swift.yml; path = .github/workflows/swift.yml; sourceTree = "<group>"; };
@@ -193,7 +193,7 @@
 		2AE3D91D2462AAE500BB8E5C /* Scripts */ = {
 			isa = PBXGroup;
 			children = (
-				2AE3D91E2462AB4000BB8E5C /* Playing.sh */,
+				2AE3D91E2462AB4000BB8E5C /* playing.sh */,
 			);
 			path = Scripts;
 			sourceTree = "<group>";
@@ -332,7 +332,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C1319AF231862DF00C9FA0C /* README.md in Resources */,
-				2AE3D91F2462AB4000BB8E5C /* Playing.sh in Resources */,
+				2AE3D91F2462AB4000BB8E5C /* playing.sh in Resources */,
 				4C74286622DCECE900D6E6F9 /* Assets.xcassets in Resources */,
 				4C0A99F123FBD4F30008A7A6 /* LICENSE in Resources */,
 				4C74286922DCECE900D6E6F9 /* Main.storyboard in Resources */,
