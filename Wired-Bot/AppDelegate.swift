@@ -171,12 +171,22 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate, BotDeleg
                            _ = error as! ShellOutError
                        }
                     }
-                     if saidText.starts(with: "/bot test") {
-                        let feedURL = URL(string: "http://images.apple.com/main/rss/hotnews/hotnews.rss")!
-                        let parser = FeedParser(URL: feedURL)
-                        let result = parser.parse()
-                        print(result)
+                     if saidText.starts(with: "/bot playing") {
+                        let scriptPath = Bundle.main.path(forResource: "Scripts", ofType: "")!
+                        let response = P7Message(withName: "wired.chat.send_say", spec: connection.spec)
+                        response.addParameter(field: "wired.chat.id", value: UInt32(1))
+                        do {
+                            try shellOut(to: "bash playing.sh", at: scriptPath)
+                            let currently_playing = UserDefaults.standard.string(forKey: "CurrentlyPlaying")
+                            let yt_query = "https://www.youtube.com/results?search_query="
+                            let yt_result = (currently_playing! as NSString).replacingOccurrences(of: " ", with: "+")
+                            response.addParameter(field: "wired.chat.say", value: "🎶 Prof. Dr. Luigi is listening to: " + currently_playing! + "\n" + yt_query + yt_result)
+                        _ = connection.send(message: response)
+                        } catch {
+                            _ = error as! ShellOutError
+                        }
                     }
+                    
                 }
              }
             if message.name == "wired.chat.user_join" {

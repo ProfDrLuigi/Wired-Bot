@@ -439,13 +439,14 @@
         <!--Preferences-->
         <scene sceneID="nVY-Tv-xH9">
             <objects>
-                <tabViewController title="Preferences" selectedTabViewItemIndex="0" id="fj9-5N-P5U" sceneMemberID="viewController">
+                <tabViewController title="Preferences" selectedTabViewItemIndex="0" tabStyle="toolbar" id="fj9-5N-P5U" sceneMemberID="viewController">
                     <tabViewItems>
-                        <tabViewItem label="Account" identifier="" id="4JN-rJ-9wq"/>
-                        <tabViewItem label="Greetings" identifier="" id="MCA-dK-w22"/>
-                        <tabViewItem label="Watched Folder" id="mui-8P-AqJ"/>
-                        <tabViewItem label="Misc" id="3vM-Z4-eQ3"/>
-                        <tabViewItem label="Wisdom" id="1cY-6J-AOx"/>
+                        <tabViewItem label="Account" identifier="" image="Account" id="4JN-rJ-9wq"/>
+                        <tabViewItem label="Greetings" identifier="" image="Greetings" id="MCA-dK-w22"/>
+                        <tabViewItem label="Listening" image="Listening" id="dYI-hk-p3S"/>
+                        <tabViewItem label="Watched Folder" image="Watched Folder" id="mui-8P-AqJ"/>
+                        <tabViewItem label="Misc" image="Misc" id="3vM-Z4-eQ3"/>
+                        <tabViewItem label="Quotes" image="Quotes" id="1cY-6J-AOx"/>
                     </tabViewItems>
                     <tabView key="tabView" type="noTabsNoBorder" id="aFh-c0-MWe">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
@@ -459,6 +460,7 @@
                         <outlet property="tabView" destination="aFh-c0-MWe" id="RqJ-ao-y3w"/>
                         <segue destination="A62-L6-hAO" kind="relationship" relationship="tabItems" id="ht8-i3-SoY"/>
                         <segue destination="Jig-xc-1nb" kind="relationship" relationship="tabItems" id="eSy-TC-0nD"/>
+                        <segue destination="WGl-Po-Ekz" kind="relationship" relationship="tabItems" id="vdI-uV-wcZ"/>
                         <segue destination="hZN-k3-hbm" kind="relationship" relationship="tabItems" id="bZU-97-3hb"/>
                         <segue destination="mHF-p3-4hY" kind="relationship" relationship="tabItems" id="bZD-rA-HjQ"/>
                         <segue destination="DTP-QD-zUr" kind="relationship" relationship="tabItems" id="1p5-yI-grK"/>
@@ -476,19 +478,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XFa-Wy-fD1">
-                                <rect key="frame" x="188" y="36" width="75" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="Close" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Vhs-BZ-kFO">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="close:" target="A62-L6-hAO" id="5iQ-AF-m0t"/>
-                                </connections>
-                            </button>
                             <box fixedFrame="YES" boxType="custom" borderWidth="2" cornerRadius="10" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="HSh-Hx-Lwo">
-                                <rect key="frame" x="20" y="95" width="410" height="178"/>
+                                <rect key="frame" x="20" y="102" width="410" height="178"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <view key="contentView" id="9K9-pd-v5e">
                                     <rect key="frame" x="2" y="2" width="406" height="174"/>
@@ -624,17 +615,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BNf-fB-vNT">
-                                <rect key="frame" x="188" y="36" width="75" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="Close" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="YzM-II-NGT">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="close:" target="Jig-xc-1nb" id="SKs-uP-9ZQ"/>
-                                </connections>
-                            </button>
                             <box fixedFrame="YES" boxType="custom" borderWidth="2" cornerRadius="10" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="ZrJ-Bq-gJG">
                                 <rect key="frame" x="20" y="77" width="410" height="203"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -1069,10 +1049,10 @@
                 <windowController id="Rqj-2H-PMe" sceneMemberID="viewController">
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="OHS-LB-xqa">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
-                        <rect key="contentRect" x="294" y="313" width="450" height="300"/>
+                        <rect key="contentRect" x="294" y="313" width="450" height="260"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1417"/>
-                        <value key="minSize" type="size" width="450" height="300"/>
-                        <value key="maxSize" type="size" width="450" height="300"/>
+                        <value key="minSize" type="size" width="450" height="260"/>
+                        <value key="maxSize" type="size" width="450" height="270"/>
                         <connections>
                             <outlet property="delegate" destination="Rqj-2H-PMe" id="uUY-f4-dG1"/>
                         </connections>
@@ -1092,17 +1072,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lGz-m0-4N7">
-                                <rect key="frame" x="188" y="36" width="75" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="Close" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="7b4-u8-Lvd">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="close:" target="hZN-k3-hbm" id="VwN-kX-J4E"/>
-                                </connections>
-                            </button>
                             <box fixedFrame="YES" boxType="custom" borderWidth="2" cornerRadius="10" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="Zi6-px-MJQ">
                                 <rect key="frame" x="20" y="77" width="410" height="203"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -1172,17 +1141,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VLC-Kt-J3Y">
-                                <rect key="frame" x="188" y="36" width="75" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="Close" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="KRP-0Y-tbV">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="close:" target="mHF-p3-4hY" id="Igc-N2-fEt"/>
-                                </connections>
-                            </button>
                             <box fixedFrame="YES" boxType="custom" borderWidth="2" cornerRadius="10" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="Yl6-qY-QjH">
                                 <rect key="frame" x="20" y="77" width="410" height="203"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -1257,11 +1215,11 @@
             <objects>
                 <viewController title="Wisdom" id="DTP-QD-zUr" customClass="Preferences" customModule="Wired_Bot" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="RGb-rm-acn">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="260"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <box fixedFrame="YES" boxType="custom" borderWidth="2" cornerRadius="10" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="opT-HJ-Co5">
-                                <rect key="frame" x="20" y="62" width="410" height="218"/>
+                                <rect key="frame" x="20" y="22" width="410" height="218"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <view key="contentView" id="FQz-Ix-leo">
                                     <rect key="frame" x="2" y="2" width="406" height="214"/>
@@ -1463,17 +1421,6 @@
                                 </view>
                                 <color key="fillColor" name="unemphasizedSelectedTextBackgroundColor" catalog="System" colorSpace="catalog"/>
                             </box>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dnn-Dd-c1H">
-                                <rect key="frame" x="188" y="30" width="75" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="Close" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ASu-xj-i4D">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="close:" target="DTP-QD-zUr" id="Ukv-3u-eH0"/>
-                                </connections>
-                            </button>
                         </subviews>
                     </view>
                 </viewController>
@@ -1484,10 +1431,40 @@
             </objects>
             <point key="canvasLocation" x="2224" y="-1122"/>
         </scene>
+        <!--Listening-->
+        <scene sceneID="2OZ-Rv-BAN">
+            <objects>
+                <viewController title="Listening" id="WGl-Po-Ekz" sceneMemberID="viewController">
+                    <view key="view" id="jAf-AJ-djc">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <box fixedFrame="YES" boxType="custom" borderWidth="2" cornerRadius="10" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="g0U-XN-jBX">
+                                <rect key="frame" x="20" y="77" width="410" height="203"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <view key="contentView" id="GST-Ps-Kzl">
+                                    <rect key="frame" x="2" y="2" width="406" height="199"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <color key="fillColor" name="unemphasizedSelectedTextBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </box>
+                        </subviews>
+                    </view>
+                </viewController>
+                <customObject id="O3Z-Cd-qY6" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1443" y="-1286"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="Account" width="512" height="512"/>
+        <image name="Greetings" width="512" height="512"/>
+        <image name="Listening" width="1600" height="1600"/>
+        <image name="Misc" width="512" height="512"/>
         <image name="NSStatusAvailable" width="16" height="16"/>
         <image name="NSStatusUnavailable" width="16" height="16"/>
+        <image name="Quotes" width="100" height="100"/>
+        <image name="Watched Folder" width="512" height="512"/>
         <image name="bot" width="512" height="512"/>
         <image name="chuck_norris_256" width="256" height="235"/>
         <image name="einstein_256" width="256" height="256"/>
