@@ -409,7 +409,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate, BotDeleg
         
         let quotes_interval_check = UserDefaults.standard.string(forKey: "CommonQuotesEn_Interval")
         if quotes_interval_check == nil {
-            UserDefaults.standard.set("5", forKey: "ChuckNorrisFactsEn_Interval")
+            UserDefaults.standard.set("5", forKey: "CommonQuotesEn_Interval")
         }
 
         let quotes_de_check = UserDefaults.standard.string(forKey: "CommonQuotesDe")
