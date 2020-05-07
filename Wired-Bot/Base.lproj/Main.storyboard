@@ -1356,35 +1356,6 @@
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
-                                        <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DB6-wn-Y3e">
-                                            <rect key="frame" x="272" y="5" width="87" height="25"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <popUpButtonCell key="cell" type="push" title="Hide" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="qqe-zr-aUz" id="Juk-QX-5dc">
-                                                <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                                <font key="font" metaFont="system"/>
-                                                <menu key="menu" id="8gX-p3-BcU">
-                                                    <items>
-                                                        <menuItem title="Hide" state="on" id="qqe-zr-aUz"/>
-                                                        <menuItem title="32" id="zSe-3i-iD8"/>
-                                                        <menuItem title="64" id="eZK-UZ-SkF"/>
-                                                        <menuItem title="128" id="Shb-lu-l6Z"/>
-                                                        <menuItem title="256" id="1Sx-lF-BYf"/>
-                                                    </items>
-                                                </menu>
-                                            </popUpButtonCell>
-                                            <connections>
-                                                <binding destination="oSs-gV-Q7k" name="selectedValue" keyPath="values.CommonQuotes_Avatar_Width" id="BcX-Ze-wfC"/>
-                                            </connections>
-                                        </popUpButton>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sjE-EF-aDb">
-                                            <rect key="frame" x="272" y="30" width="106" height="16"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="Width in Pixel" id="rUd-WN-SpI">
-                                                <font key="font" metaFont="system"/>
-                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
-                                        </textField>
                                         <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rQo-Ha-e9l">
                                             <rect key="frame" x="196" y="112" width="40" height="40"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -1468,6 +1439,35 @@
                                                 <binding destination="WKA-2D-N5e" name="value" keyPath="values.CommonQuotesDe" id="Pp5-K0-qth"/>
                                             </connections>
                                         </button>
+                                        <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DB6-wn-Y3e">
+                                            <rect key="frame" x="252" y="5" width="87" height="25"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <popUpButtonCell key="cell" type="push" title="Hide" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="qqe-zr-aUz" id="Juk-QX-5dc">
+                                                <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                                <menu key="menu" id="8gX-p3-BcU">
+                                                    <items>
+                                                        <menuItem title="Hide" state="on" id="qqe-zr-aUz"/>
+                                                        <menuItem title="32" id="zSe-3i-iD8"/>
+                                                        <menuItem title="64" id="eZK-UZ-SkF"/>
+                                                        <menuItem title="128" id="Shb-lu-l6Z"/>
+                                                        <menuItem title="256" id="1Sx-lF-BYf"/>
+                                                    </items>
+                                                </menu>
+                                            </popUpButtonCell>
+                                            <connections>
+                                                <binding destination="oSs-gV-Q7k" name="selectedValue" keyPath="values.CommonQuotes_Avatar_Width" id="BcX-Ze-wfC"/>
+                                            </connections>
+                                        </popUpButton>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sjE-EF-aDb">
+                                            <rect key="frame" x="252" y="30" width="106" height="16"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="Width in Pixel" id="rUd-WN-SpI">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
                                     </subviews>
                                 </view>
                                 <color key="fillColor" name="unemphasizedSelectedTextBackgroundColor" catalog="System" colorSpace="catalog"/>
