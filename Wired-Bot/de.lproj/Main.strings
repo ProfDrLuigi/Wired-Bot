@@ -1,0 +1,402 @@
+/* Class = "NSTabViewItem"; label = "Quotes"; ObjectID = "1cY-6J-AOx"; */
+"1cY-6J-AOx.label" = "Zitate";
+
+/* Class = "NSMenuItem"; title = "256"; ObjectID = "1Sx-lF-BYf"; */
+"1Sx-lF-BYf.title" = "256";
+
+/* Class = "NSMenuItem"; title = "Wired-Bot"; ObjectID = "1Xt-HY-uBw"; */
+"1Xt-HY-uBw.title" = "Wired-Bot";
+
+/* Class = "NSButtonCell"; title = "Deactivate"; ObjectID = "2AG-KB-DU3"; */
+"2AG-KB-DU3.title" = "Deaktivieren";
+
+/* Class = "NSTextFieldCell"; title = "Interval in Minutes:"; ObjectID = "2x0-1X-N1x"; */
+"2x0-1X-N1x.title" = "Intervall in Minuten:";
+
+/* Class = "NSTextFieldCell"; title = "Login:"; ObjectID = "3ck-jB-jDe"; */
+"3ck-jB-jDe.title" = "Login:";
+
+/* Class = "NSTabViewItem"; label = "Misc"; ObjectID = "3vM-Z4-eQ3"; */
+"3vM-Z4-eQ3.label" = "Verschiedenes";
+
+/* Class = "NSTabViewItem"; label = "Account"; ObjectID = "4JN-rJ-9wq"; */
+"4JN-rJ-9wq.label" = "Konto";
+
+/* Class = "NSButtonCell"; title = "Disconnect"; ObjectID = "4of-61-6OS"; */
+"4of-61-6OS.title" = "Trennen";
+
+/* Class = "NSMenuItem"; title = "Quit Wired-Bot"; ObjectID = "4sb-4s-VLi"; */
+"4sb-4s-VLi.title" = "Wired-Bot beenden";
+
+/* Class = "NSWindow"; title = "Window"; ObjectID = "4wO-3h-b0X"; */
+"4wO-3h-b0X.title" = "Fenster";
+
+/* Class = "NSMenuItem"; title = "About Wired-Bot"; ObjectID = "5kV-Vb-QxS"; */
+"5kV-Vb-QxS.title" = "Über Wired-Bot";
+
+/* Class = "NSButtonCell"; title = "Disconnect"; ObjectID = "7WG-b7-an7"; */
+"7WG-b7-an7.title" = "Trennen";
+
+/* Class = "NSButtonCell"; title = "🇩🇪 Common Quotes"; ObjectID = "8Rk-M0-FVK"; */
+"8Rk-M0-FVK.title" = "🇩🇪 Allgemeine Zitate";
+
+/* Class = "NSMenuItem"; title = "256"; ObjectID = "9zm-k2-7yG"; */
+"9zm-k2-7yG.title" = "256";
+
+/* Class = "NSMenuItem"; title = "Find"; ObjectID = "38S-Lk-ecq"; */
+"38S-Lk-ecq.title" = "Suchen";
+
+/* Class = "NSTextFieldCell"; title = "Interval in Minutes:"; ObjectID = "60n-jf-5nd"; */
+"60n-jf-5nd.title" = "Intervall in Minuten:";
+
+/* Class = "NSTextFieldCell"; title = "Nickname in Chat:"; ObjectID = "92q-9P-XII"; */
+"92q-9P-XII.title" = "Nickname im Chat:";
+
+/* Class = "NSTextFieldCell"; title = "For Emojicons press ctrl+cmd+space"; ObjectID = "496-BG-Uv5"; */
+"496-BG-Uv5.title" = "Für Emojicons drücke Ctrl+Cmd+Leertaste";
+
+/* Class = "NSViewController"; title = "Account"; ObjectID = "A62-L6-hAO"; */
+"A62-L6-hAO.title" = "Konto";
+
+/* Class = "NSButtonCell"; title = "Commands"; ObjectID = "Af4-UE-dBn"; */
+"Af4-UE-dBn.title" = "Befehle";
+
+/* Class = "NSTextFieldCell"; title = "Wired-Bot"; ObjectID = "aHY-Sp-CJp"; */
+"aHY-Sp-CJp.title" = "Wired-Bot";
+
+/* Class = "NSTextFieldCell"; title = "/bot factme"; ObjectID = "Asy-Pc-L4O"; */
+"Asy-Pc-L4O.title" = "/bot factme";
+
+/* Class = "NSMenuItem"; title = "Window"; ObjectID = "aUF-d1-5bR"; */
+"aUF-d1-5bR.title" = "Fenster";
+
+/* Class = "NSMenu"; title = "Main Menu"; ObjectID = "AYu-sK-qS6"; */
+"AYu-sK-qS6.title" = "Hauptmenu";
+
+/* Class = "NSMenuItem"; title = "Jump to Selection"; ObjectID = "bIn-QH-3mW"; */
+"bIn-QH-3mW.title" = "Springe zur Auswahl";
+
+/* Class = "NSButtonCell"; title = "Reset Picture"; ObjectID = "BNh-yz-Iwe"; */
+"BNh-yz-Iwe.title" = "Bild zurücksetzen";
+
+/* Class = "NSMenuItem"; title = "Select All"; ObjectID = "bPA-x3-bhd"; */
+"bPA-x3-bhd.title" = "Alles auswählen";
+
+/* Class = "NSMenuItem"; title = "Find Next"; ObjectID = "c9Y-Nm-0xJ"; */
+"c9Y-Nm-0xJ.title" = "Nächste finden";
+
+/* Class = "NSTextFieldCell"; title = "Enter the folder you want to monitor here. If the field remains empty, the function is automatically deactivated."; ObjectID = "cfM-nS-g2R"; */
+"cfM-nS-g2R.title" = "Gib hier den Ordner ein den Du beobachten lassen möchtest. Wenn das Feld leer bleibt ist die Funktion automatisch deaktiviert.";
+
+/* Class = "NSMenuItem"; title = "Paste"; ObjectID = "CIK-MO-r2V"; */
+"CIK-MO-r2V.title" = "Einfügen";
+
+/* Class = "NSTextFieldCell"; title = "%NICK% = Nickname"; ObjectID = "CtH-Im-MWM"; */
+"CtH-Im-MWM.title" = "%NICK% = Nickname";
+
+/* Class = "NSButtonCell"; title = "\"Is listening to\""; ObjectID = "d0F-7j-zJV"; */
+"d0F-7j-zJV.title" = "\"Hört gerade ...\"";
+
+/* Class = "NSTextFieldCell"; title = "Online status:"; ObjectID = "dbo-SB-Be6"; */
+"dbo-SB-Be6.title" = "Online Status:";
+
+/* Class = "NSMenuItem"; title = "Find Previous"; ObjectID = "dC2-49-O17"; */
+"dC2-49-O17.title" = "Finde Vorherige";
+
+/* Class = "NSButtonCell"; title = "Connect automatically after starting"; ObjectID = "dEA-Zu-DvC"; */
+"dEA-Zu-DvC.title" = "Nach Start automatisch verbinden";
+
+/* Class = "NSTextFieldCell"; title = "Example: Hello %NICK%. Nice to see you."; ObjectID = "doV-Wc-0cP"; */
+"doV-Wc-0cP.title" = "Beispiel: Hallo %NICK%. Schön Dich zu sehen.";
+
+/* Class = "NSTextFieldCell"; title = "Address:"; ObjectID = "DOZ-yH-vc1"; */
+"DOZ-yH-vc1.title" = "Addresse:";
+
+/* Class = "NSViewController"; title = "Quotes"; ObjectID = "DTP-QD-zUr"; */
+"DTP-QD-zUr.title" = "Zitate";
+
+/* Class = "NSTabViewItem"; label = "Listening"; ObjectID = "dYI-hk-p3S"; */
+"dYI-hk-p3S.label" = "Hört gerade";
+
+/* Class = "NSButtonCell"; title = "Goodbye certain User on leave"; ObjectID = "Dyx-L9-ZNY"; */
+"Dyx-L9-ZNY.title" = "Verabschiede User individuell mit Namen";
+
+/* Class = "NSButtonCell"; title = "Send general goodbye into chat"; ObjectID = "dzN-ku-rOk"; */
+"dzN-ku-rOk.title" = "Sende Verbaschiedung in den Chat";
+
+/* Class = "NSMenuItem"; title = "Spelling"; ObjectID = "E6j-4d-T4N"; */
+"E6j-4d-T4N.title" = "Rechtschreibung";
+
+/* Class = "NSTextFieldCell"; title = "Password:"; ObjectID = "eev-gC-hBi"; */
+"eev-gC-hBi.title" = "Passwort:";
+
+/* Class = "NSButtonCell"; title = "Close"; ObjectID = "EO2-Xo-IMO"; */
+"EO2-Xo-IMO.title" = "Schliessen";
+
+/* Class = "NSMenuItem"; title = "64"; ObjectID = "eZK-UZ-SkF"; */
+"eZK-UZ-SkF.title" = "64";
+
+/* Class = "NSMenuItem"; title = "Check for Updates..."; ObjectID = "F0u-z0-FVU"; */
+"F0u-z0-FVU.title" = "Suche nach Updates...";
+
+/* Class = "NSMenu"; title = "Help"; ObjectID = "F2S-fz-NVQ"; */
+"F2S-fz-NVQ.title" = "Hilfe";
+
+/* Class = "NSTextFieldCell"; title = "Interval in Minutes:"; ObjectID = "FfF-1y-IzY"; */
+"FfF-1y-IzY.title" = "Intervall in Minuten:";
+
+/* Class = "NSMenuItem"; title = "Undo"; ObjectID = "FFh-IN-X5Q"; */
+"FFh-IN-X5Q.title" = "Rückgängig";
+
+/* Class = "NSButtonCell"; title = "🎶 Listening to ..."; ObjectID = "Fgr-bp-JjO"; */
+"Fgr-bp-JjO.title" = "🎶 Hört gerade ...";
+
+/* Class = "NSButtonCell"; title = "Deactivate"; ObjectID = "fHp-NT-DYf"; */
+"fHp-NT-DYf.title" = "Deaktivieren";
+
+/* Class = "NSTabViewController"; title = "Preferences"; ObjectID = "fj9-5N-P5U"; */
+"fj9-5N-P5U.title" = "Einstellungen";
+
+/* Class = "NSMenuItem"; title = "Wired-Bot Help"; ObjectID = "FKE-Sm-Kum"; */
+"FKE-Sm-Kum.title" = "Wired-Bot Hilfe";
+
+/* Class = "NSMenuItem"; title = "Stop Speaking"; ObjectID = "fnD-RN-FVa"; */
+"fnD-RN-FVa.title" = "Stop Sprache";
+
+/* Class = "NSMenuItem"; title = "Find..."; ObjectID = "fXp-Po-WMn"; */
+"fXp-Po-WMn.title" = "Suchen...";
+
+/* Class = "NSBox"; title = "Box"; ObjectID = "g0U-XN-jBX"; */
+"g0U-XN-jBX.title" = "Box";
+
+/* Class = "NSTextFieldCell"; title = "Status:"; ObjectID = "gCD-Da-dBF"; */
+"gCD-Da-dBF.title" = "Status:";
+
+/* Class = "NSViewController"; title = "Wired-Bot"; ObjectID = "H4d-wo-nee"; */
+"H4d-wo-nee.title" = "Wired-Bot";
+
+/* Class = "NSTextFieldCell"; title = "/bot date"; ObjectID = "hm7-cZ-DtF"; */
+"hm7-cZ-DtF.title" = "/bot date";
+
+/* Class = "NSButtonCell"; title = "Deactivate"; ObjectID = "hpt-lS-H9U"; */
+"hpt-lS-H9U.title" = "Deaktivieren";
+
+/* Class = "NSBox"; title = "Box"; ObjectID = "HSh-Hx-Lwo"; */
+"HSh-Hx-Lwo.title" = "Box";
+
+/* Class = "NSMenuItem"; title = "Redo"; ObjectID = "hTT-kV-Sp4"; */
+"hTT-kV-Sp4.title" = "Wiederholen";
+
+/* Class = "NSMenu"; title = "Services"; ObjectID = "hz9-B4-Xy5"; */
+"hz9-B4-Xy5.title" = "Services";
+
+/* Class = "NSViewController"; title = "Watched Folder"; ObjectID = "hZN-k3-hbm"; */
+"hZN-k3-hbm.title" = "Ordnerbeobachtung";
+
+/* Class = "NSButtonCell"; title = "🇺🇸 Common Quotes"; ObjectID = "iEF-iF-dnN"; */
+"iEF-iF-dnN.title" = "🇺🇸 Allgemeine Zitate";
+
+/* Class = "NSMenuItem"; title = "Check Spelling"; ObjectID = "iGL-OA-4tK"; */
+"iGL-OA-4tK.title" = "Prüfe Rechtschreibung";
+
+/* Class = "NSButtonCell"; title = "Deactivate"; ObjectID = "IxI-Fc-Tji"; */
+"IxI-Fc-Tji.title" = "Deaktivieren";
+
+/* Class = "NSTextFieldCell"; title = "Notification text in chat for new files."; ObjectID = "J80-If-WDR"; */
+"J80-If-WDR.title" = "Benachrichtigung im Chat bei neuen Dateien.";
+
+/* Class = "NSButtonCell"; title = "Multiple"; ObjectID = "JgX-D0-UY0"; */
+"JgX-D0-UY0.title" = "Mehrere";
+
+/* Class = "NSViewController"; title = "Greeting"; ObjectID = "Jig-xc-1nb"; */
+"Jig-xc-1nb.title" = "Grüße";
+
+/* Class = "NSMenuItem"; title = "Hide"; ObjectID = "JpY-kw-hcj"; */
+"JpY-kw-hcj.title" = "Ausblenden";
+
+/* Class = "NSMenu"; title = "Spelling"; ObjectID = "K7R-vN-K7B"; */
+"K7R-vN-K7B.title" = "Rechtschreibung";
+
+/* Class = "NSMenuItem"; title = "Start Speaking"; ObjectID = "k37-GE-vAM"; */
+"k37-GE-vAM.title" = "Start Speaking";
+
+/* Class = "NSMenuItem"; title = "Show All"; ObjectID = "Kd2-mp-pUS"; */
+"Kd2-mp-pUS.title" = "Alle anzeigen";
+
+/* Class = "NSTextFieldCell"; title = "Width in Pixel"; ObjectID = "KEN-Gv-Uzv"; */
+"KEN-Gv-Uzv.title" = "Weite in Pixeln";
+
+/* Class = "NSMenuItem"; title = "Delete"; ObjectID = "l6e-4j-Nou"; */
+"l6e-4j-Nou.title" = "Löschen";
+
+/* Class = "NSMenuItem"; title = "Bring All to Front"; ObjectID = "LE2-aR-0XJ"; */
+"LE2-aR-0XJ.title" = "Alle nach vorne holen";
+
+/* Class = "NSTextFieldCell"; title = "/bot roundhouseme"; ObjectID = "lrc-Vr-GzO"; */
+"lrc-Vr-GzO.title" = "/bot roundhouseme";
+
+/* Class = "NSTabViewItem"; label = "Greetings"; ObjectID = "MCA-dK-w22"; */
+"MCA-dK-w22.label" = "Grüße";
+
+/* Class = "NSViewController"; title = "Misc"; ObjectID = "mHF-p3-4hY"; */
+"mHF-p3-4hY.title" = "Verschiedenes";
+
+/* Class = "NSTextFieldCell"; title = "/bot uptime"; ObjectID = "MLb-Ue-pEa"; */
+"MLb-Ue-pEa.title" = "/bot uptime";
+
+/* Class = "NSTextFieldCell"; title = "Here the current track that is being played in Spotify is written into the chat at next song.\n\nYou can also manually insert the \"Listening to\" on the main page using the button there."; ObjectID = "mPf-gW-MM1"; */
+"mPf-gW-MM1.title" = "Mit dieser Funktion wir der gerade aktuell laufende Titel in Spotify in den Chat geschrieben wenn dieser wechselt.\n\nDu kannst es aber auch manuell auslösen indem Du den Button im Bot Hauptfenster verwendest.";
+
+/* Class = "NSTabViewItem"; label = "Watched Folder"; ObjectID = "mui-8P-AqJ"; */
+"mui-8P-AqJ.label" = "Ordnerbeobachtung";
+
+/* Class = "NSMenuItem"; title = "128"; ObjectID = "nMC-uU-6DA"; */
+"nMC-uU-6DA.title" = "128";
+
+/* Class = "NSMenuItem"; title = "Services"; ObjectID = "NMo-om-nkz"; */
+"NMo-om-nkz.title" = "Services";
+
+/* Class = "NSWindow"; title = "Window"; ObjectID = "OHS-LB-xqa"; */
+"OHS-LB-xqa.title" = "Fenster";
+
+/* Class = "NSMenuItem"; title = "Hide Wired"; ObjectID = "Olw-nP-bQN"; */
+"Olw-nP-bQN.title" = "Wired ausblenden";
+
+/* Class = "NSBox"; title = "Box"; ObjectID = "opT-HJ-Co5"; */
+"opT-HJ-Co5.title" = "Box";
+
+/* Class = "NSMenuItem"; title = "64"; ObjectID = "oRt-sv-aSP"; */
+"oRt-sv-aSP.title" = "64";
+
+/* Class = "NSBox"; title = "Syntax"; ObjectID = "OVt-Pl-pbH"; */
+"OVt-Pl-pbH.title" = "Syntax";
+
+/* Class = "NSMenuItem"; title = "Minimize"; ObjectID = "OY7-WF-poV"; */
+"OY7-WF-poV.title" = "Minimieren";
+
+/* Class = "NSTextFieldCell"; placeholderString = "Uploads/"; ObjectID = "P25-QB-oIw"; */
+"P25-QB-oIw.placeholderString" = "Uploads/";
+
+/* Class = "NSMenuItem"; title = "32"; ObjectID = "Pia-3g-cO5"; */
+"Pia-3g-cO5.title" = "32";
+
+/* Class = "NSButtonCell"; title = "Send general greetings into chat"; ObjectID = "PVJ-UL-UCS"; */
+"PVJ-UL-UCS.title" = "Sende allgemeine Grüße in den Chat";
+
+/* Class = "NSMenuItem"; title = "Hide"; ObjectID = "qqe-zr-aUz"; */
+"qqe-zr-aUz.title" = "Ausblednen";
+
+/* Class = "NSMenuItem"; title = "Spelling..."; ObjectID = "QZi-ro-Coe"; */
+"QZi-ro-Coe.title" = "Rechtschreibung...";
+
+/* Class = "NSMenuItem"; title = "Zoom"; ObjectID = "R4o-n2-Eq4"; */
+"R4o-n2-Eq4.title" = "Zoom";
+
+/* Class = "NSButtonCell"; title = "Preferences"; ObjectID = "RDM-3x-3i1"; */
+"RDM-3x-3i1.title" = "Einstellungen";
+
+/* Class = "NSMenu"; title = "Find"; ObjectID = "rMh-E7-4h0"; */
+"rMh-E7-4h0.title" = "Suchen";
+
+/* Class = "NSTextFieldCell"; title = "Chat Commands"; ObjectID = "RQU-Nr-1Vp"; */
+"RQU-Nr-1Vp.title" = "Chat Befehle";
+
+/* Class = "NSButtonCell"; title = "Deactivate"; ObjectID = "Rtk-gP-Q27"; */
+"Rtk-gP-Q27.title" = "Deaktivieren";
+
+/* Class = "NSTextFieldCell"; title = "Width in Pixel"; ObjectID = "rUd-WN-SpI"; */
+"rUd-WN-SpI.title" = "Weite in Pixeln";
+
+/* Class = "NSMenuItem"; title = "Copy"; ObjectID = "sC1-EX-35b"; */
+"sC1-EX-35b.title" = "Kopieren";
+
+/* Class = "NSButtonCell"; title = "Close"; ObjectID = "SFa-dE-CZL"; */
+"SFa-dE-CZL.title" = "Schliessen";
+
+/* Class = "NSMenuItem"; title = "128"; ObjectID = "Shb-lu-l6Z"; */
+"Shb-lu-l6Z.title" = "128";
+
+/* Class = "NSMenuItem"; title = "Check Spelling As You Type"; ObjectID = "sUp-hm-bgu"; */
+"sUp-hm-bgu.title" = "Prüfe Rechtschreibung beim Schreiben";
+
+/* Class = "NSMenuItem"; title = "Use Selection for Find"; ObjectID = "sz5-4c-JuM"; */
+"sz5-4c-JuM.title" = "Benutze Auswahl als Suchbegriff";
+
+/* Class = "NSButtonCell"; title = "Deactivate"; ObjectID = "T9b-8f-MMq"; */
+"T9b-8f-MMq.title" = "Deaktivieren";
+
+/* Class = "NSButtonCell"; title = "Apply"; ObjectID = "tbt-hP-heq"; */
+"tbt-hP-heq.title" = "Anwenden";
+
+/* Class = "NSMenu"; title = "Window"; ObjectID = "Td7-aD-5lo"; */
+"Td7-aD-5lo.title" = "Fenster";
+
+/* Class = "NSMenu"; title = "Edit"; ObjectID = "TEI-Lx-D53"; */
+"TEI-Lx-D53.title" = "Bearbeiten";
+
+/* Class = "NSTextFieldCell"; placeholderString = "localhost:4871"; ObjectID = "TuT-5b-SP8"; */
+"TuT-5b-SP8.placeholderString" = "localhost:4871";
+
+/* Class = "NSButtonCell"; title = "Include Youtube Link"; ObjectID = "uQL-rH-EA6"; */
+"uQL-rH-EA6.title" = "Youtube Link anzeigen";
+
+/* Class = "NSMenu"; title = "Wired-Bot"; ObjectID = "uQy-DD-JDr"; */
+"uQy-DD-JDr.title" = "Wired-Bot";
+
+/* Class = "NSMenuItem"; title = "Hide Others"; ObjectID = "Vdr-fp-XzO"; */
+"Vdr-fp-XzO.title" = "Andere ausblenden";
+
+/* Class = "NSButtonCell"; title = "Change Picture"; ObjectID = "vNg-MX-SUF"; */
+"vNg-MX-SUF.title" = "Bild ändern";
+
+/* Class = "NSButtonCell"; title = "Welcome certain User on login"; ObjectID = "vw6-oQ-2Bb"; */
+"vw6-oQ-2Bb.title" = "Begrüße User individuell mit Namen";
+
+/* Class = "NSViewController"; title = "Listening"; ObjectID = "WGl-Po-Ekz"; */
+"WGl-Po-Ekz.title" = "Hört gerade";
+
+/* Class = "NSMenuItem"; title = "Speech"; ObjectID = "WIl-lq-dZA"; */
+"WIl-lq-dZA.title" = "Speech";
+
+/* Class = "NSMenuItem"; title = "Edit"; ObjectID = "WKk-Fd-cmR"; */
+"WKk-Fd-cmR.title" = "Bearbeiten";
+
+/* Class = "NSMenuItem"; title = "Help"; ObjectID = "wpr-3q-Mcd"; */
+"wpr-3q-Mcd.title" = "Hilfe";
+
+/* Class = "NSTextFieldCell"; placeholderString = "guest"; ObjectID = "wtw-Fh-TXo"; */
+"wtw-Fh-TXo.placeholderString" = "guest";
+
+/* Class = "NSTextFieldCell"; title = "Nickname:"; ObjectID = "wvP-Rx-xAf"; */
+"wvP-Rx-xAf.title" = "Nickname:";
+
+/* Class = "NSMenuItem"; title = "Cut"; ObjectID = "X0j-aG-Nzm"; */
+"X0j-aG-Nzm.title" = "Ausschneiden";
+
+/* Class = "NSMenu"; title = "Speech"; ObjectID = "X66-00-NWc"; */
+"X66-00-NWc.title" = "Speech";
+
+/* Class = "NSViewController"; title = "Commands"; ObjectID = "xJd-eX-l6X"; */
+"xJd-eX-l6X.title" = "Befehle";
+
+/* Class = "NSButtonCell"; title = "Connect"; ObjectID = "xOV-Rf-s5A"; */
+"xOV-Rf-s5A.title" = "Verbinden";
+
+/* Class = "NSTextFieldCell"; title = "/bot postilon"; ObjectID = "xQE-YP-kG5"; */
+"xQE-YP-kG5.title" = "/bot postilon";
+
+/* Class = "NSButtonCell"; title = "Disconnect"; ObjectID = "xuY-II-lE3"; */
+"xuY-II-lE3.title" = "Trennen";
+
+/* Class = "NSBox"; title = "Box"; ObjectID = "Yl6-qY-QjH"; */
+"Yl6-qY-QjH.title" = "Box";
+
+/* Class = "NSBox"; title = "Box"; ObjectID = "Zi6-px-MJQ"; */
+"Zi6-px-MJQ.title" = "Box";
+
+/* Class = "NSBox"; title = "Box"; ObjectID = "ZrJ-Bq-gJG"; */
+"ZrJ-Bq-gJG.title" = "Box";
+
+/* Class = "NSMenuItem"; title = "32"; ObjectID = "zSe-3i-iD8"; */
+"zSe-3i-iD8.title" = "32";
+

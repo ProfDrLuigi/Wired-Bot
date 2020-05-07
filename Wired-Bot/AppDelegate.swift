@@ -281,12 +281,16 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate, BotDeleg
     func   applicationDidFinishLaunching(_ aNotification: Notification) {
        
         UserDefaults.standard.set(false, forKey: "Connected")
-        UserDefaults.standard.set(false, forKey: "ChuckNorrisFacts_Running")
+        UserDefaults.standard.set(false, forKey: "ChuckNorrisFactsEn_Running")
+        UserDefaults.standard.set(false, forKey: "ChuckNorrisFactsDe_Running")
         UserDefaults.standard.set(false, forKey: "CommonQuotesEn_Running")
+        UserDefaults.standard.set(false, forKey: "CommonQuotesDe_Running")
         
         Timer.scheduledTimer(timeInterval: 15.0, target: self, selector: #selector(self.wired_ping), userInfo: nil, repeats: true)
-        Timer.scheduledTimer(timeInterval: 63.0, target: self, selector: #selector(self.ChuckNorrisFacts), userInfo: nil, repeats: true)
+        Timer.scheduledTimer(timeInterval: 63.0, target: self, selector: #selector(self.ChuckNorrisFactsEn), userInfo: nil, repeats: true)
+        Timer.scheduledTimer(timeInterval: 63.0, target: self, selector: #selector(self.ChuckNorrisFactsDe), userInfo: nil, repeats: true)
         Timer.scheduledTimer(timeInterval: 63.0, target: self, selector: #selector(self.CommonQuotesEn(notification:)), userInfo: nil, repeats: true)
+        Timer.scheduledTimer(timeInterval: 63.0, target: self, selector: #selector(self.CommonQuotesDe(notification:)), userInfo: nil, repeats: true)
         Timer.scheduledTimer(timeInterval: 5.0, target: self, selector: #selector(self.ListeningTo), userInfo: nil, repeats: true)
         
         NotificationCenter.default.addObserver(
@@ -378,14 +382,44 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate, BotDeleg
             UserDefaults.standard.set("Yeah. New stuff arrived in ", forKey: "WatcherNotification_Text")
         }
  
-        let chuck_check = UserDefaults.standard.string(forKey: "ChuckNorrisFacts")
+        let chuck_check = UserDefaults.standard.string(forKey: "ChuckNorrisFactsEn")
         if chuck_check == nil {
-            UserDefaults.standard.set(false, forKey: "ChuckNorrisFacts")
+            UserDefaults.standard.set(false, forKey: "ChuckNorrisFactsEn")
         }
         
-        let chuck_interval_check = UserDefaults.standard.string(forKey: "ChuckNorrisFacts_Interval")
+        let chuck_interval_check = UserDefaults.standard.string(forKey: "ChuckNorrisFactsEn_Interval")
         if chuck_interval_check == nil {
-            UserDefaults.standard.set("5", forKey: "ChuckNorrisFacts_Interval")
+            UserDefaults.standard.set("5", forKey: "ChuckNorrisFactsEn_Interval")
+        }
+
+        let chuck_de_check = UserDefaults.standard.string(forKey: "ChuckNorrisFactsDe")
+        if chuck_de_check == nil {
+            UserDefaults.standard.set(false, forKey: "ChuckNorrisFactsDe")
+        }
+        
+        let chuck_de_interval_check = UserDefaults.standard.string(forKey: "ChuckNorrisFactsDe_Interval")
+        if chuck_de_interval_check == nil {
+            UserDefaults.standard.set("5", forKey: "ChuckNorrisFactsDe_Interval")
+        }
+
+        let quotes_check = UserDefaults.standard.string(forKey: "CommonQuotesEn")
+        if quotes_check == nil {
+            UserDefaults.standard.set(false, forKey: "CommonQuotesEn")
+        }
+        
+        let quotes_interval_check = UserDefaults.standard.string(forKey: "CommonQuotesEn_Interval")
+        if quotes_interval_check == nil {
+            UserDefaults.standard.set("5", forKey: "ChuckNorrisFactsEn_Interval")
+        }
+
+        let quotes_de_check = UserDefaults.standard.string(forKey: "CommonQuotesDe")
+        if quotes_de_check == nil {
+            UserDefaults.standard.set(false, forKey: "CommonQuotesDe")
+        }
+        
+        let quotes_de_interval_check = UserDefaults.standard.string(forKey: "CommonQuotesDe_Interval")
+        if quotes_de_interval_check == nil {
+            UserDefaults.standard.set("5", forKey: "CommonQuotesDe_Interval")
         }
         
         let avatar_check = UserDefaults.standard.string(forKey: "Avatar")
@@ -625,15 +659,15 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate, BotDeleg
         UserDefaults.standard.set(defaulticon, forKey: "Avatar")
     }
     
-    @objc private func ChuckNorrisFacts(notification: NSNotification){
+    @objc private func ChuckNorrisFactsEn(notification: NSNotification){
         if let connection = self.connection {
         if connection.isConnected() {
-        let run_check = UserDefaults.standard.bool(forKey: "ChuckNorrisFacts_Running")
+        let run_check = UserDefaults.standard.bool(forKey: "ChuckNorrisFactsEn_Running")
         if run_check == false {
-        UserDefaults.standard.set(true, forKey: "ChuckNorrisFacts_Running")
-        let factme = UserDefaults.standard.bool(forKey: "ChuckNorrisFacts")
+        UserDefaults.standard.set(true, forKey: "ChuckNorrisFactsEn_Running")
+        let factme = UserDefaults.standard.bool(forKey: "ChuckNorrisFactsEn")
         if factme == true {
-            let minutes = UserDefaults.standard.string(forKey: "ChuckNorrisFacts_Interval")
+            let minutes = UserDefaults.standard.string(forKey: "ChuckNorrisFactsEn_Interval")
             let seconds = 60
             let interval = Int(minutes!)! * seconds
                 DispatchQueue.global(qos: .background).async {
@@ -641,6 +675,50 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate, BotDeleg
                     response.addParameter(field: "wired.chat.id", value: UInt32(1))
                     do {
                     let output = try shellOut(to: "curl -is --raw https://raw.githubusercontent.com/ProfDrLuigi/Wired-Bot-Quotes/master/norris-facts-en.txt | sort -R | tail -n 1")
+                    sleep(UInt32(interval))
+                        
+                        let chuck_avatar = UserDefaults.standard.string(forKey: "ChuckNorrisFactsEn_Avatar_Width")
+                        if chuck_avatar == "Hide" {
+                            response.addParameter(field: "wired.chat.say", value: "<b><i>" + output + "</b></i>")
+                        } else if chuck_avatar == "32" {
+                            response.addParameter(field: "wired.chat.say", value: "<img src=\"https://github.com/ProfDrLuigi/Wired-Bot-Quotes/raw/master/pics/chuck_norris_32.png\"><br>" + "<b><i>" + output + "</b></i>")
+                        } else if chuck_avatar == "64" {
+                            response.addParameter(field: "wired.chat.say", value: "<img src=\"https://github.com/ProfDrLuigi/Wired-Bot-Quotes/raw/master/pics/chuck_norris_64.png\"><br>" + "<b><i>" + output + "</b></i>")
+                        } else if chuck_avatar == "128" {
+                            response.addParameter(field: "wired.chat.say", value: "<img src=\"https://github.com/ProfDrLuigi/Wired-Bot-Quotes/raw/master/pics/chuck_norris_128.png\"><br>" + "<b><i>" + output + "</b></i>")
+                        } else if chuck_avatar == "256" {
+                            response.addParameter(field: "wired.chat.say", value: "<img src=\"https://github.com/ProfDrLuigi/Wired-Bot-Quotes/raw/master/pics/chuck_norris_256.png\"><br>" + "<b><i>" + output + "</b></i>")
+                        }
+
+                    _ = connection.send(message: response)
+                    } catch {
+                        _ = error as! ShellOutError
+                    }
+                    UserDefaults.standard.set(false, forKey: "ChuckNorrisFactsEn_Running")
+                }
+            
+            }
+            }
+        }
+        }
+    }
+    
+    @objc private func ChuckNorrisFactsDe(notification: NSNotification){
+        if let connection = self.connection {
+        if connection.isConnected() {
+        let run_check = UserDefaults.standard.bool(forKey: "ChuckNorrisFactsDe_Running")
+        if run_check == false {
+        UserDefaults.standard.set(true, forKey: "ChuckNorrisFactsDe_Running")
+        let factme = UserDefaults.standard.bool(forKey: "ChuckNorrisFactsDe")
+        if factme == true {
+            let minutes = UserDefaults.standard.string(forKey: "ChuckNorrisFactsDe_Interval")
+            let seconds = 60
+            let interval = Int(minutes!)! * seconds
+                DispatchQueue.global(qos: .background).async {
+                    let response = P7Message(withName: "wired.chat.send_say", spec: connection.spec)
+                    response.addParameter(field: "wired.chat.id", value: UInt32(1))
+                    do {
+                    let output = try shellOut(to: "curl -is --raw https://raw.githubusercontent.com/ProfDrLuigi/Wired-Bot-Quotes/master/norris-facts-de.txt | sort -R | tail -n 1")
                     sleep(UInt32(interval))
                         
                         let chuck_avatar = UserDefaults.standard.string(forKey: "ChuckNorrisFacts_Avatar_Width")
@@ -660,7 +738,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate, BotDeleg
                     } catch {
                         _ = error as! ShellOutError
                     }
-                    UserDefaults.standard.set(false, forKey: "ChuckNorrisFacts_Running")
+                    UserDefaults.standard.set(false, forKey: "ChuckNorrisFactsDe_Running")
                 }
             
             }
@@ -710,6 +788,48 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate, BotDeleg
            }
            }
        }
+    
+    @objc private func CommonQuotesDe(notification: NSNotification){
+        if let connection = self.connection {
+        if connection.isConnected() {
+        let run_check = UserDefaults.standard.bool(forKey: "CommonQuotesDe_Running")
+        if run_check == false {
+        UserDefaults.standard.set(true, forKey: "CommonQuotesDe_Running")
+        let factme = UserDefaults.standard.bool(forKey: "CommonQuotesDe")
+        if factme == true {
+            let minutes = UserDefaults.standard.string(forKey: "CommonQuotesDe_Interval")
+            let seconds = 60
+            let interval = Int(minutes!)! * seconds
+                DispatchQueue.global(qos: .background).async {
+                    let response = P7Message(withName: "wired.chat.send_say", spec: connection.spec)
+                 response.addParameter(field: "wired.chat.id", value: UInt32(1))
+                    do {
+                    let output = try shellOut(to: "curl -is --raw https://raw.githubusercontent.com/ProfDrLuigi/Wired-Bot-Quotes/master/quotes-de.txt | sort -R | tail -n 1")
+                    sleep(UInt32(interval))
+                     let common_quotes_avatar = UserDefaults.standard.string(forKey: "CommonQuotes_Avatar_Width")
+                    if common_quotes_avatar == "Hide" {
+                        response.addParameter(field: "wired.chat.say", value: "<b><i>" + output + "</b></i>")
+                    } else if common_quotes_avatar == "32" {
+                        response.addParameter(field: "wired.chat.say", value: "<img src=\"https://github.com/ProfDrLuigi/Wired-Bot-Quotes/raw/master/pics/einstein_32.png\"><br>" + "<b><i>" + output + "</b></i>")
+                    } else if common_quotes_avatar == "64" {
+                        response.addParameter(field: "wired.chat.say", value: "<img src=\"https://github.com/ProfDrLuigi/Wired-Bot-Quotes/raw/master/pics/einstein_64.png\"><br>" + "<b><i>" + output + "</b></i>")
+                    } else if common_quotes_avatar == "128" {
+                        response.addParameter(field: "wired.chat.say", value: "<img src=\"https://github.com/ProfDrLuigi/Wired-Bot-Quotes/raw/master/pics/einstein_128.png\"><br>" + "<b><i>" + output + "</b></i>")
+                    } else if common_quotes_avatar == "256" {
+                        response.addParameter(field: "wired.chat.say", value: "<img src=\"https://github.com/ProfDrLuigi/Wired-Bot-Quotes/raw/master/pics/einstein_256.png\"><br>" + "<b><i>" + output + "</b></i>")
+                    }
+                    _ = connection.send(message: response)
+                    } catch {
+                        _ = error as! ShellOutError
+                    }
+                    UserDefaults.standard.set(false, forKey: "CommonQuotesDe_Running")
+                }
+            
+            }
+            }
+        }
+        }
+    }
     
     @objc private func ListeningTo() {
         if let connection = self.connection {
