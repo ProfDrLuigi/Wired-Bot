@@ -179,7 +179,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate, BotDeleg
             if message.name == "wired.chat.user_join" {
                 AppDelegate.users.append(UserInfo(message: message))
                 let userID = message.uint32(forField: "wired.user.id")
-                let userNick = AppDelegate.user(withID: userID!)?.nick
+                let userNick = AppDelegate.user(withID: userID ?? 0)?.nick
                 let message = UserDefaults.standard.bool(forKey: "GreetingUser")
                 if message == true {
                     let response = P7Message(withName: "wired.chat.send_say", spec: connection.spec)
@@ -227,9 +227,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate, BotDeleg
                     let objectToRemove = last_used
                     SentencesArray.remove(object: objectToRemove)
                     let picked_sentence = SentencesArray.randomElement()
-                    
-                    let text = (picked_sentence!! as NSString).replacingOccurrences(of: "%NICK%", with: userNick!)
-
+                    print(userNick ?? "")
+                    let text = (picked_sentence!! as NSString).replacingOccurrences(of: "%NICK%", with: userNick ?? "")
                     UserDefaults.standard.set(picked_sentence!! as NSString, forKey: "GreetingUser_Text_Last_Used")
                     
                     response.addParameter(field: "wired.chat.say", value: text)
@@ -239,17 +238,18 @@ class AppDelegate: NSObject, NSApplicationDelegate, ConnectionDelegate, BotDeleg
 
             }
             if message.name == "wired.chat.user_leave" {
-               AppDelegate.users.append(UserInfo(message: message))
+                AppDelegate.users.append(UserInfo(message: message))
                let userID = message.uint32(forField: "wired.user.id")
-               let userNick = AppDelegate.user(withID: userID!)?.nick
-               let message = UserDefaults.standard.bool(forKey: "GoodbyeUser")
+               let userNick = AppDelegate.user(withID: userID ?? 0)?.nick
+                print(userNick ?? "")
+                let message = UserDefaults.standard.bool(forKey: "GoodbyeUser")
                if message == true {
                   let response = P7Message(withName: "wired.chat.send_say", spec: connection.spec)
                   response.addParameter(field: "wired.chat.id", value: UInt32(1))
-                   let text = UserDefaults.standard.string(forKey: "GoodbyeUser_Text")!.replace(target: "%NICK%", withString: userNick!)
+                let text = UserDefaults.standard.string(forKey: ("GoodbyeUser_Text" as NSString) as String)?.replacingOccurrences(of: "%NICK%", with: userNick ?? "")
                    response.addParameter(field: "wired.chat.say", value: text)
-                  sleep(2)
-                  _ = connection.send(message: response)
+                  sleep(0)
+                  //_ = connection.send(message: response)
                }
             }
             let watchedfolder = UserDefaults.standard.string(forKey: "WatchedFolder") ?? ""

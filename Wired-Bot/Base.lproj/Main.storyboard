@@ -668,7 +668,7 @@
                                                 <binding destination="FfW-GN-Bd7" name="value" keyPath="values.GoodbyeChat_Text" id="UPV-tp-dTR"/>
                                             </connections>
                                         </textField>
-                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0JA-nM-hsl">
+                                        <button hidden="YES" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0JA-nM-hsl">
                                             <rect key="frame" x="22" y="29" width="306" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="check" title="Goodbye certain User on leave" bezelStyle="regularSquare" imagePosition="left" inset="2" id="Dyx-L9-ZNY">
@@ -690,10 +690,10 @@
                                                 <binding destination="FfW-GN-Bd7" name="value" keyPath="values.GreetingUser" id="3qp-mv-S93"/>
                                             </connections>
                                         </button>
-                                        <textField focusRingType="none" verticalHuggingPriority="750" fixedFrame="YES" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F8z-je-lt3">
+                                        <textField hidden="YES" focusRingType="none" verticalHuggingPriority="750" fixedFrame="YES" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F8z-je-lt3">
                                             <rect key="frame" x="20" y="9" width="370" height="21"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" focusRingType="none" drawsBackground="YES" id="Geb-Ku-Nzz">
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" enabled="NO" sendsActionOnEndEditing="YES" borderStyle="bezel" focusRingType="none" drawsBackground="YES" id="Geb-Ku-Nzz">
                                                 <font key="font" usesAppearanceFont="YES"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
